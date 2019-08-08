@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage[margin=0.5in]{geometry}
+
+\title{Taller 2: Teoría de números}
+\author{Miguel A. Gomez B.}
+
+\begin{document}
+	
+	\maketitle
+	
+\paragraph{Ejercicio 1} Verifique, usando el principio del buen orden, que el conjunto $S = \{ 2x + 3y: x, n \in \mathbb{Z} \}$ tiene un elemento positivo mínimo y calcular este elemento.
+
+\begin{proof}
+Nos interesa demostrar la existencia de un número positivo por lo tanto construímos un nuevo conjunto que contiene los enteros positivos del conjunto $S$ (un subconjunto) y que llamaremos $S^+$, así:
+
+\begin{equation}\label{eq:1}
+S^+ = \{2x + 3y : x,y \in \mathbb{Z} \land 2x + 3y \ge 0\}
+\end{equation}
+
+Ahora debemos demostrar que $S$ es un conjunto no vacío para que se cumpla el principio del buen orden. Y en efecto es así, siempre y cuando $x\geq0$ e $y\geq0$, su suma también lo será, por la definición de suma de los números enteros positivos.
+
+\paragraph{}
+Hay dos casos más
+
+\subparagraph{Caso I: $x<0$.} Si $2x < 0$, entonces para que se mantenga la construcción de $S^+$ se debe cumplir que $2x < 3y \geq |2x|$. Por ejemplo:
+\begin{center}
+	Si $x=-3$ e $y=2$, entonces
+	\[
+	2(-3) + 3(2) = -6 + 6 = 0
+	\]
+	Y siempre y cuando $3y = |2x| + n$ con $n \in \mathbb{N}$.
+\end{center}
+
+\subparagraph{Caso II: $y<0$.} Si $3y < 0$, entonces para que se mantenga la construcción de $S^+$ se debe cumplir que $3y < 2x \geq |3y|$. Por ejemplo (análogo al caso anterior):
+
+\begin{center}
+	Si $x=3$ e $y=-2$, entonces
+	\[
+	2(3) + 3(-2) = 6 - 6 = 0
+	\]
+	Y siempre y cuando $2x = |3y| + n$ con $n \in \mathbb{N}$.
+\end{center}
+
+Lo que demuestra que $S^+$ es no vacío. Luego por el principio del buen orden $S^+$ posee un elemento mínimo, lo cual implica que la parte positiva de $S$ tiene un mínimo y como vimos en los ejemplos anteriores, es el número $0$.
+\end{proof}
+
+\paragraph{Ejercicio 2} Prueba usando el principio de inducción, las fórmulas para $S_n$, $t_n$ y $T_n$.
+
+\begin{equation} \label{eq:1}
+	S_n = 1 + 3 +5 + \dots + 2n - 1 = n^2 
+\end{equation}
+
+\begin{equation}
+	t_n = 1 + 2 + \dots + n - 1  + n = \frac{n(n+1)}{2}
+\end{equation}
+
+\begin{equation}
+	T_n = t_1 + t_2 + \dots + t_n = \frac{n(n+1)(n+2)}{6}
+\end{equation}
+
+\begin{proof}(Por inducción para (\ref{eq:1})). La igualdad se cumple para $n=1$ pues $1 = 1^2 = 1$.
+	
+\subparagraph{Hipótesis de inducción.} Suponemos que la proposición es verdadera para $n=k$, es decir:
+
+	\begin{equation}\label{eq:5}
+		1 + 3 + 5 + \dots + 2k-1 = k^2
+	\end{equation}
+
+Ahora suponemos el siguiente $n = k + 1$ y por ende tenemos:
+
+\[
+	1 + 3 + 5 + \dots + 2k - 1 + 2(k+1) - 1 = (k + 1)^2\\
+\]	
+
+sin embargo por la hipótesis de inducción (\ref{eq:5}) tenemos ahora:
+
+\[
+	k^2 + 2(k+1) - 1 = (k + 1)^2\\
+\]
+
+Manipulando algebráicamente la expresión $k^2 + 2(k+1) - 1$ deberíamos obtener $(k + 1)^2$:
+
+\begin{align*}
+	k^2 + 2(k+1) - 1 &= k^2 + 2k + 2 - 1 \\
+	&= k^2 + 2k + 1\\
+	&= (k + 1)^2
+\end{align*}
+
+Por lo tanto hemos demostrado que si la proposición es correcta para $n = k$, es correcta para $n=k+1$. Entonces, por el principio de inducción, la fórmula es válida para todo $n \in \mathbb{N}$.
+
+\end{proof}
+
+	
+\end{document}
