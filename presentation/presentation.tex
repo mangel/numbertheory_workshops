@@ -1,0 +1,57 @@
+\documentclass{beamer}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usetheme{Warsaw}
+
+
+\title{Presentación}
+\author{Miguel A. Gomez}
+\institute{Fundación Universitaria Konrad Lorenz}
+\date{20-08-2019}
+
+\begin{document}
+	\frame{\titlepage}
+	\begin{frame}
+		\frametitle{Sample frame title}
+		This is a text in the first frame. This is a text in the first frame. This is a text in the first frame.
+	\end{frame}
+	\begin{frame}
+		\alert{highlighted} because it's important.
+		Please, don't abuse it.
+		
+		\begin{block}{Remark}
+			Sample text
+		\end{block}
+		
+		\begin{alertblock}{Important theorem}
+			Sample text in red box
+		\end{alertblock}
+		
+		\begin{examples}
+			Sample text in green box. The title of the block is ``Examples".
+		\end{examples}
+	\end{frame}
+	\begin{frame}
+	\frametitle{Two-column slide}	
+		\begin{columns}
+			
+			\column{0.5\textwidth}
+			This is a text in first column.
+			$$E=mc^2$$
+			\begin{itemize}
+				\item First item
+				\item Second item
+			\end{itemize}
+			
+			\column{0.5\textwidth}
+			This text will be in the second column
+			and on a second tought this is a nice looking
+			layout in some cases.
+		\end{columns}
+	\end{frame}
+\end{document}
