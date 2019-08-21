@@ -1,0 +1,41 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+
+\title{Demostración teorema de Algoritmo de la división de Euclides}
+\author{Miguel A. Gomez B.}
+
+\begin{document}
+	\maketitle
+	
+	\paragraph{Demuestre y de una demostración del algoritmo de Euclides}
+	\textit{Adaptado del libro de Walter Mora, Introducción a la teoría de números.}
+	\paragraph{Algoritmo de la división de Euclides}
+	Sean $a$, $b$, $q$, $r$ $\in \mathbb{Z}$ tales que $a = bq + r$ con $b>0$ y $0\leq r<b$. Entonces $mcd(a,b) = mcd(b,r)$.
+	\paragraph{}
+	Para llevar a cabo esta prueba debemos demostrar primero dos propiedades propiedades y un teorema mas.
+	
+	\paragraph{Propiedad divisibilidad por el MCD, de una combinación lineal.}[A] \label{1} Sean $d$, $a$, $b$ $\in \mathbb{Z}$. Si $d|a$ y $d|b$, $d|(ax + by)$ para cualquier $x$,$y \in \mathbb{Z}$.
+	
+	\paragraph{Demostración} $d|a$ luego  $a = dn$ donde $n > 0$ y $n \in \mathbb{Z}$ y tendríamos que $d|dn$, lo que implica que $d|an$, de manera análoga se verifica lo mismo para $b$, por ende $b = dm$ donde $m > 0$ y $n \in \mathbb{Z}$, al sustituir los resultados anteriores tenemos ahora $ax + by = dnx + dmy$ y que por la propiedad distributiva nos lleva al resultado $d(nx + my)$ lo que implica que $d|ax + by = d(nx + my)$ $\blacksquare$.
+	
+	\paragraph{Propiedad de implicación de divisibilidad de una combinación lineal por el MCD.}[B] Sean $d$, $p$, $q$ $\in \mathbb{Z}$. Si $d|(p+q)$ y $d|p$, entonces $d|q$
+	
+	\paragraph{Demostración.} Como $d|(p + q)$, entonces $p + q = dk$ donde $k \in \mathbb{Z}-\{0\}$, luego rescribos $q$, $q = dk - p$, sabemos que $d|p$ luego $p = dg$ donde $g \in \mathbb{Z}-\{0\}$. Por ende tenemos que $q = dk - dg$ y por la propiedad distributiva tenemos que $q = d(k - g)$ y ello implica que $d|q$ $\blacksquare$.
+	
+	\paragraph{Teorema MCD del residuo.} Sean $d$, $a$, $b$ $\in \mathbb{Z}$.	Si $d = mcd(a,b)$, entonces $mcd(a, b-na)=d$ con $n \in Z$.
+	
+	\paragraph{Demostración.}Sea $d_1 = mcd(a,b-na)$. Por la definición del maximo comun divisor tenemos que $d|a$ yo por ende $d|na$ y tenemos que también $d|b$ por la misma definición. Como $d|(b-na)$ y por la definición de máximo común divisor $d_1|(b-na)$, podemos decir que $d|d_1k$, luego por [A], $d \leq d_1$. Si fuese mayor no cumpliría la definición de divisibilidad.
+	
+	Por la definición de máximo comun divisor tenemos que $d_1|a$ y por ende también divide a sus múltiplos es decir $d_1|na$, por la misma definición inicial $d_1|(b-na)$.
+	
+	Por [B], $d_1 \leq d$. Sabemos que $d \leq d_1$ por ende $d = d_1$ $\blacksquare$.
+	
+	\paragraph{} \textit{Ahora la demostración del algoritmo de la división de Euclides}
+	\paragraph{Demostración.} Por el teorema anterior sabemos que $mcd(b,a) = mcd(b, a-bq)$ y por el algoritmo de la división $r = a - bq$, por ende $mcd(b,a) = mcd(b, a-bq) = mcd(b, r)$ $\blacksquare$.
+\end{document}
