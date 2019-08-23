@@ -1,0 +1,225 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+
+\title{Sobre la construcción de los números}
+\author{Miguel Angel Gomez Barrera}
+\date{2019/08/22}
+
+\begin{document}
+\maketitle
+
+\begin{center}\textbf{Abstract}\end{center}
+\paragraph{} In English
+
+\begin{center}\textbf{Introducción}\end{center}
+
+\paragraph{} ¿Qué es un número? Las primeras nociones nos llevan a que es una representación de una cantidad, a fin de cuentas los utilizamos para medir y para contar, desde el número de miembros de nuestra familia, hasta la distancia del sol a la tierra, son una construcción valiosa para la humanidad, tal es la fascinación de algunas personas por estos objetos que tenemos representaciones del concepto de nada y del todo, ambos tienen un símbolos 0 y $\infty$, el primero atribuído a Matemáticos indios y el segundo debido a los griegos por primera vez. Sin embargo, tenemos numeros naturales, enteros, racionales y reales ¿Por qué? podríamos decir que es en base a dos necesidades, una operativa, y que más adelante veremos que algunas operaciones requieren de otro tipo de números, una consecuencia del proyecto de Hilbert (en el siglo XIX)\footnote{Hay una razón de fondo que intentaré explicar en base al capítulo 53 de \cite{morris_kline_pensamiento_1972}, esta labor se debe a la aparición de postulados que eran contradictorios (el postulado de las paralelas por ejemplo), durante la época se tenía a las matemáticas como una verdad inquebrantable, al evidenciar contradicciones, muchos matemáticos se dividieron e intentaron construir unas bases axiomáticas que impidieran la aparición de contradicciones. Sin embargo el sueño de Hilbert nunca llegó a completarse debido a los teoremas de incompletitud de Gödel, que demuestran que no es posible construir matemáticas sin que aparezcan contradicciones.
+}.
+
+\section{Los números naturales}
+Iniciamos con la noción de los números naturales, aparecen como una necesidad básica (y "natural"): contar. Estos números tienen propiedades muy interesantes, como los números primos. Una de sus formas de axiomatización\footnote{Axiomatizar es formalizar una teoría a partir de verdades básicas, de esta manera se puede "garantizar" que no van a aparecer errores o contradicciones en toda la teoría.} mayormente aceptada es la de Peano.
+
+\subsection{Los Axiomas de Peano}
+
+Los axiomas de Peano\footnote{Giusseppe Peano (1858-1932). Fue un matemático italiano muy talentoso y de orígenes muy humildes, nacido en una familia de campesinos, su talento fue descubierto gracias al hermano de su madre, un clérigo y abogado. Que patrocinó sus primeros estudios.} son los siguientes\cite{tnumprincip_2004}
+
+\paragraph{Axioma 1}. Hay un elemento especial 0 $\in \mathbb{N}$. \footnote{¿Desde dónde empezamos a contar? Esta pregunta dividió a los matemáticos, naturalmente empezamos desde el 1, pero en algunos casos el cero es un elemento muy conveniente a tener, lo mas "sano" entre matemáticos al axiomatizar, es declarar con antelación si se incluye o no el 0 en una demostración}.
+\paragraph{Axioma 2}. Para todo $n \in \mathbb{N}$ existe un único elemento $n^+ \in \mathbb{N}$ llamado el sucesor de $n$.
+\paragraph{Axioma 3}. Para todo $n \in \mathbb{N}$, $n^+ \neq 0$.
+\paragraph{Axioma 4}. Si $n$, $m \in \mathbb{N}$ y $n^+ = m^+$ entonces $m = n$.
+\paragraph{Axioma 5}. Si $S$ es un subconjunto de $\mathbb{N}$ tal que:
+\begin{enumerate}
+    \item $0 \in \mathbb{N}$
+    \item $n^+ \in S$ siempre que $n \in S$, entonces $S = \mathbb{N}$
+\end{enumerate}
+
+\paragraph{} Con estos axiomas es posible construir todo el conjunto de naturales, el primero por ejemplo, ya inclye al número $0$ en los naturales y según la notación hay un número $0^+$. Vamos a asumir que $n^+ = n + 1$,  de esta manera podemos decir que $0^+ = 0 + 1 = 1$, de esta misma manera $1^+ = 1 + 1 = 2$ (que es la nocion del axioma 2). Todos los demás números se pueden expresar de esta manera, pero podrá haber algún número dentro de los naturales que cumpla ¿$n^+ = 0$? Supongamos que existe, ello implicaría que $0 = n + 1$ lo cual contradice el axioma 3, y justamente por esto existe, de manera implícita, indica que no existe ningún número que sea el sucesor del 0 (otra manera de verlo es que el 0 es un número especial que no puede recrearse mediante la operación de sume, por lo que de cierta manera se asume su existencia).
+
+\paragraph{} Hasta ahora con todo lo anterior podemos construir todos los números naturales, sin embargo el axioma 4 y 5, tienen mayor relación con las demostraciones de propiedades de los naturales, con las operaciones, pero el axioma 4 en particular permite demostrar propiedades para todos los números si se cumplen sus dos premisas, algo que es muy útil y práctico en la labor de demostrar, por ejemplo las propiedades de las operaciones.
+
+\paragraph{} Gracias a la curiosidad y cierta genialidad, es que a lo largo de la historia se han encontrado propiedades que son interesantes "matemáticamente" siendo la de mayor interés la de los números primos. Pero antes de entrar aquí debemos revisar las operaciones básicas del conjunto, la suma y la multiplicación.
+
+\subsection{La suma}
+
+Conocida también como adición. Su noción está relacionada con contar colecciones de cosas y se representa con el símbolo "+" que se lee mas.
+
+La suma tiene varias propiedades
+
+\begin{itemize}
+    \item Es asociativa, es decir (a + b) + c = a + (b + c), no importa el la forma en la que se asocian los valores de una suma, el resultado va a ser el mismo.
+    \item Es Conmutativa, es decir m + n = n +m, No importa el orden en el que se realiza la suma.
+    \item Tiene un elemento neutro.  0 + a = a + 0 = 0. El cero es el elemento neutro.
+    \item Es cerrada, es decir a + b = c, donde c siempre va a ser un número natural.
+\end{itemize}
+
+En matemáticas las propocisiones deben ser demostradas, vamos a hacer algunas, pero primero necesitamos la definición de suma.
+
+\paragraph{Definición 1}\cite{tnumprincip_2004}\label{def:sum} Las siguientes ecuaciones definen la adición en $\mathbb{N}$. Para todo $n,m \in \mathbb{N}$:
+
+$$m + 0 = m,$$
+$$m + n^+ = (m + n)^+$$
+
+Utilizando esta definición y los axiomas de Peano demostraremos algunas de sus propiedades.
+
+\paragraph{Teorema.} La suma es asociativa, es decir para todo $a,b,c \in \mathbb{N}$ $(a + b) + c = a + (b + c)$.
+
+\paragraph{Demostración} \textit{Por inducción} (utilizando el axioma 5)
+
+Definimos un conjunto $S = \{c \in \mathbb{N} | (a + b) + c = a + (b + c) para todo a,b \in \mathbb{N}\}$
+
+\paragraph{} $0 \in \mathbb{N}$ porque por la definición de suma
+$$ (a + b) + 0 = a + (b + 0) = a + b$$
+
+Ahora construimos la hipótesis de inducción y que asumimos verdadera
+\paragraph{Hipótesis de inducción} Suponemos que $c \in \mathbb{N}$ luego es verdadero que 
+$$(a + b) + c = a + (b + c)$$
+
+Luego para el sucesor deberíamos llegar a que se cumple que $(a + b) + c^+ = a + (b + c^+)$, utilizamos el lado izquierdo de la igualdad:
+
+    $$(a + b) + c^+ = ((a + b) + c)^+$$
+
+esto es por la definición de suma, además esta forma es conveniente y equivalente a la hipótesis de inducción por ello ahora decimos que
+
+$$((a + b) + c)^+ = (a + (b + c))^+$$
+
+Aún no hemos llegado a la forma $a + (b + c^+)$ pero encontramos que por la definición de suma:
+
+$$(a + (b + c))^+ = a + (b + c)^+$$
+
+y por la misma definición de suma
+
+$$a + (b + c)^+ = a + (b + c^+)$$
+
+Asumiendo la hipótesis de inducción como verdadera y dado que al evaluar la propiedad en el sucesor, hemos demostrado que la propiedad se cumple para cualesquiera números naturales. $\blacksquare$\footnote{El símbolo $\blacksquare$ significa que la prueba ha concluído y hemos evaluado el valor de verdad de la proposición inicial.}
+
+Revisemos un poco lo que hemos hecho en las demostraciones anteriores, definimos unos primeros principios y que asumimos como ciertos, por ejemplo $a + 0 = a$, estos no requieren una demostración, en cierto modo son verdades que se asumen sin demostración. Luego aprovechamos la propiedad constructiva que discutimos acerca de los números naturales (que se construyen uno en base a otro desde el 0), únicamente que en este ejemplo no utilizamos ningún ejemplo numérico sino literales, que representan cualquier elemento de los números naturales, aquí fue donde aplicamos el axioma 5 y encontramos que las propiedades se cumplen, es una forma rigurosa pero permite dar un cierto grado de validez a lo que se está construyendo. Realicemos algunas demostraciones más.
+
+\paragraph{} Para demostrar la propiedad de conmutatividad primero debemos demostrar lo siguiente
+
+\paragraph{Lema} Para todo $a \in \mathbb{N}, 0 + a = a$
+
+\paragraph{Demostración} Definimos un conjunto $S = \{a \in \mathbb{N}| 0 + a = a \}$
+
+\paragraph{} $0 \in \mathbb{N}$, porque $0 + 0 = 0$ por la definición de suma.
+
+\paragraph{Hipótesis de inducción} suponemos que $k \in \S$ y se cumple que $0 + k = k$. por lo que al aplicar la propiedad al sucesor esperaríamos obtener $k^+$.
+
+\paragraph{}Ahora al evaluar en el sucesor la proposición, encontramos por la definición de suma que:
+
+$$ 0 + k^+ = (0 + k)^+$$
+
+y al aplicar la hipótesis de inducción tenemos que en efecto era lo que esperábamos
+
+$$(0 + k)^+ = k^+$$
+
+Por lo tanto la proposición se cumple para todos los naturales. $\blacksquare$
+
+\paragraph{Lema} Para todo $a,b \in \mathbb{N}, a^+ + b = (a + b)^+$.
+
+\paragraph{Demostración}. Construímos el conjunto $S =  \{ b \in \mathbb{N}| a^+ + b = (a + b)^+ \}$
+
+\paragraph{} $0 \in \mathbb{N}$, porque $a^+ + 0 = a^+$ por la definición de suma.
+
+\paragraph{Hipótesis de inducción} Suponemos que $k \in S$ y se cumple que $a^+ + k = (a + k)^+$. Por lo que al aplicar la propiedad al sucesor esperaríamos obtener $(a + b^+)^+$.
+
+\paragraph{}Ahora al evaluar en el sucesor la proposición encontramos por la definición de suma que:
+
+$$ a^+ + k^+ = (a^+ + k)^+$$
+
+y al aplicar la hipótesis de inducción tenemos,
+
+$$(a^+ + k)^+ = (a + k)^{++}$$
+
+Y por la definición de suma finalmente obtenemos
+
+$$(a + k^+)^+$$
+
+Por lo tanto la proposición se cumple para todos los naturales. $\blacksquare$
+
+Con lo visto hasta aquí puede creerse que hay una fórmula para realizar demostraciones, nada más lejos de la realidad, con los resultados descubiertos por Gödel, existen proposiciones que sabemos no es posible de demostrar y aún mas intrigante no podemos saber cuales son. Es decir pueden matemáticos en estos momentos trabajando en problemas a los que nunca van a encontrar una solución. Muchos problemas como la distribución de los primos se creen que están en este conjunto de problemas que no podrán demostrarse. Por ahora veamos un ejemplo de una demostración un poco más compleja
+
+\paragraph{La suma es conmutativa} Sean $a,b \in \mathbb{N}, m + n = n + m$.
+
+\paragraph{Demostración} Definimos un conjunto $S = \{b \in \mathbb{N}|a + b = b + a\text{, para todo } a \in \mathbb{N}\}$.
+
+\paragraph{} $0 \in S$, por el lema que demostramos anteriormente donde $0 + a = a$ y por la definición de suma sabemos que $a + 0 = a$, luego $0 + a = a + 0$.
+
+\paragraph{Hipótesis de inducción} Suponemos que $k \in S$ y se cumple que $a + k = k + a$. Por lo que al aplicar la propiedad al sucesor esperaríamos obtener $k^+ + a$.
+
+\paragraph{} Ahora al evaluar en el sucesor la proposición encontramos por la definición de suma que:
+$$a + k^+ = (a + k)^+$$
+
+Por la hipótesis de inducción obtenemos
+
+$$(a + k)^+ = (k + a)^+$$
+
+y por el lema demostrado anteriormente donde $a^+ + b = (a + b)^+$ obtenemos
+
+$$(k + a)^+ = k + a^+$$
+
+y al aplicar el axioma 4 tenemos que
+
+$$k + a = a + k$$
+
+Que era lo que queríamos demostrar, por lo tanto la propiedad se cumple para los naturales. $\blacksquare$
+
+Como vimos construímos esta verdad con lo que conocemos hasta ahora. Veamos la multiplicación.
+
+\subsection{La multiplicación}
+Conocida también como producto, su noción también es muy familiar, consiste en repetir un numero de sumas, se representa como una equis "x" o simplemente se "agrupan" los números $ab$.
+
+La multiplicación tiene varias propiedades
+
+\begin{itemize}
+    \item Es asociativa, es decir (ab)c = a (bc), no importa el la forma en la que se asocian los valores de una multiplicación, el resultado va a ser el mismo.
+    \item Es conmutativa, es decir mn = nm, no importa el orden en el que se realiza la multiplicación.
+    \item Tiene un elemento neutro.  1a = a1 = a. El uno es el elemento neutro.
+    \item Es cerrada, es decir ab = c, donde c siempre va a ser un número natural.
+    \item Elemento cero. 0a = 0. multiplicar cualquier número por 0 siempre será 0.
+\end{itemize}
+
+\paragraph{}\cite{tnumprincip_2004} Las siguientes ecuaciones definen la multiplicación en $\mathbb{N}$. Para todo $m,n \in \mathbb{N}$,
+
+$$m0=0,$$
+$$mn^+ = mn + m$$
+
+Como todo número natural distinto de cero es el sucesor de otro número sucesor natural, la operación está bien definida.
+
+No realizaremos más demostraciones,
+
+\subsection{Los números primos}
+
+\section{Los números enteros}
+
+Ahora entremos a los números enteros, estos nacen de la noción de quitar o de deber, matemáticamente su construcción es necesaria con la operación de resta para ciertos casos.
+
+\paragraph{} Si a>b y ambos son números naturales y decimos que 
+
+\section{Los números racionales}
+
+\subsection{Dividir por 0}
+
+\section{Los números reales}
+
+\subsection{Los números trascendentales}
+
+\subsubsection{El número Pi}
+
+\section{¿Y estos son todos los números que hay?}
+
+\section{Conclusiones}
+
+\newpage
+
+\nocite{*}
+
+\bibliography{bibliography}
+
+\end{document}
