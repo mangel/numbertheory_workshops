@@ -10,7 +10,6 @@
 
 \title{Sobre la construcción de los números}
 \author{Miguel Angel Gomez Barrera}
-\date{2019/08/22}
 
 \begin{document}
 \maketitle
@@ -247,21 +246,75 @@ $$a(b + k)^+ = a(b + k^+)$$
 
 Y que era lo que queríamos demostrar.$\blacksquare$
 
+Hasta este momento lo que hemos visto hasta aquí podemos hacer varias construcciones sin salirnos del conjunto\footnote{Los conjuntos aún no han sido definidos completamente, aún no hay una definición universal entre los matemáticos de conjunto debido a las paradojas que se derivan. Fue en el siglo XIX que gracias a Cantor y algunos de sus seguidores se estableció la teoría de conjuntos como una de las axiomatizaciones ampliamente aceptadas entre los matemáticos. Aunque hoy en día el programa de Langland es el que se está encargando de construir una teoría unificada de las matemáticas, su nombre es en honor al matemático que a fecha de hoy se encuentra trabajando en esta teoría Robert Langlands.} de los naturales pero hay operaciones que arrojan resultados fuera de su conjunto, como la resta y la división\footnote{Aún no definimos estas dos operaciones, vamos a estudiar primero su necesidad y su relación con la construcción de otros conjuntos}, por lo que podríamos decir que en cierta manera la construcción de estos conjuntos nace como una necesidad de formalizar los resultados de algunas operaciones. Veamos algunos ejemplos.
+
+\paragraph{Ejemplo} Sean a y b dos números naturales y $a > b$ tenemos que al sumarlos sin importar el orden, siempre vamos a obtener un número natural, pero al restarlos tenemos dos casos.
+
+\subparagraph{Caso I} (a - b). Como a es mayor que b, al "quitar" b unidades de a, obtendremos un número mayor a 0. Y por ende se encuentra en el conjunto de los naturales.
+
+\subparagraph{Caso II} (b - a). Si lo definimos en el conjunto de los naturales, encontraremos que el número (b - a) no existe en los naturales, porque su valor será menor a 0.
+
 \section{Los números enteros}
 
-Ahora entremos a los números enteros, estos nacen de la noción de quitar o de deber, matemáticamente su construcción es necesaria con la operación de resta para ciertos casos.
+Ahora podemos comprender mejor la necesidad de un conjunto mas amplio que los naturales. En escencia uno que contenga los valores menores a 0. se le denota con el símbolo $\mathbb{Z}$.
 
-\paragraph{} Si a>b y ambos son números naturales y decimos que 
+\subsection{La resta}
 
-\paragraph{Divisibilidad} Si tenemos 
+Conocida también como diferencia, se representa con el símbolo menos '-'. $a - b$, se lee a menos b. Y en su esencia es una suma entre enteros. Luego tenemos varios casos
 
-\subsection{Los números primos} Anteriormente hemos evidenciado que los números se pueden construir de manera aditiva, pues bien, también pueden construirse mediante la operación de multiplicación, sin embargo hay unos números con características muy particulares, por lo que antes de continuar revisaremos algunas definiciones de divisibilidad.
+\paragraph{Caso I} (a + b). Si uno de los dos números es menor a 0. En cuyo caso podemos obtener un número natural o un número menor a 0. Ello dependerá de la magnitud de un número respecto a otro.
+
+\subparagraph{Ejemplo} $a + b$, digamos que $a < 0$, luego si $|a| > b$ tenemos que $|a| = b + k$ donde $k>0$ y ahora si evaluamos en los naturales $b + k > b$ luego $k$ sería 'Lo que le falta a $b$ para ser $a$' (la diferencia). Ahora numéricamente, 
+
+$$-7 + 5$$
+$$|7| > 5$$
+
+Luego $|7| = 5 + k$, para que esto se cumpla necesariamente $k = 2$, $2$ es lo que le falta a $5$ para ser $7$, ahora en magnitud su diferencia es 2 y en éste cuando $a>b$ decimos que su resultado es 
+
+$$-7 + 5 = -2$$
+
+es decir
+
+$$a + b = -c$$
+
+\paragraph{Caso II} - a - b. Para este caso tenemos que $-a - b = -(a+b)$. Y siempre obtenemos valores negativos.
+
+\subsection{Multiplicación}
+
+Respecto a la resta, se utilizan las mismas definiciones y propiedades de los naturales, únicamente tendremos que añadir a nuestro repertorio de definiciones
+
+$$a(-b) = -ab$$
+$$(-a)(-b) = ab$$
+
+\paragraph{} Lo que hemos visto hasta ahora nos da una noción de operación inversa, al sumar, añadíamos cosas a otras cosas, al restar, quitamos cosas a otras cosas, pero y ¿al multiplicar? De ello surgió otro enigma
+
+\paragraph{}Al dividir lo que hacemos es contar cuantos conjuntos de cosas hay en un conjunto de cosas, luego si queremos dividir 4 entre 2, decimos que hay 2 dos en 4, es decir
+
+$$4 = 2(2)$$
+
+pero que hay de hallar lo anterior entre 5 y 7 y viceversa, y aún mas que hay de hacer lo anterior con el número 0.
+
+\paragraph{Divisibilidad y dividir} Nace la noción de divisibilidad, de cierto modo hemos visto que hay resultados de divisiones que existen en los enteros pero hay otros que no, por ejemplo
+
+$$\frac{9}{5}$$
+
+No hay un único número\footnote{No hay un único dentro de $\mathbb{Z}$, pero hay una forma de representar estos números dentro de los enteros y viene dado por el algoritmo de la división. En esencia al utilizar esta construcción podemos decir que 7 = 5(1) + 2, literalmente a = bq + r, donde q(cociente) y r(residuo), deben satisfacer que $0 \leq r<b$.} que represente el resultado de esta operación. Por ello al igual que ocurrió en la resta, se define un nuevo conjunto el conjunto de los números racionales $\mathbb{Q}$.
 
 \section{Los números racionales}
 
+$$\frac{a}{b}$$
+
+Donde $a, b \in \mathbb{Z}$ y $b \neq 0$ necesariamente\footnote{Más adelante veremos la razón de esto. Por ahora asumiremos que estos números no existen.}.
+
+En este conjunto podemos ubicar, a los números resultado de los números que vimos anteriormente no existen en los enteros\footnote{Su aparición tiene un gran recorrido histórico. Los babilonios por ejemplo sólamente utilizaban fracciones con base 60; los romanos en base 12. Los egipcios únicamente utilizaban fracciones con cualquier número como denominador pero no admitían ninguno que fuese diferente a 1 como numerador y en lugar de escribir $\frac{2}{5}$ escribían la expresión $\frac{1}{3} + \frac{1}{15}$. La notación actual parece provenir desde el año 1202 y que aparece en el 'Liber Abaci' de Leonardo de Pisa\cite{patino_duque_1977}}
+
 \subsection{Dividir por 0}
 
+\subsection{Los números primos} Anteriormente hemos evidenciado que los números se pueden construir de manera aditiva, pues bien, también pueden construirse mediante la operación de multiplicación, sin embargo hay unos números con características muy particulares, por lo que antes de continuar revisaremos algunas definiciones de divisibilidad.
+
 \section{Los números reales}
+
+Pero ahora con todos estos números, se encontraron resultados que no podían expresarse con alguno de los números de los conjuntos anteriores
 
 \subsection{Los números trascendentales}
 
