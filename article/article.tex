@@ -59,7 +59,7 @@ La suma tiene varias propiedades
     \item Es cerrada, es decir a + b = c, donde c siempre va a ser un número natural.
 \end{itemize}
 
-En matemáticas las propocisiones deben ser demostradas, vamos a hacer algunas, pero primero necesitamos la definición de suma.
+En matemáticas las proposiciones deben ser demostradas, vamos a hacer algunas, pero primero necesitamos la definición de suma.
 
 \paragraph{Definición 1}\cite{tnumprincip_2004}\label{def:sum} Las siguientes ecuaciones definen la adición en $\mathbb{N}$. Para todo $n,m \in \mathbb{N}$:
 
@@ -99,11 +99,11 @@ $$a + (b + c)^+ = a + (b + c^+)$$
 
 Asumiendo la hipótesis de inducción como verdadera y dado que al evaluar la propiedad en el sucesor, hemos demostrado que la propiedad se cumple para cualesquiera números naturales. $\blacksquare$\footnote{El símbolo $\blacksquare$ significa que la prueba ha concluído y hemos evaluado el valor de verdad de la proposición inicial.}
 
-Revisemos un poco lo que hemos hecho en las demostraciones anteriores, definimos unos primeros principios y que asumimos como ciertos, por ejemplo $a + 0 = a$, estos no requieren una demostración, en cierto modo son verdades que se asumen sin demostración. Luego aprovechamos la propiedad constructiva que discutimos acerca de los números naturales (que se construyen uno en base a otro desde el 0), únicamente que en este ejemplo no utilizamos ningún ejemplo numérico sino literales, que representan cualquier elemento de los números naturales, aquí fue donde aplicamos el axioma 5 y encontramos que las propiedades se cumplen, es una forma rigurosa pero permite dar un cierto grado de validez a lo que se está construyendo. Realicemos algunas demostraciones más.
+\paragraph{} Revisemos un poco lo que hemos hecho en las demostraciones anteriores, definimos unos primeros principios y que asumimos como ciertos, por ejemplo $a + 0 = a$, estos no requieren una demostración, en cierto modo son verdades que se asumen sin demostración. Luego aprovechamos la propiedad constructiva que discutimos acerca de los números naturales (que se construyen uno en base a otro desde el 0), únicamente que en este ejemplo no utilizamos ningún ejemplo numérico sino literales, que representan cualquier elemento de los números naturales, aquí fue donde aplicamos el axioma 5 y encontramos que las propiedades se cumplen, es una forma un poco más rigurosa pero permite dar un cierto grado de validez a lo que se está construyendo. Realicemos algunas demostraciones más.
 
 \paragraph{} Para demostrar la propiedad de conmutatividad primero debemos demostrar lo siguiente
 
-\paragraph{Lema} Para todo $a \in \mathbb{N}, 0 + a = a$
+\paragraph{Lema} Para todo $a \in \mathbb{N}, 0 + a = a$ \footnote{Parece evidente, pero recordemos que la definición inicial que conocíamos únicamente dice que $a + 0 = a$ y dado que aún no hemos demostrado que éste lema sea verdadero y que vamos a utilizarlo de aquí en adelante, el rigor de la construcción en matemáticas exige demostrarlo.}
 
 \paragraph{Demostración} Definimos un conjunto $S = \{a \in \mathbb{N}| 0 + a = a \}$
 
@@ -120,6 +120,8 @@ y al aplicar la hipótesis de inducción tenemos que en efecto era lo que esper�
 $$(0 + k)^+ = k^+$$
 
 Por lo tanto la proposición se cumple para todos los naturales. $\blacksquare$
+
+\paragraph{} Requerimos ahora de un lema adicional.
 
 \paragraph{Lema} Para todo $a,b \in \mathbb{N}, a^+ + b = (a + b)^+$.
 
@@ -143,7 +145,7 @@ $$(a + k^+)^+$$
 
 Por lo tanto la proposición se cumple para todos los naturales. $\blacksquare$
 
-Con lo visto hasta aquí puede creerse que hay una fórmula para realizar demostraciones, nada más lejos de la realidad, con los resultados descubiertos por Gödel, existen proposiciones que sabemos no es posible de demostrar y aún mas intrigante no podemos saber cuales son. Es decir pueden matemáticos en estos momentos trabajando en problemas a los que nunca van a encontrar una solución. Muchos problemas como la distribución de los primos se creen que están en este conjunto de problemas que no podrán demostrarse. Por ahora veamos un ejemplo de una demostración un poco más compleja
+\paragraph{} Con lo visto hasta aquí puede creerse que hay una fórmula para realizar demostraciones, nada más lejos de la realidad, con los resultados descubiertos por Gödel, existen proposiciones que sabemos no es posible de demostrar y aún mas intrigante no podemos saber cuales son. Muchos problemas como la distribución de los primos se creen que están en este conjunto de problemas que no podrán demostrarse\footnote{Es decir pueden matemáticos en estos momentos trabajando en problemas a los que nunca van a encontrar una solución.}. Por ahora veamos un ejemplo de una demostración un poco más compleja.
 
 \paragraph{La suma es conmutativa} Sean $a,b \in \mathbb{N}, m + n = n + m$.
 
@@ -173,7 +175,7 @@ Que era lo que queríamos demostrar, por lo tanto la propiedad se cumple para lo
 Como vimos construímos esta verdad con lo que conocemos hasta ahora. Veamos la multiplicación.
 
 \subsection{La multiplicación}
-Conocida también como producto, su noción también es muy familiar, consiste en repetir un numero de sumas, se representa como una equis "x" o simplemente se "agrupan" los números $ab$.
+Conocida también como producto, su noción también es muy familiar, consiste en repetir un numero de sumas, se representa como una equis 'x' o simplemente se 'agrupan' los números $ab$.
 
 La multiplicación tiene varias propiedades
 
@@ -182,25 +184,78 @@ La multiplicación tiene varias propiedades
     \item Es conmutativa, es decir mn = nm, no importa el orden en el que se realiza la multiplicación.
     \item Tiene un elemento neutro.  1a = a1 = a. El uno es el elemento neutro.
     \item Es cerrada, es decir ab = c, donde c siempre va a ser un número natural.
+    \item Es distributiva respecto a la suma, es decir a(b + c) = ab + ac.
     \item Elemento cero. 0a = 0. multiplicar cualquier número por 0 siempre será 0.
 \end{itemize}
 
-\paragraph{}\cite{tnumprincip_2004} Las siguientes ecuaciones definen la multiplicación en $\mathbb{N}$. Para todo $m,n \in \mathbb{N}$,
+\paragraph{}Las siguientes ecuaciones definen la multiplicación en $\mathbb{N}$. Para todo $m,n \in \mathbb{N}$\cite{tnumprincip_2004},
 
 $$m0=0,$$
 $$mn^+ = mn + m$$
 
 Como todo número natural distinto de cero es el sucesor de otro número sucesor natural, la operación está bien definida.
 
-No realizaremos más demostraciones,
+Demostremos esta propiedad.
 
-\subsection{Los números primos}
+\paragraph{Teorema} La multiplicación es distributiva. Sean $a,b,c \in \mathbb{N}$, a(b + c) = ab + ac.
+
+\paragraph{Demostración} \textit{Por inducción}. Haremos uso de otros teoremas y definiciones mencionadas anteriormente.
+
+\paragraph{} Construrímos el conjunto $S = \{ c \in \mathbb{N}| a(b+c) = ab + ac \text{ para todo } a,b \in \mathbb{N}\}$
+
+\paragraph{} Verificamos que $0 \in \mathbb{N}$, y por ende queremos demostrar que $a(b + 0) = ab + a0$. Por la definición de suma tenemos que
+
+	$$a(b + 0) = ab$$
+
+ahora por la propiedad del elemento neutro podemos decir que
+
+$$a(b + 0) = ab = ab + 0 $$
+
+y por la definición de multiplicación obtenemos
+
+$$ab + 0 = ab + a0$$
+
+Que era lo que queríamos demostrar.
+
+\paragraph{Hipótesis de inducción} Asumimos que la propiedad se cumple para cualquier $k \in \mathbb{N}$:
+
+$$a(b + k) = ab + ak$$
+
+y verificamos que se cumpla la propiedad para el sucesor, luego deberíamos verificar que:
+
+$$a(b + k^+) = ab + ak^+$$
+
+Por la definición de múltiplicación tenemos que
+
+$$ab + ak^+ = ab + ak + a$$
+
+Por la propiedad asociativa podemos agrupar convenientemente esta ecuación
+
+$$ab + ak + a = (ab + ak) + a$$
+
+Utilizamos ahora la hipótesis de inducción, tenemos
+
+$$(ab + ak) + k = a(b + k) + a$$
+
+Y por la definición de multiplicación tendríamos que 
+
+$$a(b + k) + a = a(b + k)^+$$
+
+Por la definición de suma tenemos efectivamente que 
+
+$$a(b + k)^+ = a(b + k^+)$$
+
+Y que era lo que queríamos demostrar.$\blacksquare$
 
 \section{Los números enteros}
 
 Ahora entremos a los números enteros, estos nacen de la noción de quitar o de deber, matemáticamente su construcción es necesaria con la operación de resta para ciertos casos.
 
 \paragraph{} Si a>b y ambos son números naturales y decimos que 
+
+\paragraph{Divisibilidad} Si tenemos 
+
+\subsection{Los números primos} Anteriormente hemos evidenciado que los números se pueden construir de manera aditiva, pues bien, también pueden construirse mediante la operación de multiplicación, sin embargo hay unos números con características muy particulares, por lo que antes de continuar revisaremos algunas definiciones de divisibilidad.
 
 \section{Los números racionales}
 
