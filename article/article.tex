@@ -298,7 +298,7 @@ pero que hay de hallar lo anterior entre 5 y 7 y viceversa, y aún mas que hay d
 
 $$\frac{9}{5}$$
 
-No hay un único número\footnote{No hay un único dentro de $\mathbb{Z}$, pero hay una forma de representar estos números dentro de los enteros y viene dado por el algoritmo de la división. En esencia al utilizar esta construcción podemos decir que 7 = 5(1) + 2, literalmente a = bq + r, donde q(cociente) y r(residuo), deben satisfacer que $0 \leq r<b$.} que represente el resultado de esta operación. Por ello al igual que ocurrió en la resta, se define un nuevo conjunto el conjunto de los números racionales $\mathbb{Q}$.
+No hay un único número\footnote{No hay un único dentro de $\mathbb{Z}$, pero hay una forma de representar estos números dentro de los enteros y viene dado por el algoritmo de la división. En esencia al utilizar esta construcción podemos decir que 7 = 5(1) + 2, literalmente $a = bq + r$, donde q(cociente) y r(residuo), deben satisfacer que $0 \leq r<b$.} dentro de $\mathbb{Z}$ que represente el resultado de esta operación. Por ello al igual que ocurrió en la resta, se define un nuevo conjunto el conjunto de los números racionales $\mathbb{Q}$.
 
 \section{Los números racionales}
 
@@ -306,9 +306,46 @@ $$\frac{a}{b}$$
 
 Donde $a, b \in \mathbb{Z}$ y $b \neq 0$ necesariamente\footnote{Más adelante veremos la razón de esto. Por ahora asumiremos que estos números no existen.}.
 
-En este conjunto podemos ubicar, a los números resultado de los números que vimos anteriormente no existen en los enteros\footnote{Su aparición tiene un gran recorrido histórico. Los babilonios por ejemplo sólamente utilizaban fracciones con base 60; los romanos en base 12. Los egipcios únicamente utilizaban fracciones con cualquier número como denominador pero no admitían ninguno que fuese diferente a 1 como numerador y en lugar de escribir $\frac{2}{5}$ escribían la expresión $\frac{1}{3} + \frac{1}{15}$. La notación actual parece provenir desde el año 1202 y que aparece en el 'Liber Abaci' de Leonardo de Pisa\cite{patino_duque_1977}}
+En este conjunto podemos ubicar, a los números resultado de las operaciones fuera del conjunto de los enteros y que vimos anteriormente\footnote{Su aparición tiene un gran recorrido histórico. Los babilonios por ejemplo sólamente utilizaban fracciones con base 60; los romanos en base 12. Los egipcios únicamente utilizaban fracciones con cualquier número como denominador pero no admitían ninguno que fuese diferente a 1 como numerador y en lugar de escribir $\frac{2}{5}$ escribían la expresión $\frac{1}{3} + \frac{1}{15}$. La notación actual parece provenir desde el año 1202 y que aparece en el 'Liber Abaci' de Leonardo de Pisa\cite{patino_duque_1977}}, respecto a la suma debemos añadir que hay dos casos:
+
+\paragraph{Caso I:} Cuando las fracciones tienen un número igual. En este caso, se define:
+
+$$\frac{a}{b} + \frac{c}{b} = \frac{a + c}{b}$$
+
+E igualmente se debe satisfacer que $b \neq 0$. $a, b, c \in \mathbb{Z}$.
+
+\paragraph{Caso II:} Cuando las fracciones tienen un denominador diferente.
+
+$$\frac{a}{b} + \frac{c}{d} = \frac{ad}{bd} + \frac{cb}{db} = \frac{ad + cb}{db}$$
+
+\paragraph{} Y ahora, respecto a la multiplicación:
+
+$$\frac{a}{b} \times \frac{c}{d} = \frac{ac}{bd}$$
+
+\paragraph{} Y ahora, respecto a la división:
+
+$$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}$$
 
 \subsection{Dividir por 0}
+
+Anteriormente afirmamos que los números de la forma $\frac{a}{0}$ no existen, ahora veremos por que.
+
+\paragraph{}Sabemos que la multiplicación define que $a0 = 0$, cuando $a$ es cualquier número, y por la división definimos (en $\mathbb{Q}$) que existe un único número tal $a \times b = c$, ahora veremos que no es posible esta construcción. Realizaremos una adaptación de la demostración en\cite{brink_1933}.
+
+
+\paragraph{Demostración} Existen dos casos.
+
+\paragraph{Caso I:} Suponga que $a \neq 0$ e intente encontrar un número $b$ tal que
+
+$$0b = a$$
+
+Pero por la definición que conocemos de multiplicación $0b = 0$ por ende no puede ser igual a $a$ porque $a \neq 0$. Por lo tanto $a \div 0 = b$ no existe.
+
+\paragraph{Caso II} Ahora suponemos que $a = 0$ e intentamos encontrar un único numero $b$ tal que 
+
+$$0b = a = 0$$
+
+como $0b = 0$ es verdadero para cualquier $b$ por la definición de multiplicación, no hay un \textbf{único} valor de $b$ que satisfaga esta relación. y por lo tanto $0 \div 0$ no está definido. $\blacksquare$
 
 \subsection{Los números primos} Anteriormente hemos evidenciado que los números se pueden construir de manera aditiva, pues bien, también pueden construirse mediante la operación de multiplicación, sin embargo hay unos números con características muy particulares, por lo que antes de continuar revisaremos algunas definiciones de divisibilidad.
 
