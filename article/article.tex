@@ -7,6 +7,7 @@
 \usepackage{amsrefs}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish, mexico]{babel}
+\usepackage{dirtytalk}
 
 \title{Sobre la construcción de los números}
 \author{Miguel Angel Gomez Barrera}
@@ -302,6 +303,8 @@ No hay un único número\footnote{No hay un único dentro de $\mathbb{Z}$, pero 
 
 \section{Los números racionales}
 
+Un número racional es de la forma:
+
 $$\frac{a}{b}$$
 
 Donde $a, b \in \mathbb{Z}$ y $b \neq 0$ necesariamente\footnote{Más adelante veremos la razón de esto. Por ahora asumiremos que estos números no existen.}.
@@ -330,8 +333,7 @@ $$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c} = \frac{ad}{bc}$
 
 Anteriormente afirmamos que los números de la forma $\frac{a}{0}$ no existen, ahora veremos por que.
 
-\paragraph{}Sabemos que la multiplicación define que $a0 = 0$, cuando $a$ es cualquier número, y por la división definimos (en $\mathbb{Q}$) que existe un único número tal $a \times b = c$, ahora veremos que no es posible esta construcción. Realizaremos una adaptación de la demostración en\cite{brink_1933}.
-
+\paragraph{}Sabemos que la multiplicación define que $a0 = 0$, cuando $a$ es cualquier número, y por la división definimos (en $\mathbb{Q}$) que existe un único número tal $a \times b = c$. Realizaremos una adaptación de la demostración en\cite{brink_1933}.
 
 \paragraph{Demostración} Existen dos casos.
 
@@ -347,21 +349,72 @@ $$0b = a = 0$$
 
 como $0b = 0$ es verdadero para cualquier $b$ por la definición de multiplicación, no hay un \textbf{único} valor de $b$ que satisfaga esta relación. y por lo tanto $0 \div 0$ no está definido. $\blacksquare$
 
-\subsection{Los números primos} Anteriormente hemos evidenciado que los números se pueden construir de manera aditiva, pues bien, también pueden construirse mediante la operación de multiplicación, sin embargo hay unos números con características muy particulares, por lo que antes de continuar revisaremos algunas definiciones de divisibilidad.
+\subsection{Los números primos} Anteriormente hemos evidenciado que los números se pueden construir de manera aditiva, pero también pueden construirse mediante la operación de multiplicación. Esto es mediante los números primos, estos números tienen características muy particulares, por lo que antes de continuar revisaremos algunas definiciones.
+
+\paragraph{Definición} Sean $a,b$ números enteros con $a$ diferente de cero. Decimos que $a$ divide a $b$ si existe un entero $c$ tal que $b=ac$. En tal caso escribimos $a|b$. Decimos también que $a$ es un divisor de $b$ o que $b$ es un múltiplo de $a$. Para indicar lo contrario(que $a$ no divide a $b$) escribimos $a \nmid b$.
+
+\paragraph{Definición} Un entero positivo $p > 1$ se denomina un número primo si tiene exactamente dos divisores positivos a saber: 1 y p. Un entero positivo mayor que 1 que no es primo se denomina compuesto.
+
+\paragraph{Teorema fundamental de la aritmética} Cualquier entero mayor a 1 puede rescribirse como el producto único de numeros primos.
+
+\paragraph{}
+Justamente este teorema, reza lo que nos indica la noción de descomponer números, que los números pueden de cierto modo descomponerse hasta sus factores mas fundamentales y que estos son los números primos. Extensas propiedades y problemas aún abiertos, como la conjetura de goldbach\footnote{que indica que todo número par mayor que 2 puede expresarse como la suma de dos números primos $36 = 31 + 5$} siguen abiertos desde antes de la época de Euclides y grandes matemáticos, de la talla de Euler y Gauss han intentado descubrir cuál es la forma de encontrar la distribución de estos números, su respuesta tiene implicaciones mucho mas allá de las matemáticas.
 
 \section{Los números reales}
 
-Pero ahora con todos estos números, se encontraron resultados que no podían expresarse con alguno de los números de los conjuntos anteriores
+Aún con todos estos conjuntos se obtienen resultados de operaciones que no es posible expresar con ninguno de los conjuntos anteriores, a estos números se les conoce como irracionales, y en definición, son los números que no se pueden expresar como un cociente entre números enteros(que no son racionales), aquí una breve história de cómo se nombraron los conjuntos obtenido de \cite{patino_duque_1977}:
+
+\paragraph{}
+\say{Euclides al hacer una clasificación sistemática de los números los dividió en dos grandes grupos que llamó symmetros(con medida) y asymmetros(sin medida) a cada uno de ellos. Al no encontrar una expresión simbólica adecuada para estos últimos los designó con la voz alogos. Gerardo de Cremona\footnote{Gerardo de Cremona gracias a su curiosidad por los tratados de oriente, estuvo en contacto con múltiples obras árabes que tradujo laboriosamente al latín, como el almagesto de Ptolomeo o la Geometría de Euclides.}, (1114-1187) al traducir un comentario árabe sobre Euclides, tomó los vocablos logos y alogos en su acepción de razón y no de la palabra coomo la quizo Euclides, y empleó erróneamente los términos rationalis e irrationalis para designar unos y otros. Este error se difundió durante toda la edad media hasta llegar a nosotros}.
+
+\paragraph{} retomando nuestra composición del conjunto... A este conjunto le denota con la letra $\mathbb{I}$. Estos números aparecen por primera vez en el teorema de pitágoras.
+
+\paragraph{Teorema de pitágoras} Sean a y b los catetos de un triangulo rectángulo, su hipotenusa c, satisface $a^2 + b^2 = c^2$.
+
+\paragraph{} Veamos que en algunos casos la solución no existe en los racionales, supongamos que $a = b = 1$, por el teorema de pitágoras vemos que
+
+$$c^2 = 1^2 + 1^2 = 2$$
+
+pero no existe ningún número racional mediante el cual al multiplicarse por sí mismo sea igual a 2. Y vamos a demostrarlo.
+
+\paragraph{Demostración} \textit{Adaptada de \cite{brink_1933}} Asumamos que existe un número racional tal que $c = \frac{p}{q}$, donde $p$ y $q$ son enteros, y asuma también que la fracción $\frac{p}{q}$ ha sido simplificada a sus terminos mínimos.
+
+Veremos que esto nos lleva a una contradicción y por lo tanto debe ser falso. Como $c^2 = 2$ tenemos:
+
+$$\frac{p^2}{q^2} = 2 \text{ ó que } p^2 = 2q^2$$
+
+Por ende $p^2$ es un número par, porque contiene el factor $2$. Pero el cuadrado de cualquier número impar es impar. en consecuencia $p$ no puede ser un número impar y debe ser par, por lo que podemos decir que $p = 2n$, donde $n$ es un entero. De la ecuación $p^2 = 2q^2$ tenemos que $(2n)^2 = 2q^2$ o $4n^2 = 2q^2$. Por ende, $2n^2 = q^2$, lo cual muestra que $q^2$ es par y consecuentemente $q$ también es par. Dado que ambos números son pares, el númerador y denominador de $\frac{a}{b}$ contienen el factor 2. Esto contradice nuestra tésis que $\frac{a}{b}$ estaba reducido a su mínima fracción, y demuestra que no existe ningún número racional que elevado al cuadrado sea igual a $2$. $\blacksquare$.
+
+\paragraph{Definición} Los números irracionales, denotados con el símbolo $\mathbb{I}$ son los números que no pueden representarse como un racional, es decir:
+
+$$\mathbb{I} := \{x \in \mathbb{R} | x \neq \mathbb{Q} \}$$
+
+\paragraph{Definición} Los números reales, denotados con el símbolo $\mathbb{R}$ son la unión del conjunto de los números irracionales $\mathbb{I}$ y el conjunto de los números racionales $\mathbb{Q}$, es decir:
+
+$$\mathbb{R} := \mathbb{Q} \cup \mathbb{I} $$
 
 \subsection{Los números trascendentales}
 
-\subsubsection{El número Pi}
+Dentro de los números reales hay dos tipos, los números algebráicos y los números trascendentales.
+
+\paragraph{Definición} Un número algebráico es un número que puede expresarse como la raíz de un polinomio.
+
+\paragraph{Definición} Un número trascendental\footnote{Se desconocen muchos de éstos números y así mismo la prueba de trascendencia se lleva a cabo caso a caso. Por ejemplo una de las prueba de que $\pi$ es un número trascendental fue llevada a cabo por Lindeman en 1882, utilizó técnicas muy similares como las que se utilizaron por Hermite para demostrar la trascendencia de $e$.} es un número que no puede expresarse como la raíz de un polinomio.
+
+
+\paragraph{}
+Cantor tiene una de las demostraciones de las que se deriva que pueden existir "mas" números trascendentales que números algebráicos\cite{niven_1961}.
 
 \section{¿Y estos son todos los números que hay?}
 
-\section{Conclusiones}
+Hasta aquí hemos visto es que los conjuntos se han construído como una necesidad para llenar un vacío que necesariamente requiere de un nuevo tipo de número, lo cierto es que hasta el momento el siguiente conjunto cubre todos los anteriores y nace en necesidad de hallar la raíz de un número negativo. A éste número se le conoce como los complejos $\mathbb{C}$ y dentro de este se encuentran todos los conjuntos anteriormente descritos.
 
-\newpage
+\paragraph{} El símbolo $\sqrt{-1} = i$, es la unidad en los números imaginarios; y la propiedad $i^2 = -1$ es la definición de unidad imaginaria\cite{patino_duque_1977}.
+
+Y más alla, existen otros conjuntos, como los hipercomplejos, los transfinitos y los hiperreales.
+
+\section{Conclusiones}
+Las matemáticas como otra rama del pensamiento humano de las que mayor trabajo y esfuerzo ha tenido a lo largo de la historia, son una construcción, pero en particular es una de las construcciones más rigurosas, exige la prueba como una herramienta necesaria para la construción, y lo evidenciamos en algunas partes de éste texto. Los números los utilizamos desde las nociones más intuitivas, como por ejemplo las operaciones básicas en los enteros y en los naturales; y en los racionales encontramos matemáticas que son utilizadas en el día a día al dividir (por ejemplo), pero no siempre es así ¿Cuándo requerimos conocer si un numero es trascendental o no? verlo únicamente de una manera práctica, limita enormemente nuestra capacidad para el descubrimiento y nos impide ver la belleza oculta que tienen, así que desde el imaginario de lo imposible de un estudiante de matemáticas, hace reflexionar está a la espera de ser descubierto.
 
 \nocite{*}
 
