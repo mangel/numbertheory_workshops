@@ -1,0 +1,151 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+
+\title{Taller}
+\author{Miguel A. Gomez B.}
+
+\begin{document}
+	\maketitle
+\paragraph{1. Prove any of the assertions below:}
+\paragraph{a.} Any prime of the form $3n+1$ is also of the form $6m + 1$.
+
+\paragraph{Proof}. Given that exists primes $p$ that are of the form:
+
+$$p = 3n + 1$$
+
+There also exists primes $p$ of the form:
+
+$$p = 6m + 1$$
+
+then:
+
+$$p = 3n + 1 = 6m + 1$$
+
+but $6 = 3(2)$, then
+
+$$p = 3n + 1 = (3)(2)(m) + 1 = 3(2m) + 1$$
+
+necessarily must happend that $n = 2m$. Then we concluded that if a prime is of the form $6m + 1$ it can also be written in the $3n+1$ form. $\blacksquare$
+
+\paragraph{b.} Each integer of the form $3n + 2$ has a prime factor of this form.
+
+\paragraph{Proof.}
+
+\paragraph{c.} The only prime of the form $n^3 - 1$ is $7$.
+
+\paragraph{Proof.} We factor the expression and we get:
+
+$$n^3 - 1 = (n - 1)(n^2 + n + 1)$$
+
+given that this form would be a prime, then there are two possibilities or $(n - 1) = 1$ or $n^2 + n + 1 = 1$.
+
+By doing the first case we get, that:
+
+\begin{align*}
+    (n - 1) &=  1\\
+    n &= 2
+\end{align*}
+
+replacing on the other factor we get:
+
+$$(2)^2 + 2 + 1 = 7$$
+
+On the other case we get
+
+\begin{align*}
+    (n^2 + n + 1) &=  1\\
+    n(n + 1) &= 0
+\end{align*}
+
+which gives us two cases $n=0$, and $n = -1$, by replacing these on the initial product we get respectively $(-1)(1)$ and $(-2)(0)$ Both of them are not primes. So we proved that the only prime number that satisfies $n^3 - 1$ is 7. $\blacksquare$
+
+\paragraph{d.} The only prime $p$ for which $3p + 1$ is a perfect square is $p = 5$.
+
+\paragraph{Proof.} First we verify if $p=5$ is a perfect square.
+$$3(5) + 1 = 15 + 1 = 16 = 4^2$$
+
+Indeed, it is a perfect square. Now we verify if it is the only one. To do that we construct the equation:
+
+$$3p + 1 = q^2$$
+
+Then we add $-1$ on both sides and we get
+
+$$3p = q^2 - 1$$
+
+which is equal to
+
+$$3p = (q - 1) (q + 1)$$
+
+if both products are equal then, then we have two cases, $(q - 1) = 3$ or $(q + 1) = 3$, on the first one we have
+
+$$q = 3 + 1 = 4$$
+
+and by that, the product would be
+
+$$3p = (4 - 1)(4 +1) = 3(5)$$
+
+that we know forms a perfect square. On the other case
+
+$$q = 3 - 1 = 2$$
+
+and by that, the product would be
+
+$$3p = (2 - 1)(2 +1) = (1)(3)$$
+
+Then $p=1$, by that we test on the original form
+
+$$3(1) + 1 = 4$$
+
+Which is a perfect square, but $1$ is not a prime. We conclude that the only $p$ that is prime and forms a perfect square for $3p + 1$ is $p = 5$. $\blacksquare$
+
+\paragraph{2.} find all the prime numbers that divide $50!$.
+
+\paragraph{Proof.} We know that a prime greater that $n$ cannot not divide any number less than $n$, $n-1$, $n-2$, and so on. The primes that divide $50!$ would be the primes less than $n!$, given this fact we can find numerically all the primes less than $50$, which are: $2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47$. $\blacksquare$.
+
+\paragraph{3.} Find all the pairs of primes $p$ and $q$ satisfying $p - q = 3$.
+
+\paragraph{Proof.} All primes except 2, are of odd. Given this fact, we construct an equation with the diference of those primes and they should be equal to 3.
+
+$$(2n + 1) - (2m + 1) = 3$$
+
+$$(2n + 1) - (2m + 1) = 2n - 2m + 1 - 1 = 2n - 2m = 2(n-m)$$
+
+We now notice that the difference of two primes of the form $2k +1$ always is even, $3$ is not even. We verify the same case with the only prime that is even
+
+\begin{align*}
+    2k + 1 - 2 &= 3\\
+    2k + 1 &= 3 + 2 = 5\\
+    2k &= 5 - 1 = 4\\
+    k = 2
+\end{align*}
+
+$2(2) + 1 = 5$. Then $p=5$, $q=2$
+
+$$5 - 2 = 3$$
+
+We conclude that the only pair of primes that satisfy $p - q =3$, is $p=5$ and $q=2$. $\blacksquare$
+
+\newpage
+
+\paragraph{4.} Prove that $\sqrt{p}$ is irrational for any prime $p$.
+
+\paragraph{Proof.} Supose that $\sqrt{p}$ is rational, if that is true then
+
+$$\sqrt{p} = \frac{a}{b}$$
+
+With $b \neq 0$. By squaring this number we obtain
+
+\begin{align*}
+    (\sqrt{p})^2 = \frac{a^2}{b^2} = p
+\end{align*}
+
+There are several contradictions, because if $p$ is prime, by the Fundamental Theorem of Arithmetic, $p$ cannot be represented as a product of primes $\frac{a}{b} \times \frac{a}{b}$, by the same argument, asuming that $\frac{a}{b}$ is a prime then its square would be composed, which implies that $p$ is not prime, this errors derive from the assumption that it was a rational number. So we conclude that $\sqrt{p}$ is not rational, then inevitably must be an irrational number. $\blacksquare$
+
+
+\end{document}
