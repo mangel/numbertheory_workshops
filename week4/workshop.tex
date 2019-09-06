@@ -5,9 +5,8 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[utf8]{inputenc}
-\usepackage[spanish, mexico]{babel}
 
-\title{Taller}
+\title{Workshop}
 \author{Miguel A. Gomez B.}
 
 \begin{document}
@@ -35,7 +34,26 @@ necessarily must happend that $n = 2m$. Then we concluded that if a prime is of 
 
 \paragraph{b.} Each integer of the form $3n + 2$ has a prime factor of this form.
 
-\paragraph{Proof.}
+\paragraph{Proof.} that form comes as a representation of every natural number by its residual, in this case is $3$, we notice that every natural number can be represented on one of the following forms:
+
+$$3n = 0, 3, 6 ,9 \dots$$
+$$3n + 1 = 1, 4, 7, 10, \dots$$
+$$3n + 2 = 2, 5 , 8, 11, \dots$$
+
+$3n + 3$ is on the first category, we see that this number can be factored as $3(n+1)$.
+
+\paragraph{} On the decomposition of $3n +2$ we can say by the Fundamental Theorem of arithmetic that $3n + 2$ could be composed by primes of the form $3n + 1$ and $3n + 2$, $3n$ is not an option becasue $3n + 2$ does not comply with the initial form. Let us asume that $3n + 2$ is composed only by primes of the form $3n +1$:
+
+$$3n + 2 = (3k_0 + 1) (3k_1 + 1) (3k_2 + 1) \dots$$
+
+Then,
+
+\begin{align*}
+  (3k_0 + 1)(3k_1 + 1) &= 9k_0k_1 + 3k_0 + 3k_1 + 1\\
+  &= 3(3k_0k_1 + k_0 + k_1) + 1
+\end{align*}
+
+but that is a contradiction, because $3(\dots) + 1$ would never be of the form $3n + 2$. Then the only possible factor must be another $3k +2$. $\blacksquare$
 
 \paragraph{c.} The only prime of the form $n^3 - 1$ is $7$.
 
@@ -131,15 +149,13 @@ $$5 - 2 = 3$$
 
 We conclude that the only pair of primes that satisfy $p - q =3$, is $p=5$ and $q=2$. $\blacksquare$
 
-\newpage
-
 \paragraph{4.} Prove that $\sqrt{p}$ is irrational for any prime $p$.
 
 \paragraph{Proof.} Supose that $\sqrt{p}$ is rational, if that is true then
 
 $$\sqrt{p} = \frac{a}{b}$$
 
-With $b \neq 0$. By squaring this number we obtain
+With $b \neq 0$ and $\frac{a}{b}$ an irreducible fraction. By squaring this number we obtain
 
 \begin{align*}
     (\sqrt{p})^2 = \frac{a^2}{b^2} = p
@@ -147,5 +163,13 @@ With $b \neq 0$. By squaring this number we obtain
 
 There are several contradictions, because if $p$ is prime, by the Fundamental Theorem of Arithmetic, $p$ cannot be represented as a product of primes $\frac{a}{b} \times \frac{a}{b}$, by the same argument, asuming that $\frac{a}{b}$ is a prime then its square would be composed, which implies that $p$ is not prime, this errors derive from the assumption that it was a rational number. So we conclude that $\sqrt{p}$ is not rational, then inevitably must be an irrational number. $\blacksquare$
 
+\paragraph{5.} Prove that if $n>2$, then there exists a prime $p$ satisfiying $n<p<n!$.
+
+\paragraph{Proof.} supose that we multiply each prime number such as  $p<n$, if that is the case that product must be less than $n!$. To that product, add 1:
+
+$$n < p_1 p_2 p_3 p_n < n!$$
+$$n < (p_1 p_2 p_3 p_n) + 1 < n!$$
+
+Then this number would be a prime or would be a composite, but a new prime greater than n will be required to represent that number. We conclude that this number $p$ satisfies  $n < p < n!$. $\blacksquare$
 
 \end{document}
