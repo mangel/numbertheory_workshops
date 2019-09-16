@@ -9,7 +9,7 @@
 \usepackage[spanish, mexico]{babel}
 \usepackage{dirtytalk}
 
-\title{Sobre la construcción de los números}
+\title{Sobre la construcción de los números.}
 \author{Miguel Angel Gomez Barrera}
 
 \begin{document}
@@ -30,7 +30,7 @@ Iniciamos con la noción de los números naturales, aparecen como una necesidad 
 
 Los axiomas de Peano\footnote{Giusseppe Peano (1858-1932). Fue un matemático italiano muy talentoso y de orígenes muy humildes, nacido en una familia de campesinos, su talento fue descubierto gracias al hermano de su madre, un clérigo y abogado. Que patrocinó sus primeros estudios.} son los siguientes\cite{tnumprincip_2004}
 
-\paragraph{Axioma 1}. Hay un elemento especial 0 $\in \mathbb{N}$. \footnote{¿Desde dónde empezamos a contar? Esta pregunta dividió a los matemáticos, naturalmente empezamos desde el 1, pero en algunos casos el cero es un elemento muy conveniente a tener, lo mas "sano" entre matemáticos al axiomatizar, es declarar con antelación si se incluye o no el 0 en una demostración}.
+\paragraph{Axioma 1}. Hay un elemento especial 0 $\in \mathbb{N}$. \footnote{¿Desde dónde empezamos a contar? Esta pregunta dividió a los matemáticos, naturalmente empezamos desde el 1, pero en algunos casos el cero es un elemento muy conveniente a tener, lo mas 'sano' entre matemáticos al axiomatizar, es declarar con antelación si se incluye o no el 0 en una demostración.}.
 \paragraph{Axioma 2}. Para todo $n \in \mathbb{N}$ existe un único elemento $n^+ \in \mathbb{N}$ llamado el sucesor de $n$.
 \paragraph{Axioma 3}. Para todo $n \in \mathbb{N}$, $n^+ \neq 0$.
 \paragraph{Axioma 4}. Si $n$, $m \in \mathbb{N}$ y $n^+ = m^+$ entonces $m = n$.
@@ -72,7 +72,7 @@ Utilizando esta definición y los axiomas de Peano demostraremos algunas de sus 
 
 \paragraph{Demostración} \textit{Por inducción} (utilizando el axioma 5)
 
-Definimos un conjunto $S = \{c \in \mathbb{N} | (a + b) + c = a + (b + c) para todo a,b \in \mathbb{N}\}$
+Definimos un conjunto $S = \{c \in \mathbb{N} | (a + b) + c = a + (b + c) \text{ para todo } a,b \in \mathbb{N}\}$
 
 \paragraph{} $0 \in \mathbb{N}$ porque por la definición de suma
 $$ (a + b) + 0 = a + (b + 0) = a + b$$
@@ -86,7 +86,7 @@ Luego para el sucesor deberíamos llegar a que se cumple que $(a + b) + c^+ = a 
 
     $$(a + b) + c^+ = ((a + b) + c)^+$$
 
-esto es por la definición de suma, además esta forma es conveniente y equivalente a la hipótesis de inducción por ello ahora decimos que
+esto es por la definición de suma, además esta forma es conveniente y equivalente a la hipótesis de inducción, por ello ahora decimos que
 
 $$((a + b) + c)^+ = (a + (b + c))^+$$
 
@@ -98,9 +98,9 @@ y por la misma definición de suma:
 
 $$a + (b + c)^+ = a + (b + c^+)$$
 
-Asumiendo la hipótesis de inducción como verdadera y dado que al evaluar la propiedad en el sucesor, hemos demostrado que la propiedad se cumple para cualesquiera números naturales. $\blacksquare$\footnote{El símbolo $\blacksquare$ significa que la prueba ha concluído y hemos evaluado el valor de verdad de la proposición inicial.}
+Asumiendo la hipótesis de inducción como verdadera, y dado que al evaluar la propiedad en el sucesor, hemos demostrado que la propiedad se cumple para cualesquiera números naturales. $\blacksquare$\footnote{El símbolo $\blacksquare$ significa que la prueba ha concluído y hemos evaluado el valor de verdad de la proposición inicial.}
 
-\paragraph{} Revisemos un poco lo que hemos hecho en las demostraciones anteriores, definimos unos primeros principios y que asumimos como ciertos, por ejemplo $a + 0 = a$, estos no requieren una demostración, en cierto modo son verdades que se asumen sin demostración. Luego aprovechamos la propiedad constructiva que discutimos acerca de los números naturales (que se construyen uno en base a otro desde el 0), únicamente que en este ejemplo no utilizamos ningún ejemplo numérico sino literales, que representan cualquier elemento de los números naturales, aquí fue donde aplicamos el axioma 5 y encontramos que las propiedades se cumplen, es una forma un poco más rigurosa pero permite dar un cierto grado de validez a lo que se está construyendo. Realicemos algunas demostraciones más.
+\paragraph{} Revisemos un poco lo que hemos hecho en las demostraciones anteriores, definimos unos primeros principios y que asumimos como ciertos, por ejemplo $a + 0 = a$, estos no requieren una demostración, en cierto modo son verdades que se asumen sin demostración. Luego aprovechamos la propiedad constructiva que discutimos acerca de los números naturales (que se construyen uno en base a otro desde el 0), únicamente que en este ejemplo no utilizamos ningún ejemplo numérico, sino literal, que representa cualquier elemento de los números naturales, aquí fue donde aplicamos el axioma 5 y encontramos que las propiedades se cumplen, es una forma un poco más rigurosa pero permite dar un grado de validez a lo que se está construyendo. Realicemos algunas demostraciones más.
 
 \paragraph{} Para demostrar la propiedad de conmutatividad primero debemos demostrar lo siguiente
 
@@ -108,9 +108,9 @@ Asumiendo la hipótesis de inducción como verdadera y dado que al evaluar la pr
 
 \paragraph{Demostración} Definimos un conjunto $S = \{a \in \mathbb{N}| 0 + a = a \}$
 
-\paragraph{} $0 \in \mathbb{N}$, porque $0 + 0 = 0$ por la definición de suma.
+\paragraph{} $0 \in \mathbb{N}$, porque $0 + 0 = 0$, por la definición de suma.
 
-\paragraph{Hipótesis de inducción} suponemos que $k \in \S$ y se cumple que $0 + k = k$. por lo que al aplicar la propiedad al sucesor esperaríamos obtener $k^+$.
+\paragraph{Hipótesis de inducción} suponemos que $k \in S$ y se cumple que $0 + k = k$. por lo que al aplicar la propiedad al sucesor esperaríamos obtener $k^+$.
 
 \paragraph{}Ahora al evaluar en el sucesor la proposición, encontramos por la definición de suma que:
 
@@ -146,9 +146,9 @@ $$(a + k^+)^+$$
 
 Por lo tanto la proposición se cumple para todos los naturales. $\blacksquare$
 
-\paragraph{} Con lo visto hasta aquí puede creerse que hay una fórmula para realizar demostraciones, nada más lejos de la realidad, con los resultados descubiertos por Gödel, existen proposiciones que sabemos no es posible de demostrar y aún mas intrigante no podemos saber cuales son. Muchos problemas como la distribución de los primos se creen que están en este conjunto de problemas que no podrán demostrarse\footnote{Es decir pueden matemáticos en estos momentos trabajando en problemas a los que nunca van a encontrar una solución.}. Por ahora veamos un ejemplo de una demostración un poco más compleja.
+\paragraph{} Con lo visto hasta aquí puede creerse que hay una fórmula para realizar demostraciones, nada más lejos de la realidad, con los resultados descubiertos por Kurt Gödel, existen proposiciones que no es posible de demostrar y aún mas intrigante no podemos saber cuales son. Muchos problemas como la distribución de los primos se creen que están en este conjunto de problemas que no podrán demostrarse\footnote{Es decir pueden matemáticos en estos momentos trabajando en problemas a los que nunca van a encontrar una solución.}. Por ahora veamos un ejemplo de una demostración un poco más compleja.
 
-\paragraph{La suma es conmutativa} Sean $a,b \in \mathbb{N}, m + n = n + m$.
+\paragraph{La suma es conmutativa} Sean $a,b \in \mathbb{N}, a + b = b + a$.
 
 \paragraph{Demostración} Definimos un conjunto $S = \{b \in \mathbb{N}|a + b = b + a\text{, para todo } a \in \mathbb{N}\}$.
 
@@ -159,15 +159,15 @@ Por lo tanto la proposición se cumple para todos los naturales. $\blacksquare$
 \paragraph{} Ahora al evaluar en el sucesor la proposición encontramos por la definición de suma que:
 $$a + k^+ = (a + k)^+$$
 
-Por la hipótesis de inducción obtenemos
+Por la hipótesis de inducción obtenemos:
 
 $$(a + k)^+ = (k + a)^+$$
 
-y por el lema demostrado anteriormente donde $a^+ + b = (a + b)^+$ obtenemos
+y por el lema demostrado anteriormente donde $a^+ + b = (a + b)^+$ obtenemos:
 
 $$(k + a)^+ = k + a^+$$
 
-y al aplicar el axioma 4 tenemos que
+y al aplicar el axioma 4 de peano, tenemos que:
 
 $$k + a = a + k$$
 
@@ -204,15 +204,15 @@ Demostremos esta propiedad.
 
 \paragraph{} Construrímos el conjunto $S = \{ c \in \mathbb{N}| a(b+c) = ab + ac \text{ para todo } a,b \in \mathbb{N}\}$
 
-\paragraph{} Verificamos que $0 \in \mathbb{N}$, y por ende queremos demostrar que $a(b + 0) = ab + a0$. Por la definición de suma tenemos que
+\paragraph{} Verificamos que $0 \in \mathbb{N}$, y por ende queremos demostrar que $a(b + 0) = ab + a0$. Por la definición de suma tenemos que:
 
 	$$a(b + 0) = ab$$
 
-ahora por la propiedad del elemento neutro podemos decir que
+ahora por la propiedad del elemento neutro de la suma, podemos decir que:
 
 $$a(b + 0) = ab = ab + 0 $$
 
-y por la definición de multiplicación obtenemos
+y por la definición de multiplicación obtenemos:
 
 $$ab + 0 = ab + a0$$
 
@@ -226,15 +226,15 @@ y verificamos que se cumpla la propiedad para el sucesor, luego deberíamos veri
 
 $$a(b + k^+) = ab + ak^+$$
 
-Por la definición de múltiplicación tenemos que
+Por la definición de múltiplicación tenemos que:
 
 $$ab + ak^+ = ab + ak + a$$
 
-Por la propiedad asociativa podemos agrupar convenientemente esta ecuación
+Por la propiedad asociativa, podemos agrupar convenientemente esta ecuación
 
 $$ab + ak + a = (ab + ak) + a$$
 
-Utilizamos ahora la hipótesis de inducción, tenemos
+Utilizamos ahora la hipótesis de inducción y obtenemos:
 
 $$(ab + ak) + k = a(b + k) + a$$
 
@@ -248,7 +248,7 @@ $$a(b + k)^+ = a(b + k^+)$$
 
 Y que era lo que queríamos demostrar.$\blacksquare$
 
-Hasta este momento lo que hemos visto hasta aquí podemos hacer varias construcciones sin salirnos del conjunto\footnote{Los conjuntos aún no han sido definidos completamente, aún no hay una definición universal entre los matemáticos de conjunto debido a las paradojas que se derivan. Fue en el siglo XIX que gracias a Cantor y algunos de sus seguidores se estableció la teoría de conjuntos como una de las axiomatizaciones ampliamente aceptadas entre los matemáticos. Aunque hoy en día el programa de Langland es el que se está encargando de construir una teoría unificada de las matemáticas, su nombre es en honor al matemático que a fecha de hoy se encuentra trabajando en esta teoría Robert Langlands.} de los naturales pero hay operaciones que arrojan resultados fuera de su conjunto, como la resta y la división\footnote{Aún no definimos estas dos operaciones, vamos a estudiar primero su necesidad y su relación con la construcción de otros conjuntos}, por lo que podríamos decir que en cierta manera la construcción de estos conjuntos nace como una necesidad de formalizar los resultados de algunas operaciones. Veamos algunos ejemplos.
+Hasta este momento lo que hemos visto hasta aquí podemos hacer varias construcciones sin salirnos del conjunto\footnote{Los conjuntos aún no han sido definidos completamente, aún no hay una definición universal entre los matemáticos de conjunto debido a las paradojas que se derivan. Fue en el siglo XIX que gracias a Cantor y algunos de sus seguidores se estableció la teoría de conjuntos como una de las axiomatizaciones mayormente aceptadas entre los matemáticos. Aunque hoy en día el programa de Langland es el que se está encargando de construir una teoría unificada de las matemáticas, su nombre es en honor al matemático que a fecha de hoy se encuentra trabajando en esta teoría: Robert Langlands.} de los naturales pero hay operaciones que arrojan resultados fuera de su conjunto, como la resta y la división\footnote{Aún no definimos estas dos operaciones, vamos a estudiar primero su necesidad y su relación con la construcción de otros conjuntos}, por lo que podríamos decir que en cierta manera la construcción de estos conjuntos nace como una necesidad de formalizar los resultados de algunas operaciones. Veamos algunos ejemplos.
 
 \paragraph{Ejemplo} Sean a y b dos números naturales y $a > b$ tenemos que al sumarlos sin importar el orden, siempre vamos a obtener un número natural, pero al restarlos tenemos dos casos.
 
@@ -258,7 +258,7 @@ Hasta este momento lo que hemos visto hasta aquí podemos hacer varias construcc
 
 \section{Los números enteros}
 
-Ahora podemos comprender mejor la necesidad de un conjunto mas amplio que los naturales. En escencia uno que contenga los valores menores a 0. se le denota con el símbolo $\mathbb{Z}$.
+Ahora podemos comprender mejor la necesidad de un conjunto mas amplio que los naturales. En escencia uno que contenga los valores menores a 0. Se le denota con el símbolo $\mathbb{Z}$.
 
 \subsection{La resta}
 
@@ -271,7 +271,7 @@ Conocida también como diferencia, se representa con el símbolo menos '-'. $a -
 $$-7 + 5$$
 $$|7| > 5$$
 
-Luego $|7| = 5 + k$, para que esto se cumpla necesariamente $k = 2$, $2$ es lo que le falta a $5$ para ser $7$, ahora en magnitud su diferencia es 2 y en éste cuando $a>b$ decimos que su resultado es 
+Luego $|7| = 5 + k$, para que esto se cumpla necesariamente $k = 2$, $2$ es lo que le falta a $5$ para ser $7$, ahora en magnitud su diferencia es 2 y en éste, cuando $a>b$ decimos que su resultado es 
 
 $$-7 + 5 = -2$$
 
@@ -290,11 +290,11 @@ $$(-a)(-b) = ab$$
 
 \paragraph{} Lo que hemos visto hasta ahora nos da una noción de operación inversa, al sumar, añadíamos cosas a otras cosas, al restar, quitamos cosas a otras cosas, pero y ¿al multiplicar? De ello surgió otro enigma
 
-\paragraph{}Al dividir lo que hacemos es contar cuantos conjuntos de cosas hay en un conjunto de cosas, luego si queremos dividir 4 entre 2, decimos que hay 2 dos en 4, es decir
+\paragraph{}Al dividir lo que hacemos es contar cuantos conjuntos de cosas hay en un conjunto de cosas, luego si queremos dividir 4 entre 2, decimos que hay 2 veces 2 en 4, es decir
 
 $$4 = 2(2)$$
 
-pero que hay de hallar lo anterior entre 5 y 7 y viceversa, y aún mas que hay de hacer lo anterior con el número 0.
+pero ¿Que hay de entre 5 y 7 y viceversa? Y aún mas ¿Qué hay del número 0?
 
 \paragraph{Divisibilidad y dividir} Nace la noción de divisibilidad, de cierto modo hemos visto que hay resultados de divisiones que existen en los enteros pero hay otros que no, por ejemplo
 
@@ -310,7 +310,7 @@ $$\frac{a}{b}$$
 
 Donde $a, b \in \mathbb{Z}$ y $b \neq 0$ necesariamente\footnote{Más adelante veremos la razón de esto. Por ahora asumiremos que estos números no existen.}.
 
-En este conjunto podemos ubicar, a los números resultado de las operaciones fuera del conjunto de los enteros y que vimos anteriormente\footnote{Su aparición tiene un gran recorrido histórico. Los babilonios por ejemplo sólamente utilizaban fracciones con base 60; los romanos en base 12. Los egipcios únicamente utilizaban fracciones con cualquier número como denominador pero no admitían ninguno que fuese diferente a 1 como numerador y en lugar de escribir $\frac{2}{5}$ escribían la expresión $\frac{1}{3} + \frac{1}{15}$. La notación actual parece provenir desde el año 1202 y que aparece en el 'Liber Abaci' de Leonardo de Pisa\cite{patino_duque_1977}}, respecto a la suma debemos añadir que hay dos casos:
+En este conjunto podemos ubicar a los números resultado de las operaciones fuera del conjunto de los enteros y que vimos anteriormente\footnote{Su aparición tiene un gran recorrido histórico. Los babilonios por ejemplo sólamente utilizaban fracciones con base 60; los romanos en base 12. Los egipcios únicamente utilizaban fracciones con cualquier número como denominador pero no admitían ninguno que fuese diferente a 1 como numerador y en lugar de escribir $\frac{2}{5}$ escribían la expresión $\frac{1}{3} + \frac{1}{15}$. La notación actual parece provenir desde el año 1202 y que aparece en el 'Liber Abaci' de Leonardo de Pisa\cite{patino_duque_1977}}, respecto a la suma debemos añadir que hay dos casos:
 
 \paragraph{Caso I:} Cuando las fracciones tienen un número igual. En este caso, se define:
 
@@ -342,7 +342,7 @@ Anteriormente afirmamos que los números de la forma $\frac{a}{0}$ no existen, a
 
 $$0b = a$$
 
-Pero por la definición que conocemos de multiplicación $0b = 0$ por ende no puede ser igual a $a$ porque $a \neq 0$. Por lo tanto $a \div 0 = b$ no existe.
+Pero por la definición que conocemos de multiplicación $0b = 0$, por ende no puede ser igual a $a$ porque $a \neq 0$. Por lo tanto $a \div 0 = b$ no existe.
 
 \paragraph{Caso II} Ahora suponemos que $a = 0$ e intentamos encontrar un único numero $b$ tal que 
 
@@ -359,16 +359,16 @@ como $0b = 0$ es verdadero para cualquier $b$ por la definición de multiplicaci
 \paragraph{Teorema fundamental de la aritmética} Cualquier entero mayor a 1 puede rescribirse como el producto único de numeros primos.
 
 \paragraph{}
-Justamente este teorema, reza lo que nos indica la noción de descomponer números, que los números pueden de cierto modo descomponerse hasta sus factores mas fundamentales y que estos son los números primos. Extensas propiedades y problemas aún abiertos, como la conjetura de goldbach\footnote{que indica que todo número par mayor que 2 puede expresarse como la suma de dos números primos $36 = 31 + 5$} siguen abiertos desde antes de la época de Euclides y grandes matemáticos, de la talla de Euler y Gauss han intentado descubrir cuál es la forma de encontrar la distribución de estos números, su respuesta tiene implicaciones mucho mas allá de las matemáticas.
+Justamente este teorema, reza lo que nos indica la noción de descomponer números, que los números pueden de cierto modo descomponerse hasta sus factores mas fundamentales y que estos son los números primos. Extensas propiedades y problemas aún abiertos, como la conjetura de Goldbach\footnote{que indica que todo número par mayor que 2 puede expresarse como la suma de dos números primos $36 = 31 + 5$.} siguen abiertos desde antes de la época de Euclides y grandes matemáticos, de la talla de Euler y Gauss han intentado descubrir cuál es la forma de encontrar la distribución de estos números, su respuesta tiene implicaciones mucho mas allá de las matemáticas.
 
 \section{Los números reales}
 
 Aún con todos estos conjuntos se obtienen resultados de operaciones que no es posible expresar con ninguno de los conjuntos anteriores, a estos números se les conoce como irracionales, y en definición, son los números que no se pueden expresar como un cociente entre números enteros(que no son racionales), aquí una breve história de cómo se nombraron los conjuntos obtenido de \cite{patino_duque_1977}:
 
 \paragraph{}
-\say{Euclides al hacer una clasificación sistemática de los números los dividió en dos grandes grupos que llamó symmetros(con medida) y asymmetros(sin medida) a cada uno de ellos. Al no encontrar una expresión simbólica adecuada para estos últimos los designó con la voz alogos. Gerardo de Cremona\footnote{Gerardo de Cremona gracias a su curiosidad por los tratados de oriente, estuvo en contacto con múltiples obras árabes que tradujo laboriosamente al latín, como el almagesto de Ptolomeo o la Geometría de Euclides.}, (1114-1187) al traducir un comentario árabe sobre Euclides, tomó los vocablos logos y alogos en su acepción de razón y no de la palabra coomo la quizo Euclides, y empleó erróneamente los términos rationalis e irrationalis para designar unos y otros. Este error se difundió durante toda la edad media hasta llegar a nosotros}.
+\say{Euclides al hacer una clasificación sistemática de los números los dividió en dos grandes grupos que llamó symmetros(con medida) y asymmetros(sin medida) a cada uno de ellos. Al no encontrar una expresión simbólica adecuada para estos últimos los designó con la voz alogos. Gerardo de Cremona\footnote{Gerardo de Cremona gracias a su curiosidad por los tratados de oriente, estuvo en contacto con múltiples obras árabes que tradujo laboriosamente al latín, como el almagesto de Ptolomeo o la Geometría de Euclides.}, (1114-1187) al traducir un comentario árabe sobre Euclides, tomó los vocablos logos y alogos en su acepción de razón y no de la palabra como la quizo Euclides, y empleó erróneamente los términos rationalis e irrationalis para designar unos y otros. Este error se difundió durante toda la edad media hasta llegar a nosotros}.
 
-\paragraph{} retomando nuestra composición del conjunto... A este conjunto le denota con la letra $\mathbb{I}$. Estos números aparecen por primera vez en el teorema de pitágoras.
+\paragraph{} retomando nuestra composición del conjunto... A este conjunto se le denota con la letra $\mathbb{I}$. Estos números aparecen por primera vez en el teorema de pitágoras.
 
 \paragraph{Teorema de pitágoras} Sean a y b los catetos de un triangulo rectángulo, su hipotenusa c, satisface $a^2 + b^2 = c^2$.
 
@@ -384,7 +384,7 @@ Veremos que esto nos lleva a una contradicción y por lo tanto debe ser falso. C
 
 $$\frac{p^2}{q^2} = 2 \text{ ó que } p^2 = 2q^2$$
 
-Por ende $p^2$ es un número par, porque contiene el factor $2$. Pero el cuadrado de cualquier número impar es impar. en consecuencia $p$ no puede ser un número impar y debe ser par, por lo que podemos decir que $p = 2n$, donde $n$ es un entero. De la ecuación $p^2 = 2q^2$ tenemos que $(2n)^2 = 2q^2$ o $4n^2 = 2q^2$. Por ende, $2n^2 = q^2$, lo cual muestra que $q^2$ es par y consecuentemente $q$ también es par. Dado que ambos números son pares, el númerador y denominador de $\frac{a}{b}$ contienen el factor 2. Esto contradice nuestra tésis que $\frac{a}{b}$ estaba reducido a su mínima fracción, y demuestra que no existe ningún número racional que elevado al cuadrado sea igual a $2$. $\blacksquare$.
+Por ende $p^2$ es un número par, porque contiene el factor $2$. Pero el cuadrado de cualquier número impar es impar\footnote{Los números impares se denotan con la forma $2n + 1$, donde $n$ es un número natural, luego tendríamos $1, 3, 5, 7, \dots$. Veamos a qué se refiere con el cuadrado de un impar: $(2n+1)^2 = 4n^2 + 4n + 1 = 2(2n^2 + 2n) +1$, con este argumento el autor de la demostración nos afirma la paridad de $p$}. En consecuencia $p$ no puede ser un número impar y debe ser par, por lo que podemos decir que $p = 2n$, donde $n$ es un entero. De la ecuación $p^2 = 2q^2$ tenemos que $(2n)^2 = 2q^2$ o $4n^2 = 2q^2$. Por ende, $2n^2 = q^2$, lo cual muestra que $q^2$ es par y consecuentemente $q$ también es par. Dado que ambos números son pares, el númerador y denominador de $\frac{a}{b}$ contienen el factor 2. Esto contradice nuestra tésis que $\frac{a}{b}$ estaba reducido a su mínima fracción, y demuestra que no existe ningún número racional que elevado al cuadrado sea igual a $2$. $\blacksquare$.
 
 \paragraph{Definición} Los números irracionales, denotados con el símbolo $\mathbb{I}$ son los números que no pueden representarse como un racional, es decir:
 
@@ -400,7 +400,7 @@ Dentro de los números reales hay dos tipos, los números algebráicos y los nú
 
 \paragraph{Definición} Un número algebráico es un número que puede expresarse como la raíz de un polinomio.
 
-\paragraph{Definición} Un número trascendental\footnote{Se desconocen muchos de éstos números y así mismo la prueba de trascendencia se lleva a cabo caso a caso. Por ejemplo una de las prueba de que $\pi$ es un número trascendental fue llevada a cabo por Lindeman en 1882, utilizó técnicas muy similares como las que se utilizaron por Hermite para demostrar la trascendencia de $e$.} es un número que no puede expresarse como la raíz de un polinomio.
+\paragraph{Definición} Un número trascendental\footnote{Se desconocen muchos de éstos números y así mismo la prueba de trascendencia se lleva a cabo caso a caso. Por ejemplo una de las pruebas de que $\pi$ es un número trascendental fue llevada a cabo por Lindeman en 1882, utilizó técnicas muy similares como las que se utilizaron por Hermite para demostrar la trascendencia de $e$.} es un número que no puede expresarse como la raíz de un polinomio.
 
 
 \paragraph{}
@@ -408,14 +408,14 @@ Cantor tiene una de las demostraciones de las que se deriva que pueden existir "
 
 \section{¿Y estos son todos los números que hay?}
 
-Hasta aquí hemos visto es que los conjuntos se han construído como una necesidad para llenar un vacío que necesariamente requiere de un nuevo tipo de número, lo cierto es que hasta el momento el siguiente conjunto cubre todos los anteriores y nace en necesidad de hallar la raíz de un número negativo. A éste número se le conoce como los complejos $\mathbb{C}$ y dentro de este se encuentran todos los conjuntos anteriormente descritos.
+Hasta aquí hemos visto es que los conjuntos se han construído como una necesidad para llenar un vacío que necesariamente requiere de un nuevo tipo de número, lo cierto es que hasta el momento el siguiente conjunto cubre todos los anteriores y nace como necesidad de hallar la raíz de un número negativo. A este conjunto se le conoce como el conjunto de números complejos $\mathbb{C}$ y dentro de este se encuentran todos los conjuntos anteriormente descritos.
 
 \paragraph{} El símbolo $\sqrt{-1} = i$, es la unidad en los números imaginarios; y la propiedad $i^2 = -1$ es la definición de unidad imaginaria\cite{patino_duque_1977}.
 
 Y más alla, existen otros conjuntos, como los hipercomplejos, los transfinitos y los hiperreales.
 
 \section{Conclusiones}
-Las matemáticas como otra rama del pensamiento humano ha tenido una evolución sostenida a lo largo de la historia, son una construcción, pero en particular es una de las construcciones más rigurosas, y el rigor de la prueba se usa como una base sólida y necesaria para su construcción y así lo evidenciamos en algunas partes de éste texto. Los números puntualmente, los utilizamos desde las nociones más intuitivas, como por ejemplo las operaciones básicas en los enteros y en los naturales; y en los racionales encontramos matemáticas que son utilizadas en el día a día al dividir (por ejemplo), pero no siempre es así ¿Cuándo requerimos conocer si un numero es trascendental o no? podría verse como una una labor poco práctica o que aporte algún conocimiento, pero verlo así, limita enormemente nuestra capacidad para el descubrimiento y nos impide ver las verdades que se ocultan.
+Las matemáticas como otra rama del pensamiento humano ha tenido una evolución sostenida a lo largo de la historia, son una construcciónde las más rigurosas, se usa como una base sólida y necesaria, así lo evidenciamos en algunas partes de éste texto. Los números puntualmente, los utilizamos desde las nociones más intuitivas, como por ejemplo las operaciones básicas en los enteros y en los naturales; y en los racionales encontramos matemáticas que son utilizadas en el día a día al dividir (por ejemplo), pero no siempre es así ¿Cuándo requerimos conocer si un numero es trascendental o no? podría verse como una labor poco práctica o que aporte algún conocimiento, pero verlo así, limita enormemente nuestra capacidad para el descubrimiento y nos impide ver las cosas que aún se ocultan en esta gran construcción llamada matemática.
 
 \nocite{*}
 
