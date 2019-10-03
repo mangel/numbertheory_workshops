@@ -6,7 +6,7 @@
 \usepackage{amsthm}
 \usepackage[utf8]{inputenc}
 
-\title{Taller 8}
+\title{Workshop VIII}
 \author{Cesar A. Lara y Miguel A. Gomez}
 
 
@@ -57,7 +57,24 @@ And lastly we substract 1 from both sides of the congruence to finally obtain
 
 $$2^{44} - 1 \equiv 0 \pmod{89}$$
 
-By which we prove, that $89|2^{44} - 1$. \qed.
+By which we prove, that $89|2^{44} - 1$. \qed
+
+\paragraph{Proof} $97|2^{48} - 1$. We firs state one of Fermat's Theorem.
+
+\subparagraph{Theorem} If $p$ is a prime number and $(a,b) = 1$, then:
+
+$$a^{p-1} \equiv{ 1 \pmod{p} }$$
+
+\paragraph{} Continuing our initial proof we obtain:
+
+$$97 \not{|} 2 \implies 2^{96} \equiv{1\pmod{97}}$$
+
+\begin{align*}
+    2^{96} - 1 &= (k)(97)\\
+    (2^{48} + 1)(2^{48} - 1) &= (k)(97)
+\end{align*}
+
+We see now that this expression must be divisible by $97$. \qed
 
 \paragraph{}2. If p is a prime satisfiying $n<p<2n$, show that
 
