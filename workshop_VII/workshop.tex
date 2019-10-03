@@ -1,0 +1,68 @@
+\documentclass{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+
+\title{Taller 8}
+\author{Cesar A. Lara y Miguel A. Gomez}
+
+
+\begin{document}
+	\maketitle
+
+\paragraph{}1. Use the theory of congruences to verify that
+
+$$89|2^{44} - 1 \text{ and } 97|2^{48} - 1$$
+
+\paragraph{Proof} $89|2^{44} - 1$. We first establish a relationship between $89$ and a number that is a power of $2$:
+
+$$2^8 = 256 = (3)(89)-11$$
+
+By definition of congruences, this also can be re-written into $2^{8} \equiv (-11)\pmod{ 89}$, and because of the symmetry property of congruences, this also implies that:
+
+$$-11 \equiv {2^{8}}\pmod{89}$$
+
+By the multiplication property\footnote{Given some element $c$ if $a \equiv b\pmod{n}$, then $ac \equiv bc \pmod{n}$.} we obtain:
+
+\begin{align*}
+	8(-11) &\equiv (2^8)8 \pmod{89}\\
+	(-88) &\equiv (2^{8}) (2^{3}) \pmod{89}\\
+	(-88) &\equiv (2^{11})\pmod{89}
+\end{align*}
+
+We observe the relationship between $88$ and $89$ in terms of integer division:
+
+$$89 = 88 +1 \implies 88 \equiv 1 \pmod{89}$$.
+
+Multipliying both sides by $-1$ we have 
+$$-88 \equiv -1 \pmod{89}$$
+
+and by the transitivity property, we can establish a link between two unseemly related congruences:
+
+\begin{align*}
+	-88 \equiv -1 \pmod{89} \land (-88) \equiv (2^{11})\pmod{89} \implies 2^{11} \equiv -1 \pmod{89}
+\end{align*}
+
+Then, by the power property\footnote{For a given positive integer k, $a^k \equiv b^k \pmod{n}$}:
+
+\begin{align*}
+	(2^{11})^{4} &\equiv (-1)^4 \pmod{89}\\
+	2^{44} &\equiv 1 \pmod{89}\\
+\end{align*}
+
+And lastly we substract 1 from both sides of the congruence to finally obtain
+
+$$2^{44} - 1 \equiv 0 \pmod{89}$$
+
+By which we prove, that $89|2^{44} - 1$. \qed.
+
+\paragraph{}2. If p is a prime satisfiying $n<p<2n$, show that
+
+$$\binom{2n}{n} \equiv 0\mod{p} $$
+
+\paragraph{}3. Find the remainder when $4444^{444}$ is divided by 9. Hint: Observe that $2^{3} \equiv -1(\mod{9})$
+	
+\end{document}
