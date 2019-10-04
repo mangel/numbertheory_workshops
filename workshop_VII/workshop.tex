@@ -74,12 +74,134 @@ $$97 \not{|} 2 \implies 2^{96} \equiv{1\pmod{97}}$$
     (2^{48} + 1)(2^{48} - 1) &= (k)(97)
 \end{align*}
 
-We see now that this expression must be divisible by $97$. \qed
+We must verify now that this expression must be divisible by $97$, which is true, because
+
+$$97 = 2(48) + 1 \implies 2 \equiv 1 \pmod{97}$$
+
+Then by the power property
+
+$$2^{48} \equiv 1^{48} \pmod{97} \implies 2^{48} \equiv 1 \pmod{97}$$
+
+By the adding property we obtain
+
+$$2^{48} - 1 \equiv 1 -1 \pmod{97} \implies 2^{48} - 1 \equiv 0 \pmod{97}$$
+
+Which implies that $97$ indeed divides $2^{48} - 1$. \qed
+
+\newpage
 
 \paragraph{}2. If p is a prime satisfiying $n<p<2n$, show that
 
-$$\binom{2n}{n} \equiv 0\mod{p} $$
+$$\binom{2n}{n} \equiv 0\pmod{p} $$
 
-\paragraph{}3. Find the remainder when $4444^{444}$ is divided by 9. Hint: Observe that $2^{3} \equiv -1(\mod{9})$
-	
+\paragraph{Proof}
+\begin{align*}
+  \binom{2n}{n} = \dfrac{(2n)!}{(2n-n)!n!} &= \dfrac{(2n)(2n-1)(2n-1)(\dots) (p)(\dots)(n+1)(n!)}{n!n!}\\
+  &= \dfrac{(2n)(2n-1)(2n-2)(2n-3)(2n-4)(\dots)(p)(\dots)(n+1)}{n(n-1)(n-2)(\dots)(1)}
+\end{align*}
+
+Patterns of common factors can be finded in the expression:
+
+$$2n-6=2(n-3), 2n-8=2(n-4), 2n-5 = 2(n-5)$$
+
+By which we can simplify into:
+
+$$(2n-1)(2n-3)(2n-5).....p.....(n+1)$$
+Then:
+
+$$ \binom{2n}{n} \equiv{0\pmod{p}}$$
+
+\qed
+
+\paragraph{}3. Find the remainder when $4444^{444}$ is divided by 9. Hint: Observe that $2^{3} \equiv -1\pmod{9}$.
+
+\paragraph{Proof} We start by exploring the number $4444^{444}$ in terms of is prime factors.
+
+$$4444 = (2)(2)(11)(101)$$
+$$444 = (2)(2)(3)(37)$$
+
+If we inspect these numbers mod 9, we get respectively:
+
+\begin{align*}
+  2^2 &\equiv 2^2 \pmod{9} \implies 2 \equiv 2 \pmod{9}\\
+  101 &\equiv 2 \pmod{9}\\
+  11 &\equiv 2 \pmod{9}
+\end{align*}
+
+We start the construction of symmetries between the prime decomposition of $44444$, we begin with:
+
+$$101 \equiv 2 \pmod{9}$$
+
+By the multiplication property, we multiply by $11$ (which is another prime factor of our number), then:
+
+$$(101)(11) \equiv 22 \pmod{9}$$
+
+Be congruent by $22$ is the same as being congruent by $4$:
+$$22 = 9(2) + 4 \implies 22 \equiv 4 \pmod{9}$$
+
+Then,
+
+$$(101)(11) \equiv 4 \pmod{9}$$
+
+We multiply again by $2^2$ the congruence:
+
+$$(4)(101)(11) \equiv 4(4) \pmod{9} \implies (4)(101)(11) \equiv 16 \pmod{9}$$
+
+We evaluate $16$ divisibility by $9$:
+
+$$16 = 9(1) + 7 \implies 16 \equiv 7 \pmod{9}$$
+
+Then,
+
+$$4444 = (4)(101)(11) \equiv 7 \pmod{9}$$
+
+And by the power property
+
+$$4444^{444} = ((4)(101)(11))^{444} \equiv 7^{444} \pmod{9}$$
+
+Then $7^{444}$ is the remainder, repeating the same procedure we see that
+
+$$7 = 9(0) + 7 \implies 7 \equiv 7 \pmod{9}$$
+
+But also
+
+$$7 = 9(1) - 2 \implies 7 \equiv -2 \pmod{9}$$
+
+Then,
+
+$$7^{444} \equiv (-2)^{444} \pmod{9}$$
+
+Which is the same as
+
+$$7^{444} \equiv (2)^{444} \pmod{9}$$
+
+and the same as
+
+$$7^{444} \equiv (2^3)^{(4)(37)} \pmod{9}$$
+
+By the hint we know that
+
+$$2^{3} \equiv -1 \pmod{9}$$
+
+then
+
+$$2^{444} = (2^{3})^{(4)(37)} \equiv (-1)^{(4)(37)} \pmod{9}$$
+
+Which is the same as
+
+\begin{align*}
+  2^{444} = (2^{3})^{(4)(37)} &\equiv (1)^{(4)(37)} \pmod{9}\\
+  &\equiv 1 \pmod{9}
+\end{align*}
+
+Then,
+
+$$7^{444} \equiv 1 \pmod{9}$$
+
+and at last,
+
+$$4444^{444} \equiv 1 \pmod{9}$$
+
+The remainder is $1$. \qed
+
 \end{document}
