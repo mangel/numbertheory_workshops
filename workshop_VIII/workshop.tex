@@ -1,0 +1,140 @@
+\documentclass{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+
+\title{Taller IX}
+\author{Miguel A. Bautista y Miguel A. Gomez}
+
+\begin{document}
+	\maketitle
+	
+Desarrolle en completo detalle las demostraciones de los siguientes teoremas.
+
+\paragraph{1} \textbf{La congruencia lineal}: $ax \equiv b\pmod{}$ tiene solución si y sólo si $d|b$, donde $d = \text{mcd}(a,n)$. Si $d|b$, entonces tiene $d$ soluciones mutuamente incongruentes entre si, módulo $n$.
+
+\subparagraph{demostración} \textit{adaptada del libro de Introducción a la teoría de números para principiantes de Rubiano}. La demostración está compuesta por cinco partes:
+
+\paragraph{I} Si $d|b$, hay una solución.
+
+\begin{proof}
+Suponemos que $d|b$ y por ende llegaremos a que existe una solución cuando esto sucede. Luego por divisibilidad:
+
+$$d|b \implies b = dc, c \in \mathbf{Z}$$
+
+Como sabemos que $d =\text{mcd}(a,n)$, por el lema de Bezout podemos expresar $d$ como una combinación lineal, luego:
+
+$$\text{mcd}(a,n) = d = aq + nr$$
+
+donde $q$ e $r$ pertenecen a $\mathbf{Z}$. Ahora observese que $b = dc$, luego al multiplicar la combinación lineal del paso anterior, obtendremos:
+
+$$dc = a(qc) + n(rc) \implies b = a(qc) + n(rc)$$
+
+Al rescribir la ecuación anterior como una congruencia obtenemos:
+
+$$aqc \equiv b \pmod{n}$$
+
+por lo que necesariamente $x = qc$ y ésta es una solución la congruencia inical $ax \equiv b \pmod{n}$.
+\end{proof}
+
+\paragraph{II} Si hay solución $d|b$.
+
+\begin{proof}
+La combinación lineal $ax \equiv b \pmod{n}$, donde $x \in \mathbf{Z}$, es una solución del sistema. Entonces,
+    
+    $$ax -b = kn \implies a = p_1 d \text{ y } n = p_2 d$$
+
+donde $p_1, p_2 \in \mathbf{Z}$. Ahora observemos la congruencia inicial ($ax \equiv b \pmod{n}$) como una ecuación:
+\begin{align*}
+    ax - b &= kn\\
+    (p_1)dx - b &= k(p_2)(d)\\
+    -b &= k(p_2)d - (p_1)xd\\
+    -b &= d(k(p_2) - (p_1)x)
+\end{align*}
+
+vemos por lo tanto que $d|b$.
+\end{proof}
+
+\paragraph{III} Si $X_0$ es una solución, entonces, $x_0 + k \frac{n}{d}$ es solución para todo entero $k$.
+
+\begin{proof}
+Supongamos que $x_0 + k \frac{n}{d}$:
+
+$$a\left(x_0 + k \frac{n}{d}\right) \equiv b \pmod{n}$$
+
+y por la propiedad distributiva
+
+$$ax_0 + ak \frac{n}{d} \equiv b \pmod{n}$$
+
+Por III, podemos reescribir lo anterior de la siguiente manera: Como $d|b$ entonces $b=cd$, y como $d=\text{mcd}(a,n)$, $a=dp_1$ y $n = d p_2$, luego:
+
+\begin{align*}
+    p_1dx_0 + p_1d \left(\frac{p_2d}{d}\right)k - cd &= k_1p_2d\\
+    p_1dx_0 + p_1d p_2 k - cd &= k_1p_2d\\
+    d(p_1x_0 + p_1 p_2 k - c) &= (k_1p_2)d
+\end{align*}
+
+Puesto que d también divide a la expresión, por la definición de congruencia también será una solución.
+\end{proof}
+
+\paragraph{IV} Todas las soluciones se encuentran entre las soluciones mencionadas en III.
+
+\begin{proof}
+$$ax_0 \equiv b \pmod{n}$$
+
+y por simetría de las congruencias
+
+$$b \equiv ax_0 \pmod{n}$$
+
+Supongamos que $x_1$ también es solución del sistema, entonces:
+
+$$ax_1 \equiv b \equiv a x_0 \pmod{n}$$
+
+Multiplicamos por $\frac{1}{a}$ y obtenemos que:
+
+$$x_1\equiv x_0 \pmod{n}$$
+
+Y por la tésis sabemos que $\text{mcd}(a,n) = d$, luego $d|n$ y 
+
+$$x_1 \equiv x_0 \pmod{n}$$
+
+Al reescribir como una ecuación, obtenemos
+
+\begin{align*}
+    x_1 - x_0 &= k\frac{n}{d}\\
+    x_1 = x_0 + k\frac{n}{d}
+\end{align*}
+
+por lo que todas las soluciones tienen la forma de la ecuación diofántica original.
+\end{proof}
+
+\paragraph{V} Las soluciones incongruentes son precisamente:
+
+$$X_0, x_0 + \frac{n}{d}, x_0 + \frac{2n}{d}, \dots, x_0 + \frac{(d-1)n}{d}$$
+
+\begin{proof}
+Supongamos que son congruentes, por ende su diferencia debe ser un múltiplo de n, tomemos $x_0$ y $x_0 + \frac{n}{d}$, luego:
+
+\begin{align*}
+    x_0 - x_0 - \frac{n}{d} &= nk\\
+    \frac{qd}{d} &= nk\\
+    q &= nk
+\end{align*}
+
+donde $q \in \mathbf{Z}$, pero no todo número es múltiplo de $n$, análogamente ocurre lo mismo con las demás soluciones, por lo tanto, necesariamente las soluciones son incongruentes entre sí.
+\end{proof}
+
+\paragraph{2} Teorema chino del residuo.
+
+\paragraph{3} El sistema de congruencias lineales.
+
+$$ax + by \equiv r \pmod{n}$$
+$$ex + dy \equiv s \pmod{n}$$
+
+Tiene una única solución módulo $n$ siempre y cuando $\text{mcd}(ad-br,n) = 1$.
+
+\end{document}
