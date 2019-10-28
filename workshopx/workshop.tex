@@ -1,0 +1,95 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage[spanish, mexico]{babel}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+	\title{Taller X}
+	\author{Leidy C. Sánchez, Miguel A. Gómez}
+	\maketitle
+
+\paragraph{1.} Reproduce and explain in full detail all the solutions presented for the problem of a card game, including theone given a congruence.
+
+\paragraph{2.} Reproduce and explain in full datail all the solutions presented for the Han Xing soildiers problem.
+
+\paragraph{3.} Reproduce and explain in full detail the solutions presented for the pirates problem.
+
+\paragraph{4.} Reproduce and explain in full detail the solutions presented for the eggs problem. And based on it, invent a problem which will be solved with a congruence.
+
+\paragraph{5.} Un entero compuesto $n$ se llama pseudoprimo siempre y cuando $n|2^n - 2$. Se puede observar existen infinitos pseudoprimos, los primeros cuatro 341, 561, 645 y 1105. Demuestre que, si $n$ es un pseudoprimo impar, entonces $M_n = 2^n - 1$ es uno aún mayor.
+
+\begin{proof}
+Si $n$ es compuesto, por definición de número compuesto, significa que es múltiplo de algun número primo $p$, es decir, es de la forma $n = dp$ con $d$ y $p \in \mathbb{Z}$.
+
+\paragraph{} Ahora es necesario realizar la demostración del siguiente teorema\footnote{Punto 7, assignment III}.
+
+\paragraph{Teorema} Si $n$ y $d$ son enteros tal que $n|d$, entonces $2^d - 1 | 2^n - 1$.
+
+\begin{proof}
+Por definición de divisibilidad, $n = md$, con $m \in \mathbb{Z}$, al reemplazaren la expresión $2^{d} + 1$, tenemos:
+	
+	$$2^n -1 = 2^{md} - 1$$
+
+al aplicar la identidad $x^k - 1 = (x-1)(x^{k-1} + x^{k-2} + \dots + x + 1)$ en la expresión anterior tenemos que
+
+\begin{align*}
+	2^{md} - 1 &= (2^d - 1) ((2^{d})^{m - 1} + (2^{d})^{m - 2} + \dots + 2^d + 1)\\
+	&= (2^d - 1) k \text{, con } k = (2^d)^{m-1} + (2^d)^{m-2} + \dots + 2^d + 1
+\end{align*}
+
+Y por lo tanto 
+
+$$2^n - 1 = (2^d - 1) - k$$
+
+y  por divisibilidad, esto es equivalente a que $2^d - 1 | 2^n - 1$
+\end{proof}
+
+Continuando con la demostración inicial, como $M_n = 2^n -1$, entonces por el teorema demostrado anteriormente, $2^d - 1 | M_n$, como $M_n$ es compuesto si $n$ es compuesto.
+
+\paragraph{} $n|2^n - 2$ se puede rescribir como $2^n \equiv 2 \pmod{n}$ y $2^n - 2 = qn$, con $q \in \mathbb{Z}$. Sin embargo nótese tambien que $2^n - 2 = 2^n - 1 - 1$, que es la forma original de un número de Merssene, y por ende $(2^n - 1) - 1 = M_n - 1 = qn$.
+
+\paragraph{} Por propiedades de los exponentes $2^{M_n - 1} = 2^{qn}$ y $2^{M_n - 1} - 1 = 2^{qn} - 1$. Utilizando la identidad derivadadel teorema binomial\footnote{$x^k - 1 = (x-1)(x^{k-1} + x^{k-2} + \dots + x + 1)$} en $2^{qn} - 1$:
+
+\begin{align*}
+2^{qn} - 1 &= (2^n - 1)((2^n)^{q-1} + (2^n)^{q-2} + \dots + 2^n + 1)\\
+&= M_n((2^n)^{q-1} + (2^n)^{q-2} + \dots + 2^n + 1)
+\end{align*}
+
+y como $2^{mn -1} - 1 = 2^{qn} - 1$, podemos divir la parte derecha de la igualdad entre $M_n$ y por ende $2^{M_n - 1} - 1 \equiv 0 \pmod{M_n} \implies 2^{M_n - 1} \equiv 1 \pmod{M_n}$ y por propiedades de las congruencias $2(2^{M_n -1}) \equiv 2(1) \pmod{M_n} \implies 2^{M_n} \equiv 2 \pmod{M_n}$ y que podemos rescribir como
+
+$$2^{M_n} - 2 \equiv 0 \pmod{M_n} \implies M_n | 2^{M_n} - 2$$
+
+por lo que $M_n$ es pseudoprimo $M_n = 2^n - 1$, $M_n$ es mayor que $n$.
+\end{proof}
+	
+\paragraph{6.} Las tres apareiciones mas recientes del cometa Halley fueron en los años 1985, 1910 y 1986; la próxima será en 2061. demuestre que
+
+$$1835^{1910} + 1986^{2061} \equiv 0 \pmod{7}$$
+
+\begin{proof}
+$1835 = (7)(262) + 1$, por lo tanto $1835 \equiv 1 \pmod{7}$ y por propiedades de las congruencias $1835^{1910} \equiv 1^{1910} \pmod{7}$ es equivalente a $1835^{1910} \equiv 1 \pmod{7}$.
+
+\paragraph{} Por otra parte, el número 1986 puede escribirse como $(7)(283) + 5$, por lo tanto $1986 \equiv 5 \pmod{7}$ y por propiedades de las congruencias $1986^{2061} \equiv 5^{2061} \pmod{7}$ que es equivalente a $1986^{2061} \equiv (5^3)^{687} \pmod{7}$.
+
+\paragraph{}Nótese que $5^2 = 125 = 126 - 1$, es decir que $5^3 \equiv -1 \pmod{7}$, por propiedades de congruencias $(5^3)^{687} \equiv (-1)^{687} \pmod{7}$, que es equivalente a $(5^3)^{687} \equiv -1 \pmod{7}$ y por transitividad equivalente a que $1986^{2061} \equiv -1 \pmod{7}$. Con lo anterior por propiedades de las congruencias se sigue que
+
+\begin{align*}
+1835^{1910} + 1986^{2061} &\equiv 1 + (-1) \pmod{7}\\
+&\equiv 0 \pmod{7}
+\end{align*}
+
+y que era lo que queríamos demostrar.
+
+\end{proof}
+
+\nocite{*}
+
+\bibliography{bibliography}
+
+\end{document}
