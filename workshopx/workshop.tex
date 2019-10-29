@@ -16,9 +16,9 @@
 
 \paragraph{1.} Reproduce and explain in full detail all the solutions presented for the problem of a card game, including theone given a congruence.
 
-\paragraph{2.} Reproduce and explain in full datail all the solutions presented for the Han Xing soildiers problem.
+\paragraph{2.} Reproduce and explain in full detail all the solutions presented for the Han Xing soldiers problem.
 
-\paragraph{3.}  Reproduzca y explique en completo detalle las soluciones presentadas para el problema de los priatas.
+\paragraph{3.}  Reproduzca y explique en completo detalle las soluciones presentadas para el problema de los piratas.
 
 \paragraph{Problema de los piratas} Una banda de 17 piratas se apodera de un botín compuesto por monedas de oro de igual valor. Deciden repartirse el botín en partes iguales y dar el resto al cocinero chino. Así, el cocinero recibirá tres monedas. Pero los piratas se pelean entre ellos y seis de ellos mueren en la riña. El cocinero recibiría entonces 4 monedas. Posteriormente ocurre un naufragio y solo 6 piratas, el cocinero y el tesoro se salvan. La nueva repartición dejaría 5 monedas de oro al cocinero ¿Cuál es la fortuna mínima que esperaría el cocinero si decide liquidar al resto de los piratas?
 
@@ -38,7 +38,7 @@ con sustituímos este valor para $x$ en la segunda congruencia y simplificamos:
 
 $$3 + 17s \equiv 4 \pmod{11} \implies 17s \equiv 1 \pmod{11}$$
 
-nos interesa conocer los valores que puede tener $s$, por lo que ahora buscamos un valor que sea múltiplo de 17 y congruente a 1 módulo 11, nótese que:
+nos interesa conocer los valores que puede tener $s$, por lo que ahora buscamos un valor que sea múltiplo de 17 congruente a 1 módulo 11, nótese que:
 $$34 = 17(2) - 1 \implies 34 \equiv 1 \pmod{11}$$
 ahora multiplicamos por 2: $17(2)s \equiv 1(2) \pmod{11}$, por propiedades de las congruencias podemos afirmar que lo anterior implica que 
 
@@ -50,10 +50,75 @@ $$x = 3 + 17(2 + 11k) = 3 + 34 + 187k = 37 + 187k$$
 
 este nuevo valor para $x$ lo sustituímos en la tercera congruencia, luego
 
-$$37 + 187k \equiv 5 \pmod{6}$$
+$$37 + 187k \equiv 5 \pmod{6} \implies 187k \equiv -32 \pmod{6}$$
 
+nótese que 
+$$32 + 4 \equiv 0 \pmod{6} \implies 4 \equiv -32 \pmod{6}$$
 
-\paragraph{4.} Reproduce and explain in full detail the solutions presented for the eggs problem. And based on it, invent a problem which will be solved with a congruence.
+y por la propiedad de transitividad,
+
+$$187k \equiv 4 \pmod{6}$$
+
+nuevamente nos interesa conocer los valores que puede tener $k$, por lo que buscamos un valor múltiplo de 187 congruente a 1 módulo 6, nótese que:
+
+$$187 = 6(31) + 1 \implies 187 \equiv 1 \pmod{6}$$
+
+por propiedades de las congruencias podemos afirmar que lo anterior implica que
+
+$$k \equiv 4 \pmod{6} \implies k = 4 + 6t \text{ con } t \in \mathbb{Z}$$
+
+al reemplazar este resultado en $x = 37 + 187k$ obtenemos
+
+\begin{align*}
+	x &= 37 + 187(4 + 6t)\\
+	  &= 37 + 748 + 1122t\\
+	  &= 785 + 1122t
+\end{align*}
+
+por lo que como mínimo el cocinero obtendrá 785 monedas de oro si decide liquidar al resto de la tripulación.
+
+\paragraph{4.} Reproduzca y explique en completo detalle las soluciones presentadas para el problema de los huevos. Y basado en este, inventeun problema que pueda ser resuelto con una congruencia.
+
+\paragraph{Problema de los huevos} Una mujer fue al mercado y un caballo quebró los huevos que tenía en su canasto. El dueño del caballo ofreció pagarle por el daño causado. Le preguntó cuantos huevos había quebrado su caballo. La mujer dijo que no sabía, pero recordó que cuando los ordenó de dos en dos, quedaba uno. Igual cosa sucedió cuando los ordenó en grupos de 3, de 4, de 5, y de 6. Pero cuando los ordenó en grupos de 7, no quedó ninguno ¿Cuál es la mínima cantidad cantidad de huevos que había en el canasto?
+
+\paragraph{Explicación en detalle de la solución} El sistema de congruencias se compone de los  casos en los que sobraba un huevo al realizar el conteo:
+	$$x \equiv 1 \pmod{2}$$
+	$$x \equiv 1 \pmod{3}$$
+	$$x \equiv 1 \pmod{4}$$
+	$$x \equiv 1 \pmod{5}$$
+	$$x \equiv 1 \pmod{6}$$
+
+Y el caso en el que no sobraban huevos al realizar el conteo:
+
+	$$x \equiv 0 \pmod{7}$$
+
+podríamos realizar sustituciones sucesivas, sin embargo en este caso por propiedades de las congruencias\footnote{Si $a \equiv b \pmod{n}$ y $n = (m_1)(m_2)$, entonces $a \equiv b \pmod{m_1}$ y $a \equiv b \pmod{m_2}$.} construimos una congruencia que sea equivalente, nótese que podemos realizar esta construcción debido a que hay numeros que tienen el módulo compuesto, hay varias maneras de realizar esta construcción sin embargo el objetivo es obtener la solución que indica el autor, por lo que la construímos con las congruencias módulo $3,4$ y $5$, y obtenemos:
+
+$$x \equiv 1 \pmod{60}  \implies x = 1 + 60t \text{ con } t \in \mathbb{Z}$$
+
+sustituímos en la última congruencia
+
+$$ 1 + 60t \equiv 0 \pmod{7} \implies 60t \equiv -1 \pmod{7} \implies 60t \equiv 6 \pmod{7} \implies 10t \equiv 1 \pmod{7}$$
+
+nótese que requerimos despejar t, por lo que construímos la congruencia
+
+$$50 = 7(7) + 1 \implies 10(5) \equiv 1 \pmod{7}$$
+
+por ende, debemos multiplicar por 5 la congruencia que contiene a $t$ luego
+
+$$50t \equiv 5 \pmod{7}$$
+
+y por las propiedades de las congruencias
+
+$$t \equiv 5 \pmod{7} \implies t = 5 + 7p \text{ con } p \in \mathbb{Z}$$
+
+sustituímos en $x = 1 + 60t$ y obtenemos
+
+$$x = 1 + 60(5 + 7p) = 1 + 300 + 420p = 301 + 420p$$
+
+que implica $x \equiv 301 \pmod{420}$.
+
+\paragraph{Ejercicio}
 
 \paragraph{5.} Un entero compuesto $n$ se llama pseudoprimo siempre y cuando $n|2^n - 2$. Se puede observar existen infinitos pseudoprimos, los primeros cuatro 341, 561, 645 y 1105. Demuestre que, si $n$ es un pseudoprimo impar, entonces $M_n = 2^n - 1$ es uno aún mayor.
 
