@@ -1,0 +1,179 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsrefs}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+\usepackage[margin=0.5in]{geometry}
+
+\newtheorem{theorem}{Teorema}[]
+\newtheorem{definition}{Definición}[]
+
+\begin{document}
+	\title{Taller XI}
+	\author{Miguel A. Bautista, Miguel A. Gómez}
+	\maketitle
+
+\begin{theorem}
+	Si $p^{k_1}_{1} p^{k_2}_{2} \dots p^{k_r}_{r}$ es la factorización en números primos de $n>1$, entonces los divisores positivos de $n$ son de la forma
+	
+	$$d = p^{a_1}_{1} p^{a_2}_{2} \dots p^{a_r}_{r}$$
+	$$0 \leq a_i \leq k_i$$ 
+\end{theorem}
+\begin{proof}
+	Procederemos por contradicción. Supongamos que existe un divisor $d = q^{b_1}_{1} q^{b_2}_{2} \dots q^{b_s}_{s}$ que contiene primos que no se encuentran en la factorización de $n$, ello implicaría que todo $q^{b_s}_{s}$ divide a $n$ lo cual es una contradicción, porque $n$ únicamente se compone por los $p^{k_r}_{r}$, por lo que todos los divisores de $n$ se componen como una factorización única con los factores primos de $n$. Nótese que estas combinaciones deben satisfacer $0 \leq a_i \leq k_i$, por el mismo argumento, si $p^{k_r}_{r}|n$, entonces: $p^{k_r - 1}_{r}|n$, $p^{k_r - 2}_{r}|n$, $\dots$, $p^{k_r - k_r}_{r}|n$ y que es equivalente a $p^{0}_{r}|n$, $p^{1}_{r}|n$, $p^{2}_{r}|n$, $\dots$, $p^{k_r}_{r}|n$. 
+\end{proof}
+
+\begin{definition}
+	Si $n$ es un entero positivo definimos las funciones $\tau(n)$ y $\sigma(n)$ así:\cite{rubiano2004}
+	\begin{itemize}
+		\item $\tau(n)$ es el número de divisores de $n$.
+		\item $\sigma(n)$ es la suma de los divisores de $n$.
+	\end{itemize}
+\end{definition}
+
+\begin{theorem} \label{theorem:2}
+	$p^{k_1}_{1} p^{k_2}_{2} \dots p^{k_r}_{r}$ es la factorización en números primos de $n>1$, entonces:
+	
+	$$\tau(n) = (k_1 + 1) (k_2 + 1) \dots (k_r + 1)$$
+	$$\sigma(n) = \left( \frac{p^{k_1 + 1}_{1} - 1}{p_{1} - 1} \right) \left( \frac{p^{k_2 + 1}_{1} - 1}{p_{2} - 1} \right) \dots \left( \frac{p^{k_r + 1}_{1} - 1}{p_{r} - 1} \right)$$
+\end{theorem}
+\begin{proof}
+	Por el teorema anterior sabemos que todos los divisores de $n$ se construyen con la combinación de los factores primos de $n$ elevados a una potencia $a_i$ que satisface $0 \leq a_i \leq k_r$. Elegimos construir un divisor de $n$, $d=p^{k_r}_r$, de modo que podemos dividir por lo menos $k_r$ veces por $p_r$, y al ser primo podemos dividirlo por 1 también, es decir $k_r + 1$ divisores. Si queremos determinar el número de veces que es posible dividir otra combinación de primos (y construir otro divisor) se obtiene el producto de los valores de las potencias que componen al nuevo divisor mas uno $k_i + 1$, es decir que su número de divisores será exactamente
+	
+	$$ (k_1 + 1) (k_2 + 1) \dots (k_r + 1) $$
+	
+	y por ende
+	
+	$$\tau(n) = k_1 + 1) (k_2 + 1) \dots (k_r + 1)$$
+	
+	\paragraph{} continuamos ahora con la demostración para $\sigma(n)$. Por la demostración anterior, determinamos que los primos factores primos $p^{k_r}_r$ serán divisibles por las potencias que satisfacen $0 \leq a_i \leq k_r$ y que esta cantidad se construye con exactamente $(k_r + 1)$ divisores, si realizamos el proceso análogo con la suma de los divisores, tendríamos que esta sería:
+	
+	$$1 + p_r + p^{2}_r + p^{3}_r + \dots + p^{k_r}_r$$
+
+	y está expresión es equivalente a $\frac{1 - p^{k_r + 1}}{1 - p}$.
+	
+	\begin{proof}
+		Por inducción, $p=2$ y $k_r=0$:
+		
+		$$2^0 = \frac{1 - 2^{0 + 1}}{1 - 2} = \frac{1 - 2^{1}}{-1} = \frac{-1}{-1} = 1$$
+		
+		de modo que asumimos la propiedad verdadera para cualquier $s$ y formulamos la hipótesis de inducción:
+		
+		$$1 + p + p^{2} + p^{3} + \dots + p^{s} = \frac{1 - p^{s + 1}}{1 - p} $$
+		
+		Ahora verificando para $s + 1$, tenemos
+		
+		$$1 + p + p^{2} + p^{3} + \dots + p^{s} + p^{s + 1} = \frac{1 - p^{(s + 1) + 1}}{1 - p}$$
+		
+		Utilizando la hipótesis de inducción tenemos que 
+		
+		$$\frac{1 - p^{s + 1}}{1 - p} + p^{s + 1}$$
+		
+		\begin{align*}
+			\frac{1 - p^{s + 1}}{1 - p} + p^{s + 1} &= \frac{1 - p^{s + 1} + (p^{s + 1})(1 - p)}{1 - p}\\
+			&= \frac{1 - p^{s + 1} + p^{s + 1} - p^{(s + 1) + 1})}{1 - p}\\
+			&= \frac{1 - p^{(s + 1) + 1})}{1 - p}\\
+		\end{align*}
+		
+		y que es exactamente la forma esperada, y hemos demostrado por lo tanto la propiedad se cumple para todo $k_r$.
+	\end{proof}
+	
+	
+	\paragraph{}Reorganizando la expresión anterior, tenemos que $\frac{(-1)(1 - p^{k_r + 1})}{(-1)(1 - p_r)} = \frac{p^{k_r + 1}_r - 1}{p_r - 1}$.
+	
+	\paragraph{} Continuando con la demostración inicial, como los divisores de $n$ se componen con todas las combinaciones de los factores primos, construímos la expresión de su suma de divisores como:
+	
+	$$1 + p^{1}_1 p^{1}_r + p^{1}_1 p^{2}_r \dots + p^{k_1}_1 p^{1}_r + p^{k_1}_1 p^{2}_r + \dots +  p^{k_1}_1 p^{k_r}_r + \dots +  p^{k_1}_{1} p^{k_2}_{2} \dots p^{k_r}_{r} = (1 + p^{1}_1 + p^{2}_1 + \dots +  p^{k_1}_1) \dots (1 + p^{1}_r + p^{2}_r + \dots +  p^{k_r}_r)$$
+	
+	y al hacer uso del resultado anterior, simplificamos esta expresión como
+	
+	
+	$$(1 + p^{1}_1 + p^{2}_1 + \dots +  p^{k_1}_1) \dots (1 + p^{1}_r + p^{2}_r + \dots +  p^{k_r}_r) = \left( \frac{p^{k_1 + 1}_r - 1}{p_{1} - 1} \right) \dots \left( \frac{p^{k_r + 1}_r - 1}{p_r - 1} \right)$$
+	
+	y que es equivalente al valor de la función $\sigma(n)$. Por ende hemos demostrado que los valores de ambas funciones son equivalentes a las expresiones dadas. Resumiendo,
+	
+	$$\tau(n) = (k_1 + 1) (k_2 + 1) \dots (k_r + 1)$$
+	$$\sigma(n) = \left( \frac{p^{k_1 + 1}_{1} - 1}{p_{1} - 1} \right) \left( \frac{p^{k_2 + 1}_{1} - 1}{p_{2} - 1} \right) \dots \left( \frac{p^{k_r + 1}_{1} - 1}{p_{r} - 1} \right)$$
+	
+\end{proof}
+
+\begin{theorem}
+	Si $n \in \mathbb{Z}$ con $n>1$, el producto de sus divisores es
+	
+	$$\prod_{d|n} d = n^{\frac{\tau(n)}{2}}$$
+\end{theorem}
+\begin{proof}
+	Como $n = p^{k_1}_1 p^{k_2}_2 \dots p^{k_r}_r$, formamos divisores al dividir combinaciones de los factores primos originales de $n$. Luego al formar $d_1 = \frac{n}{p_1}$, tambien formamos otro número que también es divisor de  $n$, de modo que siempre se obtendrá $n$ tal que $n = p_1 d_1$. El total de divisores que se pueden formar es igual a $\tau(n)$, por ende al realizar parejas que equivalen a $n$ formamos $\frac{\tau(n)}{2}$ parejas, por lo tanto el producto de los divisores de $n$ será igual a $n^{\frac{\tau(n)}{2}}$. 
+\end{proof}
+
+\begin{definition} \cite{rubiano2004}
+	Una función aritmética se llama multiplicativa si satisfacela condición:
+	
+	\paragraph{} $f(mn) = f(m) f(n)$, para todo $m, n$ enteros positivos tales que mcd$(m,n) = 1$.
+	
+	\paragraph{}Si $f(mn) = f(m) f(n)$ para todo $m,n$ enteros positivos, entonces $f$ se llama completamente multiplicativa.
+\end{definition}
+
+\begin{theorem}
+	Las funciones $\tau(n)$ y $\sigma(n)$ son multiplicativas.
+\end{theorem}
+\begin{proof} Suponga que existe un $n = ab$ tal que mcd$(a,b) = 1$. Por el teorema fundamental de la aritmética $a = c^{l_1}_i c^{l_2}_i \dots c^{l_r}_r$, y $b = d^{m_1}_1 d^{m_2}_2 \dots d^{m_s}_s$, como ambos son primos relativos, no tienen primos $c_r$ y $d_s$ en común. Por el teorema \ref{theorem:2}, sabemos que
+	
+	$$\tau(a) = (c_1 + 1) (c_2 + 1) \dots (c_r + 1)$$
+	$$\tau(b) = (d_1 + 1) (d_2 + 1) \dots (d_s + 1)$$
+
+y
+
+$$\sigma(a) = \left( \frac{c^{r_1 + 1}_1 - 1}{c_1 - 1} \right) \left( \frac{c^{r_2 + 1}_2 - 1}{c_2 - 1} \right) \dots \left( \frac{c^{r_i + 1}_1 - 1}{c_i - 1} \right)$$
+$$\sigma(b) = \left( \frac{d^{s_1 + 1}_1 - 1}{d_1 - 1} \right) \left( \frac{d^{s_2 + 1}_2 - 1}{d_2 - 1} \right) \dots \left( \frac{d^{s_j + 1}_1 - 1}{d_j - 1} \right)$$
+
+como $n = ab =  (c^{l_1}_i c^{l_2}_i \dots c^{l_r}_r) (d^{m_1}_1 d^{m_2}_2 \dots d^{m_s}_s)$, es decir $n = p^{l_1} p^{l_2} \dots p^{l_r}$, es una factorización única de primos, que satisface la definición del Teorema \ref{theorem:2} tanto para $\tau(n)$ como para $\sigma(n)$ y por consiguiente:
+
+$$\tau(n) = (c_1 + 1) (c_2 + 1) \dots (c_r + 1) (d_1 + 1) (d_2 + 1) \dots (d_s + 1)$$
+
+y
+
+$$\sigma(n) = \left( \frac{c^{r_1 + 1}_1 - 1}{c_1 - 1} \right) \left( \frac{c^{r_2 + 1}_2 - 1}{c_2 - 1} \right) \dots \left( \frac{c^{r_i + 1}_1 - 1}{c_i - 1} \right) \left( \frac{d^{s_1 + 1}_1 - 1}{d_1 - 1} \right) \left( \frac{d^{s_2 + 1}_2 - 1}{d_2 - 1} \right) \dots \left( \frac{d^{s_j + 1}_1 - 1}{d_j - 1} \right)$$
+
+cuyos resultados se resume en que
+ 
+$$\tau(n) = \tau(ab) = \tau(a) \tau(b)$$
+
+y
+
+$$\sigma(n) = \sigma(ab) = \sigma(a) \sigma(b)$$
+
+Por lo que hemos demostrado que $\tau(n)$ y $\sigma(n)$ son funciones multiplicativas.
+\end{proof}
+
+\begin{definition}
+	Para $n \in \mathbb{Z}^+$, se define la función $\mu(n)$ como:
+	
+	\[
+		\mu(n) =
+		\begin{cases}
+			1 & \text{si } n = 1\\
+			0 & \text{si } p^2|n\\
+			-1 & \text{si } n = p_1 p_2 \dots p_r
+		\end{cases} 
+	\] 
+\end{definition}
+
+\begin{theorem}
+	Para cada entero $n \geq 1$
+	\[
+		\sum_{d|n} \mu(d) = 
+		\begin{cases} 
+			1 & \text{si } n = 1 \\			
+			0 & \text{si } n > 1 
+		\end{cases}
+	\]
+\end{theorem}
+\nocite{*}
+
+\bibliography{bibliography}
+\end{document}
