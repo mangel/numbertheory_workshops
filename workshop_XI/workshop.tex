@@ -158,7 +158,7 @@ Por lo que hemos demostrado que $\tau(n)$ y $\sigma(n)$ son funciones multiplica
 		\begin{cases}
 			1 & \text{si } n = 1\\
 			0 & \text{si } p^2|n\\
-			-1 & \text{si } n = p_1 p_2 \dots p_r
+			(-1)^r & \text{si } n = p_1 p_2 \dots p_r
 		\end{cases} 
 	\] 
 \end{definition}
@@ -173,6 +173,29 @@ Por lo que hemos demostrado que $\tau(n)$ y $\sigma(n)$ son funciones multiplica
 		\end{cases}
 	\]
 \end{theorem}
+
+\begin{proof}
+Suponga que $n = p^{k_1}_1 p^{k_2}_2 \dots p^{k_r}_r$ y sin pérdida de generalidad: $p^{k_1}_1 < p^{k_2}_2 < \dots  < p^{k_r}_r$. Nótese que los divisores de $n$ se construyen con combinaciones entre los factores primos ne $n$:
+    
+$$p_1, p_2, \dots, p_r$$
+$$p_1 p_2, p_1 p_3, \dots, p_1 p_r $$
+$$p_1 p_2 p_3 \dots p_r, \dots $$
+
+Teniendo en cuenta esto, sabemos que el $1$ siempre será un divisor de cualquier número, y por ende:
+
+$$\sum_{d|n} \mu(d) = 1 + \sum_{d|n, d>1} \mu(d)$$
+
+y por el mismo argumento podemos construir, todas las combinaciones entre divisores y su correspondiente valor en $\mu{(d)}$, por ejemplo al evaluar el valor de la función en cada uno de los primos de manera independiente con potencia 1 siempre obtendríamos el valor $-1$ como término en la sumatoria, y como hay r primos, obtendríamos $-r$ como término en la sumatoria, para las combinaciones posteriores debemos tener encuenta que $p_1 p_2 = p_2 p_1$ y por ende al generalizar en un término de la sumatoria obtenemos $\frac{r(r-1)}{2}$ y como siempre será par, será positivo su valor en la función, continuando este procedimiento obtenemos
+
+\begin{align*}
+    \sum_{d|n} \mu(d) &= 1 + (-r) + \frac{r(r-1)}{2} - \binom{r}{3} + \binom{r}{4} + \dots + (-1)^{r} \binom{r}{r}\\
+    &= \sum_{m = 0}^{r} (-1)^{m} \binom{r}{m}\\
+    &= \sum_{m = 0}^{r} (-1)^{m} 1^{(r-m)} \binom{r}{m} \\
+    &= (1-1)^{r} = 0
+\end{align*}
+
+Por lo que hemos demostrado que la función es igual a 0 cuando $n>1$.
+\end{proof}
 \nocite{*}
 
 \bibliography{bibliography}
