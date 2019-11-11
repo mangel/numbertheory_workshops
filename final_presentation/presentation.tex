@@ -1,0 +1,357 @@
+\documentclass[spanish, mexico]{beamer}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+
+\usetheme{Warsaw}
+
+
+
+\title[Diffie-Hellman key exchange, ¿Cómo y porqué funciona?]{Diffie-Hellman key exchange} 
+
+\author{Miguel A. Gomez B.}
+\institute[FUKL]
+{
+	Fundación Universitaria Konrad Lorenz\\ 
+	\medskip 
+	\textit{miguela.gomezb@konradlorenz.edu.co}
+}
+\date{12 de noviembre de 2019}
+
+\begin{document}
+	\begin{frame}
+	\titlepage 
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Introducción}
+		\framesubtitle{¿Criptografía y criptoanálisis?}
+		\begin{center}
+			\textit{Cripto} + \textit{Grafía} = 'Secreto escrito' 
+		\end{center}
+		La criptografía es la parte de la criptología(estudio de lo oculto) que trata del diseño e implementación de sistemas secretos \cite{Tnumeros2004}\\~\\
+		El criptoanálisis es la parte de la criptología consiste en el estudio de los métodos para decifrar sistemas criptográficos.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Introducción}
+		\framesubtitle{Cifrado y Descifrado}
+		El \textit{codificador}, es el algoritmo mediante el cual se transforma un texto plano en un texto cifrado, algunos de ellos utilizan una \textit{llave de cifrado}, algunos muy conocidos son blowfish, 3DES, AES, entre otros.\\~\\
+		El proceso mediante el cual se convierte el texto plano en texto cifrado, se llama \textit{encripción} o \textit{cifrado}.\\~\\
+		El proceso inverso mediante el cual a partir de un texto cifrado se obtiene un texto plano se llama \textit{desencriptación} o \textit{desciframiento}.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado en la antiguedad}
+		\framesubtitle{Un poco de historia}
+		Se utilizaron mucho antes de la llegada de los computadores. Como Julio César y Cifrado César.\\~\\
+		El cifrado César se llevaba a cabo una operación que consistía en reemplazar cada letra del alfabeto por la letra que se encontraba tres posiciomes adelante.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado en la antiguedad}
+		\framesubtitle{Un poco de historia}
+		\begin{table}[]
+			\centering
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l |}
+				\hline
+				A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
+				\hline
+				0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 & 26\\
+				\hline
+			\end{tabular}%
+			}
+		\end{table}
+		\begin{example}[]
+			Cifre el texto 'SECRET' con cifrado César de 3 posiciones.
+		\end{example}
+		\begin{solution}[]
+			Construímos una correspondencia con los valores de la tabla, así: $S = 19, E = 4, C = 2, R = 18, T = 20$ y sumamos tres a cada uno de los valores y ubicamos su correspondencia en la tabla nuevamente. $19 + 3 = 22 = V, 4 + 3 = 7 = H, 2 + 3 = 5 = F, 18 + 3 = 21 = U, 20 + 3 = 23 = W$. de modo que al cifrar la palabra 'SECRETO' obtenemos 'VHFUHW'.
+		\end{solution}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado César}
+		\framesubtitle{Es una construcción de módulos}
+		\begin{table}[]
+			\centering
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l |}
+					\hline
+					A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
+					\hline
+					0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 & 26\\
+					\hline
+				\end{tabular}%
+			}
+		\end{table}
+		Si representamos por $P$ el equivalente numérico una de las letras del texto plano y por $C$ su valor al ser cifrado, tenemos que con el cifrado César se deriva la congruencia:
+		$$C \equiv P + 3 \pmod{27}$$
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado César}
+		\framesubtitle{Es una construcción de módulos}
+		\begin{table}[]
+			\centering
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l |}
+					\hline
+					A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
+					\hline
+					0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 & 25 & 26\\
+					\hline
+				\end{tabular}%
+			}
+		\end{table}
+		Si representamos por $P$ el equivalente numérico una de las letras del texto plano y por $C$ su valor al ser cifrado, tenemos que con el cifrado César se deriva la congruencia:
+		$$C \equiv P + 3 \pmod{27}$$
+		Y por consiguiente la congruencia para descifrar el texto será
+		$$P \equiv C - 3 \pmod{27}$$ 
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado César}
+		\framesubtitle{Es un tipo cifrado}
+		El cifrado César es un caso especial de algoritmos de encripción y se les conoce como \textit{translación}, vemos que el cifrado César es de la forma:
+		
+		$$C \equiv P + k \pmod{27}$$
+		con $0 \leq k \leq 26$. A este tipo de cifrados se les conoce en una clasificación más amplia como \textit{transformaciones}. Existen otro tipo de cifrados por sustitución que son más efectivos, uno de los más conocidos es el de Vigenère.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado en la antiguedad}
+		\framesubtitle{Cifrado de Vigenère}
+		El elemento principal de este tipo de cifrado es la tabla de Vigenère:
+		\begin{table}[]
+			\centering
+			\resizebox{250pt}{!}{%
+			\begin{tabular}{| l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l | l |}
+				\hline
+				& A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z\\
+				\hline
+				B & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A\\
+				\hline
+				C & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B\\
+				\hline
+				D & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C\\
+				\hline
+				E & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D\\
+				\hline
+				F & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E\\
+				\hline
+				G & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F\\
+				\hline
+				H & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G\\
+				\hline
+				I & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H\\
+				\hline
+				J & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I\\
+				\hline
+				K & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J\\
+				\hline
+				L & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K\\
+				\hline					
+				M & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L\\
+				\hline
+				N & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M\\
+				\hline
+				Ñ & Ñ & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N\\
+				\hline
+				O & O & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ\\
+				\hline
+				P & P & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O\\
+				\hline
+				Q & Q & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P\\
+				\hline
+				R & R & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q\\
+				\hline
+				S & S & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R\\
+				\hline
+				T & T & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S\\
+				\hline
+				U & U & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T\\
+				\hline
+				V & V & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U\\
+				\hline
+				W & W & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V\\
+				\hline					
+				X & X & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W\\
+				\hline					
+				Y & Y & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X\\
+				\hline					
+				Z & Z & A & B & C & D & E & F & G & H & I & J & K & L & M & N & Ñ & O & P & Q & R & S & T & U & V & W & X & Y\\
+				\hline										
+			\end{tabular}%
+		}
+		\end{table}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado en la antiguedad}
+		\framesubtitle{Cifrado de Vigenère}
+		En este cifrado, se elige una palabra clave y se organizan cada una de las letras del mensaje en bloques del tamaño de la palabra clave y se realiza una correspondencia con las letras de palabra clave, posteriormente se ubica en el alfabeto de la letra palabra clave y se busca la correspondencia con la letra del texto original.
+		\begin{example}
+			Utilizando la palabra clave 'SECRET' y la tabla de Vigenère encripte el mensaje:
+			\begin{center}
+				El hogar es donde está el corazón.
+			\end{center}
+		\end{example}
+	\end{frame}
+	\begin{frame}
+		\frametitle{Cifrado en la antiguedad}
+		\framesubtitle{Cifrado de Vigenère}
+		\begin{solution}
+			la clave tiene un tamaño de 6 letras, de modo que agrupamos el mensaje en bloques de tamaño 6:
+			\begin{center}
+				SECRET SECRET SECRET SECRET SEC\\
+				ELHOGA RESDON DEESTA ELCORA ZON
+			\end{center}
+			Para la primera letra del mensaje E, observamos que corresponde con la letra S de la palabra clave, de modo que ubicamos la fila que contiene el alfabeto de S, y buscamos la columna de la letra E, vemos que en el alfabeto de S, E corresponde con la letra W, procedemos de manera sucesiva hasta terminar la codificación del mensaje y obtenemos:
+			\begin{center}
+				WPJFKT JIUUSG VIGJXT WPEFVT RSP
+			\end{center}
+		\end{solution}
+
+			
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado en la antiguedad}
+		\framesubtitle{Vulnerabilidad}
+		Sin embargo, los cifrados por traslación pueden ser decifrados 'fácilmente' mediante un análisis de la frecuencia de las letras. Con el fin de evitar esto, se utiliza el \textit{cifrado por transpocisión} o \textit{Cifrado por permutación}.\\~\\
+		En el cifrado por permutación se realizan cambios en la estructura original del mensaje de acuerdo a una convención o clave. Uno muy conocido es el cifrado de transpocisión en columnas.
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Cifrado por transpocisión en columnas}
+		En este tipo de cifrado, organizamos el mensaje en una matriz y de acuerdo a una convención o una operación sobre la matriz resultante obtenemos el texto cifrado, por ejemplo si tenemos el mensaje 'EL HOGAR ES DONDE ESTA EL CORAZON' en una matriz de 7 columnas, obtenemos:
+		
+		\begin{table}[]
+			\centering
+			\resizebox{150pt}{!}{%
+				\begin{tabular}{| l | l | l | l | l | l | l |}
+					\hline
+					E & L & \space & H & O & G & A\\
+					\hline
+					R & \space & E & S & \space & D & O\\
+					\hline
+					N & D & E & \space & E & S & T\\
+					\hline
+					A & \space & E & L & \space & C & O\\
+					\hline					
+					R & A & Z & O & N & \space & \space\\
+					\hline					
+				\end{tabular}%
+			}
+		\end{table}
+		Si establecemos la convención de que el mensaje cifrado se obtenga mediante una lectura desde arriba hacia abajo obtenemos:
+		\begin{center}
+			RANREA D L ZEEE OL SHN E O CSDG OTOA
+		\end{center}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{El problema}
+		\framesubtitle{¿Porqué aún no es seguro?}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Un poco de historia}
+		\framesubtitle{Merkle}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Un poco de historia}
+		\framesubtitle{Diffie y Hellman}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{¿Cómo funciona?}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Ejemplo}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{¿Porqué funciona?}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{El problema del logaritmo discreto}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{El teorema de Euler}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Uso actual}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Aún así es vulnerable}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{RSA}
+		\framesubtitle{Introducción}
+		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Referencias bibliográficas}
+		\footnotesize{
+		\begin{thebibliography}{1}
+			\bibitem[1]{Tnumeros2004} Luis Becerra et. al (2004)
+			\newblock Teoría de números para principiantes.
+			\newblock p 194-210.
+		\end{thebibliography}
+		\begin{thebibliography}{2}
+			\bibitem[2]{Stein} William Stain (2017)
+			\newblock Elementary Number Theory: Primes, Congruences, and secrets.
+			\newblock p 49-56.
+		\end{thebibliography}
+		\begin{thebibliography}{3}
+			\bibitem[3]{Holden} Joshua Holden (2017)
+			\newblock Mathematics of secrets.
+			\newblock p 201-216.
+		\end{thebibliography}	
+		}
+	\end{frame}
+\end{document}
