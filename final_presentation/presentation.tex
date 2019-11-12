@@ -93,6 +93,15 @@
 		Si representamos por $P$ el equivalente numérico una de las letras del texto plano y por $C$ su valor al ser cifrado, tenemos que con el cifrado César se deriva la congruencia:
 		$$C \equiv P + 3 \pmod{27}$$
 	\end{frame}
+	
+		\begin{frame}
+		\frametitle{Cifrado César}
+		\framesubtitle{Es una construcción de módulos}
+		Teniendo en cuenta lo anterior \textbf{¿Cuál es la congruencia que corresponde al paso de decifrado?}\\~\\
+		A) $C \equiv P + 3 \pmod{27}$\\~\\
+		B) $P \equiv C + 3 \pmod{27}$\\~\\
+		C) $P \equiv C - 3 \pmod{27}$
+	\end{frame}
 
 	\begin{frame}
 		\frametitle{Cifrado César}
@@ -217,8 +226,6 @@
 				WPJFKT JIUUSG VIGJXT WPEFVT RSP
 			\end{center}
 		\end{solution}
-
-			
 	\end{frame}
 
 	\begin{frame}
@@ -261,6 +268,425 @@
 		\framesubtitle{Cifrado en bloque}
 		En 1929 el matemático Lister Hill desarrolló el cifrado en bloque, este cifrado funciona sobre bloques de $n$ letras y formándolos en bloques de un mismo tamaño.
 	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 Si $A = \begin{pmatrix} a & b \\c & d \end{pmatrix}$ es una matriz de tamaño $2 \times 2$ y $P = \begin{pmatrix} x \\ y \end{pmatrix}$ es un vector con componentes en el anillo conmutativo con identidad $R$, definimos el producto $AP$ mediante:
+		$$AP = \begin{pmatrix} a & b \\c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} =  \begin{pmatrix} ax + by\\ cx + dy \end{pmatrix}$$
+		el producto entre dos matrices de tamaño $2 \times 2$ lo definimos como:
+		$$\begin{pmatrix}a & b\\ c & d\end{pmatrix} \begin{pmatrix}x & y\\ z & w\end{pmatrix} = \begin{pmatrix}ax + bz & ay + bw\\ cx + dz & cy + dw\end{pmatrix}$$
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 La matrix $A$ es \textit{inversible} si existe otra matriz $B$ tal que $AB = BA = I$, donde I es la identidad $I = \begin{pmatrix}1 & 0\\0 & 1\end{pmatrix}$.\\~\\
+		 La matriz $A = \begin{pmatrix} a & b\\ c & d\end{pmatrix}$ es inversible si y sólo si su determinante $\det A = D = ad - bc$ es una unidad del anillo. Es decir $D$ es un elemento inversible para la multiplicación en $R$.\\~\\
+		 La inversa de $A$, se denota con $A^{-1}$ y está dada por
+ 		 $$A^{-1} = D^{-1} \begin{pmatrix}D^{-1}d & -D^{-1}b\\-D^{-1}c & D^{-1}a\end{pmatrix} = \begin{pmatrix}d & -b\\-c & a\end{pmatrix}$$
+		 donde $D^{-1}$ es el inverso del determinante $D$ en el anillo $R$.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 Para cifrar el texto usando el cifrado Hill, lo dividimos en bloques de dos letras, añadiendo si es necesario al final una letra X que que todos los bloques tengan el mismo tamaño y hallamos los vectores correspondientes a cada bloque, les aplicamos la transformación de la forma:
+		 $$C \equiv AP \pmod{n}$$
+		 tomando los resultados módulo $n$ y el mcd$(\det A, n) = 1$ para obtener los vectores cifrados.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 Teniendo en cuenta lo anterior ¿Cuál congruencia corresponde al proceso de descifrado?\\~\\
+		 A)$C \equiv AP^{-1} \pmod{n}$\\~\\
+		 B)$C^{-1} \equiv AP \pmod{n}$\\~\\
+		 C)$C \equiv A^{-1}P \pmod{n}$\\~\\
+		 D)$P \equiv A^{-1}C \pmod{n}$\\~\\
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 Para cifrar el texto usando el cifrado Hill, lo dividimos en bloques de dos letras, añadiendo si es necesario al final una letra X que que todos los bloques tengan el mismo tamaño y hallamos los vectores correspondientes a cada bloque, les aplicamos la transformación de la forma:
+		 $$C \equiv AP \pmod{n}$$
+		 tomando los resultados módulo $n$ y el mcd$(\det A, n) = 1$ para obtener los vectores cifrados.\\~\\
+		 Y por ende la congruencia para descifrar es
+		 $$P \equiv A^{-1}C \pmod{n}$$
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 \begin{example}
+		    Utilizando el alfabeto español, cifremos el mensaje 'YA ENTENDI', aplicando la transformación de la forma $C \equiv AP \pmod{27}$ con $A = \begin{pmatrix}2 & 1\\ 6 & 7\end{pmatrix}$
+		 \end{example}
+		 \begin{solution}
+		    dividimos en bloques de longitud 2 y tenemos
+		    \begin{center}
+		        YA EN TE ND IX
+		    \end{center}
+		    Añadimos la X para que todos los bloques tengan el mismo tamaño.
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 \begin{solution}
+		    dividimos en bloques de longitud 2 y tenemos
+		    \begin{center}
+		        YA EN TE ND IX
+		    \end{center}
+		    Añadimos la X para que todos los bloques tengan el mismo tamaño. Hallamos los vectores correspondientes:
+		    $$
+		        \begin{pmatrix}25\\0\end{pmatrix} \begin{pmatrix}4\\13\end{pmatrix}
+		        \begin{pmatrix}20\\4\end{pmatrix} \begin{pmatrix}13\\3\end{pmatrix}
+		        \begin{pmatrix}8\\24\end{pmatrix}
+		    $$
+		    Y aplicamos la transformación $C \equiv AP \pmod{27}$ y obtenemos.
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 \begin{solution}
+		    Y aplicamos la transformación $C \equiv AP \pmod{27}$ y obtenemos.
+		    $
+		    \begin{pmatrix}2 & 1\\ 6 & 7\end{pmatrix}
+		    \begin{pmatrix}25\\0\end{pmatrix} = \begin{pmatrix}23\\15\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		    \begin{pmatrix}2 & 1\\ 6 & 7\end{pmatrix}
+		    \begin{pmatrix}4\\13\end{pmatrix} = \begin{pmatrix}21\\7\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		    \begin{pmatrix}2 & 1\\ 6 & 7\end{pmatrix}
+		    \begin{pmatrix}20\\4\end{pmatrix} = \begin{pmatrix}17\\13\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		    \begin{pmatrix}2 & 1\\ 6 & 7\end{pmatrix}
+		    \begin{pmatrix}13\\3\end{pmatrix} = \begin{pmatrix}2\\18\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		    \begin{pmatrix}2 & 1\\ 6 & 7\end{pmatrix}
+		    \begin{pmatrix}8\\24\end{pmatrix} = \begin{pmatrix}13\\0\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    Con los vectores resultantes construímos el mensaje cifrado
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		 \begin{solution}
+		    Con los vectores resultantes construímos el mensaje cifrado:
+		    \begin{center}
+		        WO UH QN CR NA
+		    \end{center}
+		 \end{solution}
+		 \begin{example}
+		    Decifremos el texto SÑ RT BÑ IS TJ utilizando la transformación de la forma $C \equiv AP \pmod{27}$ con $A = \begin{pmatrix}4 & 5\\ 3 & 2 \end{pmatrix}$
+		 \end{example}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Cifrado en bloque}
+		\begin{example}
+		    Decifremos el texto SÑ RT BÑ IS TJ utilizando la transformación de la forma $C \equiv AP \pmod{27}$ con $A = \begin{pmatrix}4 & 5\\ 3 & 2 \end{pmatrix}$
+		 \end{example}
+		 \begin{solution}
+		    Primero debemos hallar la inversa de $A$ módulo 27.
+		    $$\det{A} = 4 \cdot 2 - 5 \cdot 3 = -7 = 20 \pmod{27}$$
+		    Ahora debemos hallar el inverso multiplicativo de $20$ en el anillo. Para ello utilizaremos el algoritmo extendido de Euclídes.
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \begin{solution}
+		    Para hallar el inverso de $20$ necesitamos solucionar:
+		    $$20x \equiv 1 \pmod{27}$$
+		    Nótese que mcd$(20, 27) = 1$, y por lo tanto se puede expresar como la combinación lineal:
+		    $$1 = 20x + 27y$$
+		    Aplicando el algoritmo de euclides obtenemos:\\~\\
+		    $27 = 20 + 7$\\~\\
+		    $20 = 7(2) + 6$\\~\\
+		    $7  = 6(1) + 1$
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \begin{solution}
+		    Para hallar el inverso de $20$ necesitamos solucionar:
+		    $$20x \equiv 1 \pmod{27}$$
+		    Nótese que mcd$(20, 27) = 1$, y por lo tanto se puede expresar como la combinación lineal:
+		    $$1 = 20x + 27y$$
+		    Aplicando el algoritmo de euclides obtenemos:\\~\\
+		    $27 = 20 + 7 \implies 7 = 27 - 20$\\~\\
+		    $20 = 7(2) + 6 \implies 6 = 20 - 7(2)$\\~\\
+		    $7  = 6(1) + 1 \implies 1 = 7 - 6(1)$
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \begin{solution}
+		    $27 = 20 + 7 \implies 7 = 27 - 20$\\~\\
+		    $20 = 7(2) + 6 \implies 6 = 20 - 7(2)$\\~\\
+		    $7  = 6(1) + 1 \implies 1 = 7 - 6(1)$\\~\\
+		    Realizando sustituciones sucesivas en la última ecuación obtenemos:
+		    $$1 = 27(3) - 20(4) = 27(3) + 20(-4)$$
+		    de modo que $x=-4$, sin embargo ello implica que $23$ también lo es. Por ende:
+		    $$A^{-1} = 23 \begin{pmatrix} 2 & -5\\ -3 & 4\end{pmatrix} = \begin{pmatrix} 26 & -115\\ -69 & 92\end{pmatrix} = \begin{pmatrix} 19 & 20\\ 12 & 11\end{pmatrix} \pmod{27}$$
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \begin{solution}
+		    con el valor de $A^{-1}$ podemos aplicar la transformación $P \equiv A^{-1}C \pmod{27}$ y obtenemos:\\~\\
+		    $
+		        \begin{pmatrix}19 &20\\12&11\end{pmatrix}
+		        \begin{pmatrix}19\\14\end{pmatrix} = \begin{pmatrix}20\\4\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		        \begin{pmatrix}19 &20\\12&11\end{pmatrix}
+		        \begin{pmatrix}18\\20\end{pmatrix} = \begin{pmatrix}13\\4\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		        \begin{pmatrix}19 &20\\12&11\end{pmatrix}
+		        \begin{pmatrix}1\\14\end{pmatrix} = \begin{pmatrix}2\\4\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		        \begin{pmatrix}19 &20\\12&11\end{pmatrix}
+		        \begin{pmatrix}8\\19\end{pmatrix} = \begin{pmatrix}19\\8\end{pmatrix} \pmod{27}
+		    $\\~\\
+		    $
+		        \begin{pmatrix}19 &20\\12&11\end{pmatrix}
+		        \begin{pmatrix}20\\9\end{pmatrix} = \begin{pmatrix}20\\15\end{pmatrix} \pmod{27}
+		    $
+		 \end{solution}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \begin{solution}
+		    Con los anteriores ubicamos la correspondencia en el alfabeto original y obtenemos el texto: 'TE NECESITO'.\\~\\
+		 \end{solution}
+		 Una forma más general de cifrar por bloques, es aplicando a los vectores una transformación afín, con la forma:
+		 $$C \equiv AP + B \pmod{n}$$
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \textbf{¿Cuál es la operación inversa para descifrar transformaciones de la forma $C \equiv AP + B \pmod{n}$?}\\~\\
+		 A) $C \equiv A^{-1}P + B \pmod{n}$\\~\\
+		 B) $P \equiv A^{-1}C + A^{-1}B \pmod{n}$\\~\\
+		 C) $P \equiv C + A^{-1}B \pmod{n}$\\~\\
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 \begin{solution}
+		    Con los anteriores ubicamos la correspondencia en el alfabeto original y obtenemos el texto: 'TE NECESITO'.\\~\\
+		 \end{solution}
+		 Una forma más general de cifrar por bloques, es aplicando a los vectores una transformación afín, con la forma:
+		 $$C \equiv AP + B \pmod{n}$$
+		 Por consiguiente su inverso será:
+		 $$P \equiv A^{-1}C + A^{-1}B \pmod{n}$$
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		\framesubtitle{Checkpoint}
+		 Otros tipos de cifrado...\\~\\
+		 Cifrado de flujo, en el cifrado de flujo, cada parte del texto inicial se cifra en base a la llave llave de cifrado, el siguiente bloque se cifra en base al bloque previo.
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+		\begin{definition} [Grupo]
+		    Un Grupo $(G, *)$ es un conjunto $G$ provisto de una operación binaria $*$ que satisface los axiomas:
+		    \begin{itemize}
+		        \item G-1: La operación $*$ es asociativa, es decir para todo $a,b,c$ en $G$ se tiene que $a*(b*c) = (a*b)*c$.
+		        \item G-2: Existe un elemento $e$ en $G$ tal que $e*a = a*e = a$, para todo $a$ en $G$.
+		        \item G-3: Para cada $a$ en $G$ existe un elemento $a'$ en $G$ tal que $a*a' = a'*a = e$.
+		    \end{itemize}
+		\end{definition}
+		Observacion: El elemento $e$ se le denomina como la identidad del grupo y al elemento $a'$ se le conoce como el inverso de $a$ respecto a $*$.
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{definition} [Grupo Abeliano (o Conmutativo)]
+		    Un grupo $G$ se llama abeliano o conmutativo si satisface la condición
+		    $$a*b = b*a$$
+		    para todo $a$ y $b$ en $G$.
+		\end{definition}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{definition} [Anillo]
+		    Un anillo $(A,+,\cdot)$ es un conjunto $A$ provisto de dos operaciones $+$ y $\cdot$, llamados adición y multiplicación que satisface los axiomas siguientes.
+		    \begin{itemize}
+		        \item A-1: (A,+) es un grupo Abeliano.
+		        \item A-2: La multiplicación es asociativa.
+		        \item A-3: Las dos operaciones están relacionadas por las propiedades distributivas
+		        $$a(b+c) = ab + ac$$
+		        $$(b + c)a = ba + ca$$
+		        para todo $a,b,c$ en $A$.
+		    \end{itemize}
+		\end{definition}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{definition} [Anillo Conmutativo]
+		    Un anillo donde la multiplicación es conmutativa se dice \textit{anillo conmutativo}. Un anillo que tiene una identidad para la multiplicación que se representa usualmente por $1$, es un \textit{anillo con identidad}.
+		\end{definition}
+		Observación: $(\mathbb{Z}_n, +, \cdot)$ es un anillo con identidad y conmutativo.
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+            Intuición: $\mathbb{Z}_6$ es un anillo con identidad y conmutativo.\\~\\
+            Recordemos que $\mathbb{Z}_n$ es el conjunto de cocientes módulo $n$ y que $\overline{\rm a}$ es la clase residual módulo $n$, luego para este caso específico
+            $$\mathbb{Z}_6 = \{ \overline{\rm 0}, \overline{\rm 1}, \overline{\rm 2}, \overline{\rm 3}, \overline{\rm 4}, \overline{\rm 5} \}$$
+        	Ituición de que $(\mathbb{Z}_6, +)$ es un grupo. Tomemos las congruencias $11 \equiv 5 \pmod{6}$ y $28 \equiv 4 \pmod{6}$, sabemos de antemano que $9 \equiv 3 \pmod{6}$, ahora sumemoslas:
+        	$$11 + 28 \equiv 9 \pmod{6}$$
+        	$39 \equiv 9 \pmod{6}$ y como $9 \equiv 3 \pmod{6}$, entonces $39 \equiv 3 \pmod{6}$ luego pertenece al grupo.
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+        Otra forma de verlo sería utilizando la suma de las clases residuales, para ello requerimos de la siguiente definición.
+        \begin{definition}
+            Sobre $\mathbb{Z}_n$, podemos definir una adición y una multiplicación:
+            $$\overline{\rm a} + \overline{\rm b} = \overline{\rm ab}$$
+            $$\overline{\rm a}\cdot \overline{\rm b} = \overline{\rm ab}$$
+        \end{definition}
+        Cómo sabemos las clases residuales para $(11)_6$ y $(28)_6$ son respectivamente $\overline{\rm a}$ y $\overline{\rm b}$, de modo que por la definición anterior
+        $$\overline{\rm 5} + \overline{\rm 4} = \overline{\rm 9} = \overline{\rm 3}$$
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+		Para los proximos, requerimos de las siguientes propiedades
+        \begin{theorem}
+            La adición en $\mathbb{Z}_n$ tiene las propiedades siguientes:
+            \begin{itemize}
+                \item $\overline{\rm a} + (\overline{\rm b} + \overline{\rm c}) = (\overline{\rm a} + \overline{\rm b}) + \overline{\rm c}$
+                \item $\overline{\rm a} + \overline{\rm 0} = \overline{\rm 0} + \overline{\rm a} = \overline{\rm a}$
+                \item Para cada $\overline{\rm a}$ existe $\overline{\rm x}$ tal que $\overline{\rm a} + \overline{\rm x} = \overline{\rm x} + \overline{\rm a} = \overline{\rm 0}$
+                \item $\overline{\rm a} + \overline{\rm b} = \overline{\rm b} + \overline{\rm a}$
+            \end{itemize}
+        \end{theorem}
+        Intuición de que $(\mathbb{Z}_6, + )$ es conmutativo:
+            $$\overline{\rm 5} + \overline{\rm 4} = \overline{\rm 5 + 4} = \overline{\rm 4 + 5} = \overline{\rm 9} = \overline{\rm 3}$$
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+		Intuición de que $(\mathbb{Z}_6, + )$ es asociativo:
+            $$(\overline{\rm 5} + \overline{\rm 4}) + \overline{\rm 3} = \overline{\rm 5 + 4} + \overline{\rm 3} = \overline{\rm 5 + 4 + 3} = \overline{\rm 5} + \overline{\rm 4 + 3} = \overline{\rm 5} + \overline{\rm 7} = \overline{\rm 12} = \overline{\rm 0}$$
+        $(\mathbb{Z}_6, +)$ tiene un elemento neutro. $\overline{\rm 0}$ es el elemento neutro:
+        $$\overline{\rm 1} + \overline{\rm 0} = \overline{\rm 0 + 1} = \overline{\rm 1}$$
+        $(\mathbb{Z}_6, +)$ satisface la propiedad del inverso.
+        $$\overline{\rm 1} + \overline{\rm 1}' = \overline{\rm 0} \implies \overline{\rm 1}' = \overline{\rm 5} \implies \overline{\rm 1 + 5} = \overline{\rm 6} = \overline{\rm 0}$$
+        Observación $\overline{\rm 0}$ es la identidad de $(\mathbb{Z}_6, +)$, por ende será un grupo abeliano.
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+		$(\mathbb{Z}_6, \cdot)$ es asociativa. Intuición,
+		$$
+    		\overline{\rm 5} \cdot \overline{\rm 1} \cdot \overline{\rm 2} = \overline{\rm 5\cdot 1} \cdot \overline{\rm 2} = \overline{\rm 5 \cdot 1 \cdot 2} = \overline{\rm 5} \cdot \overline{\rm 1 \cdot 2} = \overline{\rm 5} \overline{\rm 2} = \overline{\rm 10} = \overline{\rm 4}
+		$$
+		$(\mathbb{Z}_6, +, \cdot)$ tiene las dos operaciones relacionadas con la propiedad distributiva. Intuición,
+		\begin{align*}
+		    \overline{\rm 2} \cdot (\overline{\rm 3} + 5) = \overline{\rm 2} (\overline{\rm 3 + 5}) = \overline{\rm 2(3+5)} &= \overline{\rm 2\cdot 3 + 2 \cdot 5}\\
+		    &= \overline{\rm 3\cdot 2} + \overline{\rm 5 \cdot 2}\\
+		    &= \overline{\rm 6} + \overline{\rm 10}\\
+		    &= \overline{\rm 16}\\
+		    &= \overline{\rm 4}
+		\end{align*}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    $(\mathbb{Z}_6, +, \cdot)$ es un anillo conmutativo. Intuición:
+	    $$\overline{\rm 2} \cdot \overline{\rm 5} = \overline{\rm 2 \cdot 5} = \overline{\rm 5 \cdot 2} = \overline{\rm 5} \cdot \overline{\rm 2}$$
+	    $(\mathbb{Z}_6, +, \cdot)$ es un anillo con identidad:
+	    $\overline{\rm 1} \cdot \overline{5} = \overline{1\cdot5} = \overline{5}$
+	    \begin{definition}[Anillo de enteros módulo $n$]
+	    Si $(\mathbb{Z}_n, +, \cdot)$ Es un anillo conmutativo con identidad. La identidad e este anillo es precisamente $\overline{\rm 1}$. Este anillo se llama el \textit{anillo de los enteros}
+	    \end{definition}
+	    \begin{definition}[Divisores de cero]
+	    Decimos que un anillo $(A, +, \cdot)$ tiene \textit{divisores de cero} si existen $a,b \in A$ distintos de cero, pero tales que $ab = 0$
+	    \end{definition}
+	    Intuición: $(\mathbb{Z}_6, +, \cdot)$ tiene divisores de cero por que:
+	    $$\overline{\rm 2} \cdot \overline{\rm 3} = \overline{\rm 6} = \overline{\rm 0}$$
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    Observación: $(\mathbb{Z}_6, +, \cdot)$ no cumple la ley cancelativa para la multiplicación ya que tenemos que:
+	    $$\overline{\rm 3} \cdot \overline{\rm 2} = \overline{\rm 3} \cdot \overline{\rm 4}$$
+	    pero $\overline{\rm 2} \neq \overline{\rm 4}$. Esto es consecuencia del siguiente teorema.
+	    \begin{theorem}
+	        Un anillo $A$ satisface la ley cancelativa para la multiplicación a izquierda y derecha, si y sólo si $A$ no tiene divisores de cero.
+	    \end{theorem}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{theorem}
+	        Un anillo $A$ satisface la ley cancelativa para la multiplicación a izquierda y derecha, si y sólo si $A$ no tiene divisores de cero.
+	    \end{theorem}
+	    \begin{block}{Demostración}
+	        Suponga que $A$ es  un anillo sin divisores de cero. Si  $a,b,c \in A$ con $a \neq 0$ y $ab = ac$ entonces
+	        \begin{align*}
+	            ab &= ac\\
+	            ab - ac &=0\\
+	            a(b-c) &=0
+	        \end{align*}
+	    \end{block}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{block}{Demostración Cont.}
+	        como $a \neq 0$ entonces $(b-c) = 0 \implies b = c$ por ende:
+	        $$ab = ac$$
+	        $$a = a$$
+	        De manera análoga se cumple la ley cancelativa a la derecha.\\~\\
+	        Suponga ahora que $A$ satisface la ley cancelativa para la multiplicación. Si $ab = 0$ con $a \neq 0$ entonces $ab = a(0)$, por ley cancelativa $b=0$, análogamente se cumple si elegimos $b\neq0$. Luego $A$ no tiene divisores de cero. $\qed$
+	    \end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Tipos de Cifrado}
+		 Otros tipos de cifrado...\\~\\
+	\end{frame}
 
 	\begin{frame}
 		\frametitle{El problema}
@@ -295,12 +721,6 @@
 	\begin{frame}
 		\frametitle{Diffie-Hellman Key Exchange}
 		\framesubtitle{¿Porqué funciona?}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-	\end{frame}
-
-	\begin{frame}
-		\frametitle{Diffie-Hellman Key Exchange}
-		\framesubtitle{Grupo, anillo y Campo}
 		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
 	\end{frame}
 
