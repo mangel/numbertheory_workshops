@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish, mexico]{babel}
 
@@ -25,19 +26,15 @@ Desarrolle en completo detalle las demostraciones de los siguientes teoremas.
 Suponemos que $d|b$ y por ende llegaremos a que existe una solución cuando esto sucede. Luego por divisibilidad:
 
 $$d|b \implies b = dc, c \in \mathbf{Z}$$
-
-Como sabemos que $d =\text{mcd}(a,n)$, por el lema de Bezout podemos expresar $d$ como una combinación lineal, luego:
+Como sabemos que $d =\text{mcd}(a,n)$, por el lema de Bezout podemos expresar $d$ como una combinación lineal, luego
 
 $$\text{mcd}(a,n) = d = aq + nr$$
-
-donde $q$ e $r$ pertenecen a $\mathbf{Z}$. Ahora observese que $b = dc$, luego al multiplicar la combinación lineal del paso anterior, obtendremos:
+donde $q$ e $r$ pertenecen a $\mathbf{Z}$. Ahora obsérvese que $b = dc$, luego al multiplicar la combinación lineal del paso anterior, obtendremos:
 
 $$dc = a(qc) + n(rc) \implies b = a(qc) + n(rc)$$
-
 Al rescribir la ecuación anterior como una congruencia obtenemos:
 
 $$aqc \equiv b \pmod{n}$$
-
 por lo que necesariamente $x = qc$ y ésta es una solución la congruencia inical $ax \equiv b \pmod{n}$.
 \end{proof}
 
@@ -47,7 +44,6 @@ por lo que necesariamente $x = qc$ y ésta es una solución la congruencia inica
 La combinación lineal $ax \equiv b \pmod{n}$, donde $x \in \mathbf{Z}$, es una solución del sistema. Entonces,
     
     $$ax -b = kn \implies a = p_1 d \text{ y } n = p_2 d$$
-
 donde $p_1, p_2 \in \mathbf{Z}$. Ahora observemos la congruencia inicial ($ax \equiv b \pmod{n}$) como una ecuación:
 \begin{align*}
     ax - b &= kn\\
@@ -55,7 +51,6 @@ donde $p_1, p_2 \in \mathbf{Z}$. Ahora observemos la congruencia inicial ($ax \e
     -b &= k(p_2)d - (p_1)xd\\
     -b &= d(k(p_2) - (p_1)x)
 \end{align*}
-
 vemos por lo tanto que $d|b$.
 \end{proof}
 
@@ -65,11 +60,9 @@ vemos por lo tanto que $d|b$.
 Supongamos que $x_0 + k \frac{n}{d}$:
 
 $$a\left(x_0 + k \frac{n}{d}\right) \equiv b \pmod{n}$$
-
 y por la propiedad distributiva
 
 $$ax_0 + ak \frac{n}{d} \equiv b \pmod{n}$$
-
 Por III, podemos reescribir lo anterior de la siguiente manera: Como $d|b$ entonces $b=cd$, y como $d=\text{mcd}(a,n)$, $a=dp_1$ y $n = d p_2$, luego:
 
 \begin{align*}
@@ -77,38 +70,31 @@ Por III, podemos reescribir lo anterior de la siguiente manera: Como $d|b$ enton
     p_1dx_0 + p_1d p_2 k - cd &= k_1p_2d\\
     d(p_1x_0 + p_1 p_2 k - c) &= (k_1p_2)d
 \end{align*}
-
-Puesto que d también divide a la expresión, por la definición de congruencia también será una solución.
+Puesto que $d$ también divide a la expresión, por la definición de congruencia también será una solución.
 \end{proof}
 
 \paragraph{IV} Todas las soluciones se encuentran entre las soluciones mencionadas en III.
 
 \begin{proof}
 $$ax_0 \equiv b \pmod{n}$$
-
 y por simetría de las congruencias
 
 $$b \equiv ax_0 \pmod{n}$$
-
 Supongamos que $x_1$ también es solución del sistema, entonces:
 
 $$ax_1 \equiv b \equiv a x_0 \pmod{n}$$
-
 Multiplicamos por $\frac{1}{a}$ y obtenemos que:
 
 $$x_1\equiv x_0 \pmod{n}$$
-
 Y por la tésis sabemos que $\text{mcd}(a,n) = d$, luego $d|n$ y 
 
 $$x_1 \equiv x_0 \pmod{n}$$
-
-Al reescribir como una ecuación, obtenemos
+al reescribir como una ecuación, obtenemos
 
 \begin{align*}
     x_1 - x_0 &= k\frac{n}{d}\\
     x_1 = x_0 + k\frac{n}{d}
 \end{align*}
-
 por lo que todas las soluciones tienen la forma de la ecuación diofántica original.
 \end{proof}
 
@@ -124,7 +110,6 @@ Supongamos que son congruentes, por ende su diferencia debe ser un múltiplo de 
     \frac{qd}{d} &= nk\\
     q &= nk
 \end{align*}
-
 donde $q \in \mathbf{Z}$, pero no todo número es múltiplo de $n$, análogamente ocurre lo mismo con las demás soluciones, por lo tanto, necesariamente las soluciones son incongruentes entre sí.
 \end{proof}
 
@@ -132,9 +117,16 @@ donde $q \in \mathbf{Z}$, pero no todo número es múltiplo de $n$, análogament
 
 \paragraph{3} El sistema de congruencias lineales.
 
-$$ax + by \equiv r \pmod{n}$$
-$$ex + dy \equiv s \pmod{n}$$
-
+$$ax + by \equiv e \pmod{m}$$
+$$cx + dy \equiv f \pmod{m}$$
 Tiene una única solución módulo $n$ siempre y cuando $\text{mcd}(ad-br,n) = 1$.
-
+\begin{proof}
+Multiplicamos la congruencia 1 por $d$ y la segunda por $b$.
+$$adx + bdy \equiv ed \pmod{m}$$
+$$bcx + bdy \equiv bf \pmod{m}$$
+Restamos las congruencias y obtenemos:
+$$(ad - bc)x \equiv (ed - df) \pmod{m}$$
+Ahora observe que $D$, por definición es $D=ad-bc$, entonces
+$$Dx \equiv (ed - df) \pmod{m}$$
+\end{proof}
 \end{document}
