@@ -94,7 +94,15 @@
 		$$C \equiv P + 3 \pmod{27}$$
 	\end{frame}
 	
-		\begin{frame}
+	\begin{frame}
+		\frametitle{Cifrado César}
+		\framesubtitle{Es una construcción de módulos}
+		\begin{center}
+		    Entren a www.menti.com con el código 45 83 30 
+		\end{center}
+	\end{frame}
+	
+	\begin{frame}
 		\frametitle{Cifrado César}
 		\framesubtitle{Es una construcción de módulos}
 		Teniendo en cuenta lo anterior \textbf{¿Cuál es la congruencia que corresponde al paso de decifrado?}\\~\\
@@ -658,7 +666,7 @@
 	\begin{frame}
 	    \frametitle{Diffie-Hellman Key Exchange}
 		\framesubtitle{Grupo, anillo y Campo}
-	    \begin{theorem}
+	    \begin{theorem}[A]
 	        Un anillo $A$ satisface la ley cancelativa para la multiplicación a izquierda y derecha, si y sólo si $A$ no tiene divisores de cero.
 	    \end{theorem}
 	    \begin{block}{Demostración}
@@ -684,74 +692,164 @@
 	\end{frame}
 	
 	\begin{frame}
-		\frametitle{Tipos de Cifrado}
-		 Otros tipos de cifrado...\\~\\
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{definition}[Dominio de integridad]
+	        Un dominio de integridad es un anillo conmutativo, con identidad y sin divisores de cero.
+	    \end{definition}
+	    \begin{definition}[Cuerpo]
+	        Un cuerpo es un anillo conmutativo con identidad en el cual todo elemento distinto de cero tiene un inverso para la multiplicación.
+	    \end{definition}
+	    \begin{definition}
+	        Los elementos invertibles para la mutiplicación en un anillo con identidad se llaman las unidades del anillo.
+	    \end{definition}
+	    Observación: En un cuerpo las unidades del anillo son todos los elementos distintos de cero.
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{theorem}[D] Todo cuerpo es un dominio de integridad.
+	    \end{theorem}
+	    \begin{proof}
+	        Como un cuerpo es un anillo conmutativo con identidad, por el teorema (A), luego sólo resta demostrar que se cumple la ley cancelativa. Suponga que $a\neq0$ y $ab = ac$.\\~\\
+	        $a'$ es el inverso multiplicativo de $a$, es decir $aa' = 1$, multiplicamos por $a'$
+	        $$aba' = aca'$$
+	        por asociatividad y conmutatividad $(aa')b = c(aa')$ por ende $b = c$.
+	    \end{proof}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{theorem}[B]
+	        En el anillo $\mathbb{Z}_n$ los divisores de cero son precisamente los elementos $\overline{\rm m} \neq 0$ tales que $m$ y $n$ no son primos relativos.
+	    \end{theorem}
+	    Intuición
+	    Precisamente los elementos $\overline{\rm m} \neq 0$ tales que no son primos relativos en $\mathbb{Z}_6$son: $\overline{\rm 2}, \overline{\rm 3} \text{ y } \overline{\rm 4}$, ahora observese lo siguiente:
+	    $$
+	        \text{mcd}(6, 2) = 2 \text{ luego, } \overline{\rm 2} \overline{\rm (6/2)} = \overline{\rm 2(6/2)} = \overline{\rm 6}\overline{\rm (2/2)} = \overline{\rm 6} \overline{\rm 1} = \overline{\rm 6} = \overline{\rm 0}
+	    $$
+	    $$
+	        \text{mcd}(6, 3) = 3 \text{ luego, } \overline{\rm 3} \overline{\rm (6/3)} = \overline{\rm 3(6/3)} = \overline{\rm 6}\overline{\rm (3/3)} = \overline{\rm 3} \overline{\rm 1} = \overline{\rm 6} = \overline{\rm 0}
+	    $$
+	    $$
+	        \text{mcd}(6, 4) = 2 \text{ luego, } \overline{\rm 4} \overline{\rm (6/2)} = \overline{\rm 4(6/2)} = \overline{\rm 6}\overline{\rm (4/2)} = \overline{\rm 6} \overline{\rm 2} = \overline{\rm 12} = \overline{\rm 0}
+	    $$
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{proof}
+	        Sea $\overline{\rm m} \neq \overline{\rm 0}$ tales que $m$ y $n$ no son primos relativos. Entonces mcd$(m, n) = d, d > 1$, tenemos
+	        $$\overline{\rm m} \overline{\rm (n/d)} = \overline{\rm m(n/d)} = \overline{\rm n(m/d)} = \overline{\rm 0}$$
+	        Como $\overline{\rm m} \neq \overline{\rm 0}$ y $\overline{\rm m} \neq \overline{\rm (n/d)}$, pues $d > 1$, se concluye que $\overline{\rm m}$ es un divisor de cero en $\mathbb{Z}_n$. Supongamos ahora que $\overline{\rm m} \in \mathbb{Z}_n$ con $m$ y $n$ primos relativos. Si $\overline{\rm m} \overline{\rm k} = \overline{\rm 0}$ entonces $\overline{\rm mk} =$, luego $mk \equiv 0 \pmod{n}$, luego $n|mk$ y como mcd$(n,m) = 1$ entonces $n|k$ y así $k \equiv 0 \pmod{n}$ o sea $\overline{\rm k} = \overline{\rm 0}$. Por lo tanto $\overline{\rm m}$ no es un divisor de cero. 
+	    \end{proof}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{corollary}
+	        $\mathbb{Z}_n$ es un dominio de integridad si y sólo si n es un número primo.
+	    \end{corollary}
+	    \begin{proof}
+	        Vamos primero que si $n$ no es primo entonces $\mathbb{Z}_n$ no es un dominio de integridad. Supongamos que $n=ab$ con $1<a<n$ y $1<b<n$, entonces
+	        $$\overline{\rm a} \overline{\rm b} = \overline{\rm ab} = \overline{\rm n} = \overline{\rm 0}$$
+	        con $a\neq0$ y $b\neq0$. Luego $\mathbb{Z}_n$ tiene divisores de cero y no es dominio de integridad. Suponemos ahora que $n$ es primo, como $n$ es primo relativo con cada uno de los enteros $1,2,\dots, n-1$ por el teorema B, $\mathbb{Z}_n$ no tiene divisores de cero y en consecuencia es un dominio de integridad.
+	    \end{proof}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{theorem}
+	        $\mathbb{Z}_n$ es un cuerpo si y sólo si $n$ es un número primo.
+	    \end{theorem}
+	    \begin{block}{Demostración.}
+	        Si $n$ no es primo, por el corolario anterior $\mathbb{Z}_n$ no es dominio de integridad y por el teorema D, $\mathbb{Z}_n$ no es un campo. Supongamos ahora que $n$ es un número primo, para probar que $\mathbb{Z}_n$ es un campo, es suficiente probar que todo elemento distinto de cero en $\mathbb{Z}_n$ es una unidad. Para ello, sea $\overline{\rm m} \in \mathbb{Z}_n$ con $0<m<n$. Como $m$ y $n$ son primos relativos, por el lema de bezout existen enteros $r$ y $s$ que satisfacen
+	        $$mr + ns = 1$$
+	        por lo tanto
+	        $$\overline{\rm m}\overline{\rm r} + \overline{\rm n} \overline{\rm s} = \overline{\rm 1}$$
+	    \end{block}
+	\end{frame}
+	
+	\begin{frame}
+	    \frametitle{Diffie-Hellman Key Exchange}
+		\framesubtitle{Grupo, anillo y Campo}
+	    \begin{block}{Demostración. Cont.}
+	        como $\overline{\rm n} = \overline{\rm 0}$, nos queda
+	        $$\overline{\rm m}\overline{\rm r} = 1$$
+	        de esta forma vemos que $\overline{\rm r}$ es el inverso multiplicativo de $\overline{\rm m}$ y $\mathbb{Z}_n$ es un cuerpo como se quería demostrar. $\qed$
+	    \end{block}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{La estructura $\mathbb{Z}/p\mathbb{Z}$}
+		$\mathbb{Z}/p\mathbb{Z}$: El conjunto de enteros módulo $p$.\\~\\
+		 La relevancia de lo anterior implica que si $p$ es un primo entonces $\mathbb{Z}/p\mathbb{Z}$ forma un campo. Básicamente es un conjunto con adición, sustracción, multiplicación  y división (sin el cero) definidas, lo que nos va a permitir construir métodos para dividir enteros sin salirnos del conjunto.
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{El problema}
 		\framesubtitle{¿Porqué aún no es seguro?}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		La fortaleza del sistema depende de que un posible atacante desconozca el algoritmo de cifrado o el la complejidad de encontrar los valores de la llave que permiten decodificar el mensaje
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Un poco de historia}
-		\framesubtitle{Merkle}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		\frametitle{Diffie Hellman Key exchange}
+		\framesubtitle{Merkle, Diffie y Hellman}
+		Merkle, parece ser la primera persona que disertó acerca del problema y construyó rompecabezas que ilustraban el uso de una técnica con llaves públicas, sin embargo lo descartó debido a que no era práctico computacionalmente.\\~\\
+		Whitefield Diffie, se interesa en la criptografía debido que su novia se encontraba investigando cifrados de flujo, reacio a trabajar con la NSA busca expertos en criptografía, hasta que en cierto momento escucha de alguien interesado en las mismas preguntas. En 1976 se publica finalmente el artículo "New Directions in criptography", en donde se explican los detalles de un nuevo mecanismo para compartir las llaves de cifrado.
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Un poco de historia}
-		\framesubtitle{Diffie y Hellman}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-	\end{frame}
-
-	\begin{frame}
-		\frametitle{Diffie-Hellman Key Exchange}
+		\frametitle{Diffie-hellman Key exchange}
 		\framesubtitle{¿Cómo funciona?}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		Se eligen $g$ y $n$, donde $g$ es un número primo y $n$ es la base, ambos números enteros.\\~\\
+		Cada una de las partes elige un número $1<a<n$ y $1<b<n$, que no comparten. La parte que conoce el valor de $a$ calcula $g^{a} \equiv x \pmod{n}$ y la parte que conoce $b$ realiza la misma operación, calcula $$g^{b} \equiv y \pmod{n}$$, ambos intercambian los valores de $x$ y $y$, de modo que ahora cada uno está en capacidad de computar la llave secreta. 
 	\end{frame}
-
 	\begin{frame}
-		\frametitle{Diffie-Hellman Key Exchange}
+	    \frametitle{Diffie-hellman Key exchange}
 		\framesubtitle{Ejemplo}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		Tenemos Tres personas, Alice, Bob e Eve, Alice y Bob quieren comunicarse sin que Eve lo note
+		\begin{itemize}
+		    \item inicialmente eligen $g=7$ y $n=11$.
+		    \item Alice elige el número $a=3$, y calcula $g^{a} \pmod{n} = x$ y obtiene $7^{3} \pmod{11} = 2$. $x=2$.
+		    \item Bob elige el número $b=6$, y calcula $g^{b} \pmod{n} = y$ y obtiene $7^{6} \pmod{11} = 4$. $y=4$
+		    \item Alice comparte $x$ a Bob y éste comparte $y$ a Alice, de modo que Eve, conoce $x,y,g$ y $n$.
+		    \item Alice computa la clave secreta $k = y^{a} \pmod{n}$ que es igual a $k_1 = 4^{3} \pmod{11} = 9$.
+		    \item Bob realiza lo mismo y computa la clave secreta $k_2 = x^{b} \pmod{n}$ que es igual a $k_2 = 2^{6} \pmod{11} = 9$.
+		    \item por lo tanto a partir de este punto ambos comparten una llave que no conoce Eve y por ende no podrá decodificar 'fácilmente' sus mensajes.
+		\end{itemize}   
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{Diffie-Hellman Key Exchange}
 		\framesubtitle{¿Porqué funciona?}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		\begin{itemize}
+		    \item Por la estructura de cuerpo $\mathbb{Z}/p\mathbb{Z}$. (Y lo anteriormente dicho).
+		    \item Por el problema del logaritmo discreto. Que deriva en la dificultad de calcular los valores elegidos por Alice y Bob como llaves secretas.
+		    \item En la realidad, los valores de $n$ y $g$ pueden ser de mas de 100 dígitos.
+		\end{itemize}
 	\end{frame}
 
 	\begin{frame}
 		\frametitle{Diffie-Hellman Key Exchange}
 		\framesubtitle{El problema del logaritmo discreto}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		Si $a, b$ y $n$ son números reales con $a,b>0$ y $n\geq0$ la función logaritmo base $b$ se caracteriza por:
+		$$\log_b{a}=n \Longleftrightarrow a = b^n$$
+		En los reales podemos encontrar una respuesta aproximada, sin embargo como todos los valores del algoritmo se construyen en base a la estructura $\mathbb{Z}/p\mathbb{Z}$, implica que la solución debe ser 'exacta', lo cual es un problema muy 'dificil'.
 	\end{frame}
-
+	
 	\begin{frame}
 		\frametitle{Diffie-Hellman Key Exchange}
-		\framesubtitle{El teorema de Euler}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-	\end{frame}
-
-	\begin{frame}
-		\frametitle{Diffie-Hellman Key Exchange}
-		\framesubtitle{Uso actual}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-	\end{frame}
-
-	\begin{frame}
-		\frametitle{Diffie-Hellman Key Exchange}
-		\framesubtitle{Aún así es vulnerable}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-	\end{frame}
-
-	\begin{frame}
-		\frametitle{RSA}
-		\framesubtitle{Introducción}
-		Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
+		\framesubtitle{El problema del logaritmo discreto}
+		\begin{center}
+		    \includegraphics[scale=0.35]{dl.png}
+	    \end{center}
+	    Tomado de \cite{Stein}. Se comparan el logaritmo en $\mathbb{R}$ y en $\mathbb{Z}$.
 	\end{frame}
 
 	\begin{frame}
