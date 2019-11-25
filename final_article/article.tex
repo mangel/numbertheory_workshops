@@ -1,0 +1,120 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsrefs}
+\usepackage{dirtytalk}
+\usepackage{ragged2e}
+
+\newtheorem{theorem}{Teorema}[]
+\newtheorem{conjecture}{Conjetura}[]
+\newtheorem{definition}{Definición}[]
+
+\title{La importancia del número 42}
+\author{Miguel A. Gómez B.}
+\begin{document}
+	\maketitle
+
+\subparagraph{Abstract}\textit{The sum of three cubes problem had a recent breakthrough, the last solution $42$ was founded. This number is related to many pop culture references, this problem can be traced from ancient times to our present time. Our understanding of this type of diophantine equation, depends of a new and different perspective of building mathemathics at this point in history: with scientific collaboration and the assistance of computers. We do not know yet the future impact of these results, but mathematicians are still asking the question ¿It is possible to solve the equation to every single number which it's not 4 or 5 modulo 9?}
+\begin{flushleft}
+	'Oh Deep thought computer... We want you to tell us... The answer', 'The answer to what?' asked Deep Thought, 'Life!' urged Fook, 'The universe!' said Lunkwill, 'Everything' they said in chorus.
+	Deep thought paused for a moment's reflection... 'There is an answer. But I will have to think about it.'
+	\begin{center}
+		Seven and a half million years pass...
+	\end{center}
+	'Good morning', said Deep Thought at last. 'Er... good morning, Oh... Deep Thought' said Loonquawl nervously, 'do you have...' 'An answer for you?' interrupted Deep Thought. 'Yes I have'
+	\begin{center}
+		'Forty-two' said Deep Tought, with infinite majesty and calm
+	\end{center}
+\end{flushleft}
+\section*{Introducción}
+El número $42$ tiene un sin número de significados, uno de los más populares se encuentra en uno de los libros de Douglas Adams \textit{The Hitchhiker's guide to the galaxy}, en este libro se cree que éste es el número que da respuesta a la pregunta "de la vida, el universo y todo". Recientemente se encontró (gracias a la colaboración entre dos matemáticos\footnote{Andrew V. Sutherland y Andrew Booker. Este segundo quien encontró la solución al 33.} y un poder computacional a escala global\footnote{El proyecto \textit{Charity Engine}. Que permite utilizar el poder computacional de millones de equipos de escritorio cuando estos no están en uso. En éste se encontró la solución del problema con el 42.}) la solución a la ecuación diofántica:
+$$x^3 + y^3 + z^3 = 42,$$
+$$(-80538738812075974)^3 + (80435758145817515)^3 + (12602123297335631)^3 = 42$$
+que hace parte de un problema mucho más grande que consiste en hallar las soluciones de la ecuación 
+$$x^3 + y^3 + z^3 = k,$$
+únicamente para valores enteros, rápidamente el lector puede ver que este problema maneja numeros muy grandes y que normalmente no estamos acostumbrados a ver en números tan pequeños, pero es aquí justamente el área en donde trabajan los matemáticos, esta es una de las ramas mas fasciantes de la matemática, la teoría de números.
+\begin{center}
+	------------
+\end{center}
+Iniciamos con las ecuaciones diofánticas.
+\begin{definition}
+	Una ecuación de la forma $p(x_1, x_2, \dots, x_n) = 0$, donde $p(x_1, x_2, \dots, x_n)$ es un polinomio con coeficientes enteros y con las variables restringidas a tomar únicamente valores enteros se denomina una \textit{Ecuación Diofántica}\footnote{En honor al matemático griego Diofando de Alejandría (200-284), quién fue el primero en estudiarlas}.
+\end{definition}
+Veamos algunos ejemplos de ecuaciones diofánticas.
+$$x^n + y^n = z^n$$
+es una ecuación difántica muy famosa, \textit{el último teorema de Fermat}\footnote{Una historia muy conocida acerca de este teorema, dice que Fermat acostumbraba a dejar anotaciones en sus libros, en uno de ellos se encontró este teorema y Fermat afirmó haber demostrado que para $n \geq 3$ esta ecuación no tiene solución en $\mathbb{Z} - \{0\}$ (en el año 1637), sin embargo nunca fue conocida, no fue sino hasta 1995 que Andrew Wiles, demostró que la conjetura es cierta, para ello se valió de nuevas matemáticas que en la época de Fermat no existían. Era constumbre de Fermat dejar teoremas de este estilo para retar a otros matemáticos a resolverlas.}. Una solución a esta ecuación con $n = 2$, sería $(3, 4, 5)$ porque:
+\begin{align*}
+3^2 + 4^2 &= 5^2\\
+9 + 16 &= \\
+25 &= 5^2 = 25
+\end{align*}
+Los babilonios y muchas otras civilizaciones parecen haber acertado en las soluciones con $n=2$ y que se conoce mas generalmente como el teorema de pitágoras:
+$$a^2 + b^2 = c^2,$$
+esta civilización encontró soluciones enteras, como $(3,4,5), (5, 12, 13), (8, 15, 17)$ y que hoy denominamos como tripletas pitagóricas, aquí es dónde vemos mas claro lo que caracteriza a las ecuaciones diofánticas, se requiere que la solución sea estrictamente entera.
+Otro ejemplo muy famoso se debe a una anécdota entre los matemáticos Ramanujan y G. H. Hardy\footnote{Hardy lo relata así: 'Recuerdo que una vez al verlo cuando el se encontraba enfermo en Putney. Yo había sido llevado en un taxi con el número 1729 y le indiqué que este era un número aburrido, y que esperaba no fuese un mal presagio. 'No lo es', el contestó, 'es un número muy interesante; este es el número más pequeño que se puede expresar como la suma de dos cubos en dos maneras diferentes'},
+$$x^3 + y^3  = 1729$$
+algunas de sus soluciones son $(1, 12)$ y $(9,10)$. Vemos por ende que a lo largo de la historia las ecuaciones diofánticas han tenido un gran interés entre los matemáticos.
+
+\paragraph{}Daremos un salto una figura muy importantes en las matemáticas, David Hilbert. En el año 1900 Hilbert lleva a cabo la publicación de 23 problemas que impulsarían a las matemáticas, todos difíciles y en ramas muy diversas de las matemáticas, algunos han sido resueltos otros aún no, el que nos interesa en este problema es el problema número 10.
+\paragraph{Problema 10 de Hilbert} Encontrar un algoritmo que permita determinar si dado una ecuación diofántica polinomial con coeficientes enteros tiene una solución entera.
+\paragraph{} Vemos que en realidad lo que Hilbert quiere averiguar es si es posible generalizar las soluciones de todas las ecuaciones diofánticas (y polinomiales) dentro del conjunto de los enteros. 70 años después colaboraciones entre los matemáticos Davis, Robinson, Putnam y culminando con Matiyasevich es que en 1970 se determina que no es posible. Sin embargo si se restringe el grado el polinomio, el problema es un poco mas sencillo\cite{andrew_s_2019}. Anteriormente no vimos las ecuaciones de grado uno, sin embargo Diofanto y Brahmagupta descubrieron que sí, en 1900-1920 David Hilbert y Minkowski encontraron que sí, por lo que llegamos a los polinomios de grado tres, en 1970 Waring demostró que puede que no.
+\paragraph{}Regresemos nuevamente al problema inicial, primero veamos de manera intuitiva algunos valores para los $k<100$.
+$$0 = (0)^3 + (0)^3 + (0)^3$$
+$$1 = (1)^3 + (0)^3 + (0)^3$$
+$$2 = (0)^3 + (1)^3 + (1)^3$$
+$$3 = (1)^3 + (1)^3 + (1)^3$$
+estas son soluciones triviales, pero en cierto modo nos da una idea, sin embargo nótese que
+$$3 = (-5)^3 + (4)^3 + (4)^3$$
+y aún uno menos intuitivo:
+$$30 = (-283059965, -2218888517, 2220422932)$$
+este problema (el del 3), lo abordó en 1953 el matemático Mordell donde indicó\cite{andrew_s_2019}:
+\begin{center}
+	\textit{No sé nada acerca de las soluciones enteras de $x^3 + y^3 + z^3 = 3$ mas allá de la existencia de ... debe ser en realidad muy difícil encontrar algo acerca de las demás soluciones}.
+\end{center}
+Esta pregunta inició una búsqueda de 65 años para soluciones adicionales\footnote{Y algunos matemáticos atendieron el llamado}. De allí que el siguiente paso sea aprovechar una propiedad muy interesante de éstas ecuaciones, su parametrización, veamoslo con un ejemplo de\cite{andrew_s_2019}:
+\paragraph{Ejemplo} Vamos a parametrizar la suma de dos cubos. Considerese un entero arbitrario $k$, si tenemos que
+$$k = x^3 + y^3 = (x + y)(x^2 - xy + y^2),$$
+entonces podemos escribir $k = rs$ con $r = x + y$ y $s = x^2 - xy + y^2$. Si ahora escribimos $y = r - x$, obtenemos la ecuación cuadrática:
+\begin{align*}
+	x^2 - xy + y^2 &= x^2 - x(r - x) + (r - x)^2\\
+	&= x^2 - xr + x^2 + (r^2 - 2rx + x^2)\\
+	s &= 3x^2 -3rx + r^2,
+\end{align*}
+de modo que ahora podemos encontrar los valores enteros con la fórmula cuadrática, lo que nos lleva a un algoritmo para encontrar todas las soluciones enteras de $x^3 + y^3 = k$:
+\begin{itemize}
+	\item Factorice el entero $k$
+	\item Utilice la factorización para enumerar todos los $r, s \in \mathbb{Z}$ para los cuales $k=rs$.
+	\item Si $t := \sqrt{12s - 3r^2} \in \mathbb{Z}$, entonces las solucions serán $x = \frac{(3r + t)}{6}$ y $y = \frac{(3r - t)}{6}$.
+\end{itemize}
+\paragraph{} Si $k=1729 = 19\cdot91$, encontramos $t = \sqrt{12(91) - 3(19)^2} = 3$, lo que nos lleva a
+$$x = \frac{3(19) + 3}{6} = 10$$
+$$y = \frac{3(19) - 3}{6} = 9$$
+y vemos que\footnote{En cierto modo Mordell lo que intentó en 1953 fue realizar la parametrización para el 3. Pero se dió cuenta de primera mano lo difícil que es calcular los valores necesarios para construir la parametrización lo que a su vez lo hace cuestionarse si en realidad es posible realizar la parametrización de las soluciones.}
+$$(10)^3 + (9)^3 = 1729$$
+
+\paragraph{}A lo largo del tiempo muchos matemáticos iniciaron la labor de encontrar soluciones enteras de $k$ menores a un número y con valores de $|x|, |y|, |z| \leq N$, en donde con la llegada de los computadores se encuentran soluciones con $N = 3414387$ para $k\leq 1000$ y soluciones a números específicos, únicamente quedando abiertos al final del siglo el $33, 42, 74$ (los $k < 100$).
+\paragraph{} Damos un salto al 2008, donde en \cite{Bjorn} construye una artículo para impulsar y abrir una mayor discusión en el problema, de aquí en adelante gracias a los computadores fue posible encontrar en valores de $x,y, z$ hasta $10^{16}$, con Elsenhans y Jahnel encontrando el 74 y Andrew Brooker quien encuentra en 20190 el 33\footnote{$8866128975287528^3 - 8778405442862239^3 - 2736111468807040 ^3 = 33$, lo logra con hardware y software especializado durante seis meses}. Dejando únicamente para los $k \leq 100$ el enigmático $42$ (y en cierto modo aumentando el misterio de éste número).
+\paragraph{} Con los resultados anteriores y dada la popularidad de los hallazgos, se despertó el interés en el matemático Andrew V. Sutherland, en encontrar de una vez por todas la solución para el 42, es por ello que decide hacer equipo con Brooker, sin embargo con las técnicas actuales encuentran que deben aumentan el orden de búsqueda, por lo que antes de iniciar la búsqueda deciden utilizar el mismo enfoque de Heath-Brown quien conjeturó\footnote{Este problema es utilizado por Poonen, para determinar si este problema hace parte del conjunto de problemas indecidibles en teoría de números\cite{Bjorn}} en 1992 (respecto a este problema):
+\begin{conjecture}
+	todo $n$ diferente a $4$ y $5$ módulo 9 tiene infinitas representaciones como la suma de tres cubos.
+\end{conjecture}
+Lioen y te Riele, en el cual se enfoca la búsqueda en un valor específico para $k$, al igual que hacen uso de teoría de curvas elípticas y esta vez debido a la necesidad de computo, utilizan el proyecto Charity engine, en dónde distribuyen en cargas manejables por computadores de escritorio partes de los cálculos que deben hacer para encontrar la solución:
+
+$$-80538738812075974^3 + 80435758145817515^3 + 12602123297335631^3 = 42$$
+
+\paragraph{}En este momento están trabajando en las soluciones de $3$ dónde han encontrado
+$$569936821221962380720^3 -569936821113563493509^3 -472715493453327032^3 = 3$$
+
+\section*{Conclusiones}
+\paragraph{}vimos el largo camino que ha tomado llegar al resultado del $42$, por lo que quiero resaltar dos cosas: la primera, la parte social de las matemáticas, ninguno de estos logros se habría conseguido sin la colaboración entre diversas disciplinas de la matemática y las personas que las construyen, el 42 por ejemplo, requirió de la invención de nuevas técnicas para encontrar mas rápidamente con la ayuda de un computador las soluciones y la colaboración entre dos matemáticos, lo que me lleva a la segunda; la segunda, los computadores son las herramientas que van a permitir llevar las matemáticas a un nivel totalmente diferente e inclusive puede que eventualmente más allá. Por otra parte personalmente creo que es a la vez fascinante, observar como a partir de un sólo número se pueden construir un mundo de ideas matemáticas, es como si tuviesen que ser estudiados cada uno de manera independiente. Y quizá ello también es lo que motiva a las personas que investigan en esta área tan interesante como lo es la teoría de números.
+
+\nocite{*}
+\bibliography{bibliography}
+
+\end{document}
